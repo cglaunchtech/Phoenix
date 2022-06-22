@@ -8,10 +8,11 @@
         <entry key="..\:/Users/16263/AndroidStudioProjects/SportsSocialLayouts/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/16263/AndroidStudioProjects/SportsSocialLayouts/app/src/main/res/layout/login_layout.xml" value="0.25" />
         <entry key="..\:/Users/16263/AndroidStudioProjects/SportsSocialLayouts/app/src/main/res/layout/signup_layout.xml" value="0.12" />
+        <entry key="..\:/Users/Kurt/Documents/Projects/SportsSocial/app/src/main/res/layout/activity_main.xml" value="0.33559782608695654" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
