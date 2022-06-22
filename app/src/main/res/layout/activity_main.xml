@@ -1,253 +1,131 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<?xml version="1.0" encoding="UTF-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="24dp"
+    android:paddingBottom="60dp"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ImageView
+        android:id="@+id/homeHamburgerMenu"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/ic_baseline_menu_24" />
+    <ImageView
+        android:id="@+id/homeNotifications"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/ic_baseline_notifications_24" />
+    <TextView
+        android:id="@+id/homeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/homeHamburgerMenu"
+        app:layout_constraintRight_toRightOf="@id/homeNotifications"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reelsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/homeHamburgerMenu"/>
 
-        <ImageView
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_margin="24dp"
-            android:src="@drawable/ic_baseline_menu_24"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/athletesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/placeholder"
+        app:layout_constraintTop_toBottomOf="@id/reelsRecyclerView"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/addProfilePicture"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="100dp"
-            app:cardCornerRadius="50dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/teal_200"
-                />
-            <ImageView
-                android:layout_margin="14dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_baseline_photo_camera_24"/>
-        </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/athletesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/athletesLabel"/>
 
-        <TextView
-            android:id="@+id/pageLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/placeholder"
-            android:layout_margin="24dp"
-            android:textSize="14dp"
-            app:layout_constraintTop_toBottomOf="@id/addProfilePicture"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+    <TextView
+        android:id="@+id/teamsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/placeholder"
+        app:layout_constraintTop_toBottomOf="@id/athletesRecyclerView"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/usernameField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/placeholder"
-            android:layout_marginTop="36dp"
-            android:layout_marginRight="36dp"
-            android:layout_marginLeft="36dp"
-            app:layout_constraintTop_toBottomOf="@+id/pageLabel">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/teamsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/teamsLabel"/>
+    <TextView
+        android:id="@+id/trainersLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/placeholder"
+        app:layout_constraintTop_toBottomOf="@id/teamsRecyclerView"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/trainersRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/trainersLabel"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/placeholder"
-            android:layout_marginTop="18dp"
-            android:layout_marginRight="36dp"
-            android:layout_marginLeft="36dp"
-            app:layout_constraintTop_toBottomOf="@+id/usernameField">
+    <TextView
+        android:id="@+id/newsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/placeholder"
+        app:layout_constraintTop_toBottomOf="@id/trainersRecyclerView"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/newsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/newsLabel"/>
+    <TextView
+        android:id="@+id/upcomingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/placeholder"
+        app:layout_constraintTop_toBottomOf="@id/newsRecyclerView"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/placeholder"
-            android:layout_marginTop="18dp"
-            android:layout_marginRight="36dp"
-            android:layout_marginLeft="36dp"
-            app:layout_constraintTop_toBottomOf="@+id/emailField">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cityField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/placeholder"
-            android:layout_marginTop="18dp"
-            android:layout_marginRight="36dp"
-            android:layout_marginLeft="36dp"
-            app:layout_constraintTop_toBottomOf="@+id/passwordField">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/stateField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/placeholder"
-            android:layout_marginTop="18dp"
-            android:layout_marginRight="36dp"
-            android:layout_marginLeft="36dp"
-            app:layout_constraintTop_toBottomOf="@+id/cityField">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/birthdayField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/placeholder"
-            android:layout_marginTop="18dp"
-            android:layout_marginRight="36dp"
-            android:layout_marginLeft="36dp"
-            app:layout_constraintTop_toBottomOf="@+id/stateField">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/aboutMeField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/placeholder"
-            android:layout_marginTop="18dp"
-            android:layout_marginRight="36dp"
-            android:layout_marginLeft="36dp"
-            app:layout_constraintTop_toBottomOf="@+id/birthdayField">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top|start"
-                android:maxLines="18"
-                android:lines="18"
-                android:textAlignment="viewStart"
-                android:inputType="textMultiLine"
-                android:scrollHorizontally="false" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:id="@+id/sportsSelection"
-            android:background="@color/grey"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:layout_marginRight="36dp"
-            android:layout_marginLeft="36dp"
-            app:layout_constraintTop_toBottomOf="@+id/aboutMeField">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/upcomingRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/upcomingLabel"/>
 
 
-            <AutoCompleteTextView
-                android:id="@+id/sportsAutocomplete"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/placeholder"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:id="@+id/sportsSelectionTwo"
-            android:background="@color/grey"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:layout_marginRight="36dp"
-            android:layout_marginLeft="36dp"
-            app:layout_constraintTop_toBottomOf="@+id/sportsSelection">
-
-
-            <AutoCompleteTextView
-                android:id="@+id/sportsAutocompleteSecond"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/placeholder"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:id="@+id/titleSelection"
-            android:background="@color/grey"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:layout_marginRight="36dp"
-            android:layout_marginLeft="36dp"
-            app:layout_constraintTop_toBottomOf="@id/sportsSelectionTwo">
-
-
-            <AutoCompleteTextView
-                android:id="@+id/titleAutocomplete"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/placeholder"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:id="@+id/titleSelectionTwo"
-            android:background="@color/grey"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:layout_marginRight="36dp"
-            android:layout_marginLeft="36dp"
-            app:layout_constraintTop_toBottomOf="@id/titleSelection">
-
-
-            <AutoCompleteTextView
-                android:id="@+id/titleAutocompleteSecond"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/placeholder"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/submitButton"
-            android:padding="16dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginBottom="100dp"
-            android:textSize="16dp"
-            android:text="@string/placeholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/dark_grey_bubble"
-            app:layout_constraintTop_toBottomOf="@id/titleSelectionTwo"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
