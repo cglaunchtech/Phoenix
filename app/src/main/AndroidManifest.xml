@@ -22,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name = "newsKey"
+            android:value = "${NEWS_API_KEY}" />
     </application>
 
 </manifest>
