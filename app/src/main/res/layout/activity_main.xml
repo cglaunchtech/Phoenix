@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:padding="24dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.sportssocial.MainActivity">
@@ -97,9 +98,6 @@
                 android:hint="@string/placeholder"
                 app:layout_constraintTop_toBottomOf="@+id/emailField">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
