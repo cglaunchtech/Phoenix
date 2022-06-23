@@ -14,8 +14,11 @@
         android:theme="@style/Theme.SportsSocialLayouts"
         tools:targetApi="31">
         <activity
-            android:name=".RegistrationForm"
-            android:exported="false" />
+            android:name=".ui.view.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.view.RegistrationForm"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

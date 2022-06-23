@@ -6,17 +6,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.sportssociallayouts.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class RegistrationForm : AppCompatActivity() {
 
-//    lateinit var auth : FirebaseAuth
-//    var databaseReference : DatabaseReference? =null
-//    var database : FirebaseDatabase? = null
+      lateinit var auth : FirebaseAuth
+      var databaseReference : DatabaseReference? =null
+      var database : FirebaseDatabase? = null
 
     lateinit var usernameField : TextInputEditText
     lateinit var emailField : TextInputEditText
@@ -30,9 +34,8 @@ class RegistrationForm : AppCompatActivity() {
     lateinit var sportsSelectionTwo : TextInputEditText
     lateinit var titleSelection : TextInputEditText
     lateinit var titleSelectionTwo : TextInputEditText
+    lateinit var submitButton : Button
 
-    //lateinit var sign_up : Button
-    // lateinit var cancel_btn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,18 +53,17 @@ class RegistrationForm : AppCompatActivity() {
         sportsSelectionTwo = findViewById(R.id.sportsSelectionTwo)
         titleSelection = findViewById(R.id.titleSelection)
         titleSelectionTwo = findViewById(R.id.titleSelectionTwo)
+        submitButton = findViewById(R.id.submitButton)
 
-        //sign_up = findViewById(R.id.sign_up)
-        //cancel_btn = findViewById(R.id.cancel_btn)
-//            auth = FirebaseAuth.getInstance()
-//            database = FirebaseDatabase.getInstance()
-//            databaseReference = database?.reference!!.child("profile")
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
+        databaseReference = database?.reference!!.child("profile")
 
         register()
 
     }
     private fun register(){
-        sign_up.setOnClickListener {
+        submitButton.setOnClickListener {
 
             if(TextUtils.isEmpty( usernameField.text.toString())){
                 usernameField.setError("Please Enter User Name")
@@ -117,14 +119,10 @@ class RegistrationForm : AppCompatActivity() {
                         { dialog, which -> dialog.cancel() })
                         val alertDialog: AlertDialog = builder.create()
                         alertDialog.show()
-                        Toast.makeText(this, "Registration Failed", Toast.LENGTH_LONG).show()
-                    }
-                })
+                        Toast.makeText(this, "Registration Failed; Please Try Again", Toast.LENGTH_LONG).show()
+                }
+            })
         }
-//            cancel_btn.setOnClickListener {
-//                val intent = Intent(this, LandingPage::class.java)
-//                startActivity(intent)
-
     }
 }
 
