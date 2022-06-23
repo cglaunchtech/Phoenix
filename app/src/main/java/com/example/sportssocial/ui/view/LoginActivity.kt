@@ -1,4 +1,4 @@
-package com.example.sportssociallayouts.ui.view
+package com.example.sportssocial.ui.view
 
 import android.content.ContentValues
 import android.content.DialogInterface
@@ -12,8 +12,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.example.sportssociallayouts.MainActivity
-import com.example.sportssociallayouts.R
+import com.example.sportssocial.MainActivity
+import com.example.sportssocial.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
