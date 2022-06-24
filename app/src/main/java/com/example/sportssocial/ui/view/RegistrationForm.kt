@@ -1,4 +1,4 @@
-package com.example.sportssociallayouts.ui.view
+package com.example.sportssocial.ui.view
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -9,12 +9,13 @@ import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.example.sportssociallayouts.R
+import com.example.sportssocial.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+
 
 class RegistrationForm : AppCompatActivity() {
 

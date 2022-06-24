@@ -1,7 +1,8 @@
-package com.example.sportssociallayouts.data.model
+package com.example.sportssocial.data.model
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.sportssocial.data.model.Athletes
 
 @Dao
 interface AthleteDao {

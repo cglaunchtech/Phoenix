@@ -1,4 +1,4 @@
-package com.example.sportssociallayouts.ui.adapters
+package com.example.sportssocial.ui.adapters
 
 class MainActivityAdapter {
 }

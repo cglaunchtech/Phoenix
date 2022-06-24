@@ -1,10 +1,11 @@
-package com.example.sportssociallayouts.data.repo
+package com.example.sportssocial.data.repo
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import com.example.sportssociallayouts.data.db.AppDatabase
-import com.example.sportssociallayouts.data.model.AthleteDao
-import com.example.sportssociallayouts.data.model.Athletes
+import com.example.sportssocial.data.db.AppDatabase
+import com.example.sportssocial.data.model.AthleteDao
+import com.example.sportssocial.data.model.Athletes
+
 
 class AthleteRepository (context: Context) {
     var db: AthleteDao? = AppDatabase.getInstance(context)?.athleteDao()

@@ -1,11 +1,12 @@
-package com.example.sportssociallayouts.data.db
+package com.example.sportssocial.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.sportssociallayouts.data.model.AthleteDao
-import com.example.sportssociallayouts.data.model.Athletes
+import com.example.sportssocial.data.model.AthleteDao
+import com.example.sportssocial.data.model.Athletes
+
 
 @Database(entities = [Athletes::class], version = 1, exportSchema = false)
 
