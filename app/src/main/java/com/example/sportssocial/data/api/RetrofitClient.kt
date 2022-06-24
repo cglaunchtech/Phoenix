@@ -1,6 +1,6 @@
-package com.example.sportssociallayouts
+package com.example.sportssocial.data.api
 
-
+import com.example.sportssocial.BuildConfig
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
