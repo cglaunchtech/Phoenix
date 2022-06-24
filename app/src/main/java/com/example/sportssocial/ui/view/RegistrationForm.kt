@@ -130,7 +130,7 @@ class RegistrationForm : AppCompatActivity() {
         val uid = auth.uid
         val ref = database!!.getReference("/users/$uid")
 
-        val userProfile = UserProfile(uid,"FirstName","LastName",
+        val userProfile = UserProfile(uid,null,null,
             cityField.text.toString(),
             stateField.text.toString(),
             birthdayField.text.toString(),
