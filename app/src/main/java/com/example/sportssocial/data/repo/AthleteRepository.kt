@@ -6,7 +6,6 @@ import com.example.sportssocial.data.db.AppDatabase
 import com.example.sportssocial.data.model.AthleteDao
 import com.example.sportssocial.data.model.Athletes
 
-
 class AthleteRepository (context: Context) {
     var db: AthleteDao? = AppDatabase.getInstance(context)?.athleteDao()
 

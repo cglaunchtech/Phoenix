@@ -7,7 +7,6 @@ import androidx.room.RoomDatabase
 import com.example.sportssocial.data.model.AthleteDao
 import com.example.sportssocial.data.model.Athletes
 
-
 @Database(entities = [Athletes::class], version = 1, exportSchema = false)
 
 abstract class AppDatabase: RoomDatabase() {

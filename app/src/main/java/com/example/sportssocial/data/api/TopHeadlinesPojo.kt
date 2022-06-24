@@ -1,4 +1,4 @@
-package com.example.sportssocial
+package com.example.sportssocial.data.api
 
 data class TopHeadlinesPojo (
 
