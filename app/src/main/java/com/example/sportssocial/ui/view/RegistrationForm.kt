@@ -109,7 +109,6 @@ class RegistrationForm : AppCompatActivity() {
                     if(task.isSuccessful){
                         Log.d("AppDatabase","AAA to 1")
                         Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
-                        saveUserToFirebaseDatabase()
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                         finish()
@@ -127,25 +126,7 @@ class RegistrationForm : AppCompatActivity() {
             })
         }
     }
-    private fun saveUserToFirebaseDatabase(){
-        val uid = auth.uid
-        val ref = database!!.getReference("/users/$uid")
 
-        val userProfile = UserProfile(uid,null,null,
-            cityField.text.toString(),
-            stateField.text.toString(),
-            birthdayField.text.toString(),
-            aboutMeField.text.toString(),
-            sportsSelection.text.toString(),
-            titleSelection.text.toString(),
-            null)
-        ref.setValue(userProfile).addOnSuccessListener {
-            Log.d("FirebaseDatabase","Saved user to Firebase Database")
-        }.addOnFailureListener{
-            Log.e("FirebaseDatabase", "Failed to add profile with: $it")
-        }
-
-    }
 }
 
 
