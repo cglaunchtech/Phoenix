@@ -27,16 +27,18 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/teal_200"
-               />
+                android:background="@color/teal_200" />
+
             <ImageView
                 android:layout_margin="14dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_baseline_photo_camera_24"/>
+
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -62,10 +64,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailField"
             android:layout_width="match_parent"
@@ -78,10 +80,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordField"
             android:layout_width="match_parent"
@@ -94,9 +96,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cityField"
             android:layout_width="match_parent"
@@ -109,9 +112,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/stateField"
             android:layout_width="match_parent"
@@ -124,9 +127,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/birthdayField"
             android:layout_width="match_parent"
@@ -139,9 +142,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/aboutMeField"
             android:layout_width="match_parent"
@@ -161,6 +165,7 @@
                 android:textAlignment="viewStart"
                 android:inputType="textMultiLine"
                 android:scrollHorizontally="false" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -174,13 +179,15 @@
             android:layout_marginLeft="36dp"
             app:layout_constraintTop_toBottomOf="@+id/aboutMeField">
 
-
             <AutoCompleteTextView
                 android:id="@+id/sportsAutocomplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/grey"
                 android:text="@string/placeholder"/>
+
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:id="@+id/sportsSelectionTwo"
@@ -192,13 +199,15 @@
             android:layout_marginLeft="36dp"
             app:layout_constraintTop_toBottomOf="@+id/sportsSelection">
 
-
             <AutoCompleteTextView
                 android:id="@+id/sportsAutocompleteSecond"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/grey"
                 android:text="@string/placeholder"/>
+
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:id="@+id/titleSelection"
@@ -210,17 +219,18 @@
             android:layout_marginLeft="36dp"
             app:layout_constraintTop_toBottomOf="@id/sportsSelectionTwo">
 
-
             <AutoCompleteTextView
                 android:id="@+id/titleAutocomplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/grey"
                 android:text="@string/placeholder"/>
+
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:id="@+id/titleSelectionTwo"
-            android:background="@color/grey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
@@ -228,18 +238,19 @@
             android:layout_marginLeft="36dp"
             app:layout_constraintTop_toBottomOf="@id/titleSelection">
 
-
             <AutoCompleteTextView
                 android:id="@+id/titleAutocompleteSecond"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/grey"
                 android:text="@string/placeholder"/>
+
         </com.google.android.material.textfield.TextInputLayout>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/submitButton"
             android:padding="16dp"
             android:layout_marginTop="36dp"
-            android:layout_marginBottom="100dp"
             android:textSize="16dp"
             android:text="@string/placeholder"
             android:layout_width="wrap_content"
@@ -248,5 +259,12 @@
             app:layout_constraintTop_toBottomOf="@id/titleSelectionTwo"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintTop_toBottomOf="@id/submitButton"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
