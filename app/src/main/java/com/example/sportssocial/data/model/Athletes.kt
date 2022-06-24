@@ -1,4 +1,4 @@
-package com.example.sportssociallayouts.data.model
+package com.example.sportssocial.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

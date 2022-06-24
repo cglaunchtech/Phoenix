@@ -1,11 +1,11 @@
-package com.example.sportssociallayouts.ui.viewmodel
+package com.example.sportssocial.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.sportssociallayouts.data.model.Athletes
-import com.example.sportssociallayouts.data.repo.AthleteRepository
+import com.example.sportssocial.data.model.Athletes
+import com.example.sportssocial.data.repo.AthleteRepository
 import kotlinx.coroutines.launch
 
 class MainViewModel(app: Application): AndroidViewModel(app) {
