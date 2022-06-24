@@ -1,11 +1,11 @@
-package com.example.sportssociallayouts.ui.navigation
+package com.example.sportssocial.ui.navigation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI.setupWithNavController
-import com.example.sportssociallayouts.R
+import com.example.sportssocial.R
 import com.example.sportssociallayouts.databinding.ActivityBottomNavMainBinding
 
 
