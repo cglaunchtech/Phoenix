@@ -1,4 +1,4 @@
-package com.example.sportssocial.data.model
+package com.example.sportssocial.data.model.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
