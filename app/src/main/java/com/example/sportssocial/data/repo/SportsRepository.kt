@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import com.example.sportssocial.data.db.AppDatabase
 import com.example.sportssocial.data.model.Articles
-
 import com.example.sportssocial.data.model.dao.AthleteDao
 import com.example.sportssocial.data.model.Athletes
 import com.example.sportssocial.data.model.dao.NewsArticleDao
