@@ -27,13 +27,13 @@ interface FirestoreDataCalls {
     companion object {
         var BASE_URL = "https://us-central1-sportssocial-ec88e.cloudfunctions.net/"
 
-        fun create(): RetrofitClient {
+        fun create(): FirestoreDataCalls {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
                 .build()
 
-            return retrofit.create(RetrofitClient::class.java)
+            return retrofit.create(FirestoreDataCalls::class.java)
         }
     }
 }
