@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">sports_social</string>
+
+    <string name="app_name">SportsSocial</string>
+    <string name="placeholder">PLACEHOLDER</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Integer eu ante posuere, pharetra quam ac, vestibulum lectus.
+        Aliquam malesuada semper nisi vitae porta. Sed sodales iaculis nisi sed sodales.</string>
+
 </resources>
