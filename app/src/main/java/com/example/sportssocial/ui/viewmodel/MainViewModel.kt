@@ -4,14 +4,14 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.sportssocial.data.model.Athletes
+import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.repo.SportsRepository
 import kotlinx.coroutines.launch
 
 class MainViewModel(app: Application): AndroidViewModel(app) {
 
     private val repo: SportsRepository
-    val allAthletes : LiveData<List<Athletes>>?
+    val allAthletes : LiveData<List<Athlete>>?
 
     init {
         repo = SportsRepository(app)
@@ -23,19 +23,19 @@ class MainViewModel(app: Application): AndroidViewModel(app) {
         repo.getAllAthletes()
     }
 
-    fun insertAthlete(athletes: Athletes) = viewModelScope.launch{
+    fun insertAthlete(athletes: Athlete) = viewModelScope.launch{
 
         repo.insertAthlete(athletes)
     }
 
-    fun updateAthlete(athletes: Athletes) = viewModelScope.launch {
-        repo.updateAthlete(athletes)
+    fun updateAthlete(athlete: Athlete) = viewModelScope.launch {
+        repo.updateAthlete(athlete)
     }
 
-    fun deleteAthlete(athletes: Athletes) = viewModelScope.launch{
-        repo.deleteAthlete(athletes)
+    fun deleteAthlete(athlete: Athlete) = viewModelScope.launch{
+        repo.deleteAthlete(athlete)
 
-        fun findAthletebyUsername(search: String): List<Athletes> {
+        fun findAthletebyUsername(search: String): List<Athlete> {
 
             return repo.findAthletebyUsername(search)
         }

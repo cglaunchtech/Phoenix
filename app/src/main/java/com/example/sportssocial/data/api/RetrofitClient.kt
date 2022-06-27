@@ -1,6 +1,5 @@
 package com.example.sportssocial.data.api
 
-import android.provider.Contacts.SettingsColumns.KEY
 import com.example.sportssocial.BuildConfig
 import retrofit2.Response
 import retrofit2.Retrofit
