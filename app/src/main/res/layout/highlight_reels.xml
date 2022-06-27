@@ -15,5 +15,5 @@
         tools:listitem="@layout/highlight_reel_card"
         tools:itemCount="1"
         />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 

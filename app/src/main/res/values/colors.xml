@@ -7,9 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-<<<<<<< HEAD
-=======
+
     <color name="grey">#FFe0e0e0</color>
     <color name="dark_grey">#FFaeaeae</color>
->>>>>>> 452afee7c507ad940f6f2337d53c3d812bb4cd64
+
+    <color name="red">#FF1100</color>
+    <color name="shadow">#91918B</color>
+    <color name="hyperlink">#0000EE</color>
+
 </resources>
