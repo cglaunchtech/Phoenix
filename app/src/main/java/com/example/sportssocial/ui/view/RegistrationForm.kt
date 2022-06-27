@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -26,15 +27,15 @@ class RegistrationForm : AppCompatActivity() {
     lateinit var usernameField : TextInputEditText
     lateinit var emailField : TextInputEditText
     lateinit var passwordField : TextInputEditText
-    lateinit var confirmPassword: TextInputEditText
+   // lateinit var confirmPassword: TextInputEditText
     lateinit var cityField : TextInputEditText
     lateinit var stateField : TextInputEditText
     lateinit var birthdayField : TextInputEditText
     lateinit var aboutMeField : TextInputEditText
-    lateinit var sportsSelection : TextInputEditText
-    lateinit var sportsSelectionTwo : TextInputEditText
-    lateinit var titleSelection : TextInputEditText
-    lateinit var titleSelectionTwo : TextInputEditText
+    lateinit var sportsAutocomplete: AutoCompleteTextView
+    lateinit var sportsAutocompleteSecond: AutoCompleteTextView
+    lateinit var titleAutocomplete: AutoCompleteTextView
+    lateinit var titleAutocompleteSecond: AutoCompleteTextView
     lateinit var submitButton : Button
 
 
@@ -50,10 +51,10 @@ class RegistrationForm : AppCompatActivity() {
         stateField = findViewById(R.id.stateField)
         birthdayField = findViewById(R.id.birthdayField)
         aboutMeField = findViewById(R.id.aboutMeField)
-        sportsSelection = findViewById(R.id.sportsSelection)
-        sportsSelectionTwo = findViewById(R.id.sportsSelectionTwo)
-        titleSelection = findViewById(R.id.titleSelection)
-        titleSelectionTwo = findViewById(R.id.titleSelectionTwo)
+        sportsAutocomplete = findViewById(R.id.sportsAutocomplete)
+        sportsAutocompleteSecond = findViewById(R.id.sportsAutocompleteSecond)
+        titleAutocomplete = findViewById(R.id.titleAutocomplete)
+        titleAutocompleteSecond = findViewById(R.id.titleAutocompleteSecond)
         submitButton = findViewById(R.id.submitButton)
 
         auth = FirebaseAuth.getInstance()
@@ -77,9 +78,9 @@ class RegistrationForm : AppCompatActivity() {
             }else if (TextUtils.isEmpty( passwordField.text.toString())){
                 passwordField.setError("Please Enter Password")
                 return@setOnClickListener
-            }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
-                confirmPassword.setError("Please Confirm Password")
-                return@setOnClickListener
+//            }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
+//                confirmPassword.setError("Please Confirm Password")
+//                return@setOnClickListener
 
             }else if (TextUtils.isEmpty( cityField.text.toString())){
                 cityField.setError("Please Enter Your City")
@@ -93,17 +94,20 @@ class RegistrationForm : AppCompatActivity() {
                 birthdayField.setError("Please Enter Your Date of Birth")
                 return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( sportsSelection.text.toString())){
-                sportsSelection.setError("Please Select at Least One Sport")
+            } else if (TextUtils.isEmpty(sportsAutocomplete.text.toString())) {
+                sportsAutocomplete.setError("Please Include at Least One Sport")
                 return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( titleSelection.text.toString())){
-                titleSelection.setError("Please Select Your Current Title or Position")
+            } else if (TextUtils.isEmpty(titleAutocomplete.text.toString())) {
+                titleAutocomplete.setError("Please Include Your Current Title or Position")
                 return@setOnClickListener
             }
             println("Please complete all fields")
 
-            auth.createUserWithEmailAndPassword(emailField.text.toString(),passwordField.text.toString())
+            auth.createUserWithEmailAndPassword(
+                emailField.text.toString(),
+                passwordField.text.toString()
+            )
                 .addOnCompleteListener(this, OnCompleteListener{ task ->
                     if(task.isSuccessful){
                         Log.d("AppDatabase","AAA to 1")
@@ -120,7 +124,9 @@ class RegistrationForm : AppCompatActivity() {
                         { dialog, which -> dialog.cancel() })
                         val alertDialog: AlertDialog = builder.create()
                         alertDialog.show()
-                        Toast.makeText(this, "Registration Failed; Please Try Again", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            this, "Registration Failed; Please Try Again",
+                            Toast.LENGTH_LONG).show()
                 }
             })
         }
