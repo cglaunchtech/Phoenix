@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#FFe0e0e0</color>
     <color name="dark_grey">#FFaeaeae</color>
+    <color name="red">#FF1100</color>
+    <color name="shadow">#91918B</color>
+    <color name="hyperlink">#0000EE</color>
 </resources>

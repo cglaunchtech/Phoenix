@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.example.sportssocial.MainActivity
 import com.example.sportssocial.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.textfield.TextInputEditText
@@ -23,6 +24,8 @@ class RegistrationForm : AppCompatActivity() {
       var databaseReference : DatabaseReference? =null
       var database : FirebaseDatabase? = null
 
+    lateinit var firstNameField : TextInputEditText
+    lateinit var lastNameField : TextInputEditText
     lateinit var usernameField : TextInputEditText
     lateinit var emailField : TextInputEditText
     lateinit var passwordField : TextInputEditText
@@ -36,25 +39,29 @@ class RegistrationForm : AppCompatActivity() {
     lateinit var titleSelection : TextInputEditText
     lateinit var titleSelectionTwo : TextInputEditText
     lateinit var submitButton : Button
+    lateinit var cancelButton : Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_layout)
 
-        usernameField = findViewById(R.id.usernameField)
-        emailField  = findViewById(R.id.emailField)
-        passwordField = findViewById(R.id.passwordField)
+        firstNameField = findViewById(R.id.firstName1)
+        lastNameField  = findViewById(R.id.lastName1)
+        usernameField = findViewById(R.id.usernameField1)
+        emailField  = findViewById(R.id.emailField1)
+        passwordField = findViewById(R.id.passwordField1)
         //confirmPassword = findViewById(R.id.confirmPassword)
-        cityField = findViewById(R.id.cityField)
-        stateField = findViewById(R.id.stateField)
-        birthdayField = findViewById(R.id.birthdayField)
-        aboutMeField = findViewById(R.id.aboutMeField)
-        sportsSelection = findViewById(R.id.sportsSelection)
-        sportsSelectionTwo = findViewById(R.id.sportsSelectionTwo)
-        titleSelection = findViewById(R.id.titleSelection)
-        titleSelectionTwo = findViewById(R.id.titleSelectionTwo)
+        cityField = findViewById(R.id.cityField1)
+        stateField = findViewById(R.id.stateField1)
+        birthdayField = findViewById(R.id.birthdayField1)
+        aboutMeField = findViewById(R.id.aboutMeField1)
+        sportsSelection = findViewById(R.id.sportsAutocomplete)
+        sportsSelectionTwo = findViewById(R.id.sportsAutocompleteSecond)
+        titleSelection = findViewById(R.id.titleAutocomplete)
+        titleSelectionTwo = findViewById(R.id.titleAutocompleteSecond)
         submitButton = findViewById(R.id.submitButton)
+        cancelButton = findViewById(R.id.cancelButton)
 
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
@@ -62,11 +69,24 @@ class RegistrationForm : AppCompatActivity() {
 
         register()
 
+        cancelButton.setOnClickListener {
+            val myIntent = Intent(this, MainActivity::class.java)
+            startActivity(myIntent)
+        }
+
     }
     private fun register(){
         submitButton.setOnClickListener {
 
-            if(TextUtils.isEmpty( usernameField.text.toString())){
+            if(TextUtils.isEmpty( firstNameField.text.toString())){
+                firstNameField.setError("Please Enter First Name")
+                return@setOnClickListener
+
+            }else if(TextUtils.isEmpty( lastNameField.text.toString())){
+                lastNameField.setError("Please Enter Last Name")
+                return@setOnClickListener
+
+            }else if(TextUtils.isEmpty( usernameField.text.toString())){
                 usernameField.setError("Please Enter User Name")
                 return@setOnClickListener
 

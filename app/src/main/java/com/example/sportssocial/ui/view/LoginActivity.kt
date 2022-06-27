@@ -20,8 +20,9 @@ import com.google.firebase.auth.FirebaseAuth
 class LoginActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
     lateinit var signInButton: Button
+    lateinit var signUpButton: Button
 
-    // lateinit var cancel_btn : Button
+
     lateinit var forgotLogin: TextView
     lateinit var loginEmailField: TextInputEditText
     lateinit var loginPasswordField: TextInputEditText
@@ -31,10 +32,10 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.login_layout)
 
         signInButton = findViewById(R.id.signInButton)
-        //  cancel_btn = findViewById(R.id.cancel_btn)
+        signUpButton = findViewById(R.id.signUpButton)
         forgotLogin = findViewById(R.id.forgotLogin)
-        loginEmailField = findViewById(R.id.loginEmailField)
-        loginPasswordField = findViewById(R.id.loginPasswordField)
+        loginEmailField = findViewById(R.id.loginEmailField1)
+        loginPasswordField = findViewById(R.id.loginPasswordField1)
 
         auth = FirebaseAuth.getInstance()
 
@@ -78,6 +79,11 @@ class LoginActivity : AppCompatActivity() {
 
         login()
 
+
+        signUpButton.setOnClickListener {
+            val myIntent = Intent(this, RegistrationForm::class.java)
+            startActivity(myIntent)
+        }
     }
 
     private fun login() {

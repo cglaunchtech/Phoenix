@@ -1,0 +1,74 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    app:cardElevation="@dimen/card_elevation"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profilePicture"
+            android:layout_width="@dimen/profile_img"
+            android:layout_height="@dimen/profile_img"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:shapeAppearanceOverlay="@style/profile_pic_circle"
+            android:src="@drawable/ic_baseline_photo_camera_24"
+            android:elevation="@dimen/card_elevation"
+            />
+
+        <ImageView
+            android:id="@+id/searchNotifications"
+            android:layout_width="@dimen/notification_size"
+            android:layout_height="@dimen/notification_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:src="@drawable/ic_baseline_notifications_24" />
+
+        <TextView
+            android:id="@+id/searchLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/profile_title_padding"
+            android:text="@string/app_name"
+            android:textSize="@dimen/profile_title_text"
+            android:textAlignment="center"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/profilePicture"
+            app:layout_constraintRight_toRightOf="@id/searchNotifications" />
+
+        <ImageView
+            android:id="@+id/img_Url"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/profile_img_height"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintTop_toBottomOf="@id/searchLabel" />
+
+        <ImageView
+            android:id="@+id/favorites_icon"
+            android:layout_width="@dimen/profile_favorites_icon"
+            android:layout_height="@dimen/profile_favorites_icon"
+            android:src="@drawable/ic_baseline_favorite_border_24"
+            android:layout_marginTop="@dimen/profile_favorites_margin"
+            app:layout_constraintTop_toBottomOf="@id/img_Url"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/profile_text_padding"
+            android:text="@string/lorem_ipsum"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/profile_text_margin"
+            app:layout_constraintTop_toBottomOf="@+id/favorites_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
