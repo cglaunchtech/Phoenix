@@ -5,6 +5,28 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'org.sonarqube'
+}
+sonarqube {
+    properties {
+        property "sonar.projectName", "SportsSocial"
+        property "sonar.projectKey", "da148337e1c87f51955fe641c3bff8030ee54f5f"
+        property "sonar.sources", "src"
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.tests", ["src/test/java"]
+        property "sonar.test.inclusions", "**/*Test*/**"
+        property "sonar.exclusions", '**/.gradle/**,' +
+                "**/androidTest/**," +
+                "**/R.class," +
+                "**/BuildConfig.*," +
+                "**/Manifest*.*," +
+                "**/android/databinding/*," +
+                "**/androidx/databinding/*," +
+                "**/*MapperImpl*.*," +
+                "**/BuildConfig.*," +
+                "**/Manifest*.*," +
+                "**/google-services.json"
+    }
 }
 
 apply plugin: 'com.google.firebase.crashlytics'
