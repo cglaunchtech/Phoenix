@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.example.sports_social.R
 import com.example.sportssocial.MainActivity
 import com.example.sportssocial.R
 import com.google.android.gms.tasks.OnCompleteListener
