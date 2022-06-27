@@ -3,7 +3,9 @@ package com.example.sportssocial.ui.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.sportssocial.data.api.TopHeadlinesPojo
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.data.repo.SportsRepository
 import kotlinx.coroutines.GlobalScope
@@ -13,6 +15,7 @@ class ArticleViewModel(app: Application) : AndroidViewModel(app) {
 
     private val repo: SportsRepository
     val allArticles: LiveData<List<NewsArticle>>?
+    var newsArticleMutableLiveData = MutableLiveData<TopHeadlinesPojo>()
 
     init {
         repo = SportsRepository(app)
@@ -24,14 +27,19 @@ class ArticleViewModel(app: Application) : AndroidViewModel(app) {
         repo.getAllArticles()
     }
 
-    fun insertData(model: NewsArticle) {
-        GlobalScope.launch {
-            //  getDatabase(MainApplication.context).NewsArticleDao().insertItems(model)
-        }
+    fun upsertArticle(article: NewsArticle) = viewModelScope.launch {
+        repo.upsertArticle(article)
     }
 
-    fun deleteArticle(articles: NewsArticle) = viewModelScope.launch {
-        repo.deleteArticle(articles)
+    fun deleteArticle(article: NewsArticle) = viewModelScope.launch {
+        repo.deleteArticle(article)
+    }
+
+    // Get articles form API
+    fun getNews(pageSize: Int, pageNumber: Int) = viewModelScope.launch {
+        newsArticleMutableLiveData = repo.getNews(
+            "us", "sports", "", pageSize, pageNumber
+        )
     }
 
 //    fun findArticleWithId(articleId: Long): List<NewsArticle>? {

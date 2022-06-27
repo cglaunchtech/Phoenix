@@ -37,6 +37,7 @@ class ArticlePreviewAdapter(val context: Context, var articleList: ArrayList<New
         holder = ViewHolder()
         holder.imageView = view.findViewById(R.id.image_view)
         holder.title = view.findViewById(R.id.title_text)
+        holder.author = view.findViewById(R.id.author)
         holder.publishedAt = view.findViewById(R.id.published_at)
         holder.source = view.findViewById(R.id.source)
         holder.description = view.findViewById(R.id.description_text)
@@ -56,8 +57,14 @@ class ArticlePreviewAdapter(val context: Context, var articleList: ArrayList<New
             source.text = article.source
                 } catch (e: Exception){
                     source.text = ""
-                //TODO: Tiber log null pointer exception for image source
+                //TODO: Tiber log null pointer exception for author
                 }
+            try {
+                author.text = article.author
+            } catch (e: Exception){
+                author.text = ""
+                //TODO: Tiber log null pointer exception for author
+            }
             title.text = article.title
             publishedAt.text = article.publishedAt
             description.text = article.description
@@ -71,6 +78,7 @@ class ArticlePreviewAdapter(val context: Context, var articleList: ArrayList<New
     class ViewHolder {
         lateinit var imageView: ImageView
         lateinit var title: TextView
+        lateinit var author: TextView
         lateinit var publishedAt: TextView
         lateinit var source: TextView
         lateinit var description: TextView

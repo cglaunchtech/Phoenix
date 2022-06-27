@@ -1,12 +1,19 @@
 package com.example.sportssocial.data.repo
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.example.sportssocial.data.api.RetrofitClient
+import com.example.sportssocial.data.api.TopHeadlinesPojo
 import com.example.sportssocial.data.model.db.AppDatabase
 import com.example.sportssocial.data.model.dao.AthleteDao
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.model.dao.NewsArticleDao
 import com.example.sportssocial.data.model.db.entities.NewsArticle
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SportsRepository (context: Context) {
     var db: AthleteDao? = AppDatabase.getInstance(context)?.athleteDao()
@@ -39,12 +46,31 @@ class SportsRepository (context: Context) {
     }
 
     // News Articles
-
+    // Gets articles from API and returns MutableLiveData<TopHeadlinesPojo>
     var newsArticleDao: NewsArticleDao? = AppDatabase.getInstance(context)?.articleDao()
+    var retrofitClient = RetrofitClient.create()
+    var newsArticleMutableLiveData = MutableLiveData<TopHeadlinesPojo>()
 
+    fun getNews(countryCode: String, category: String, query: String, pageSize: Int, pageNumber: Int
+    ) : MutableLiveData<TopHeadlinesPojo> {
+        CoroutineScope(Dispatchers.IO).launch {
 
-    suspend fun upsertArticle(article: NewsArticle): Unit? {
-        return newsArticleDao?.upsertArticle(article)
+            var response = retrofitClient.getNews(countryCode, category, query, pageSize, pageNumber)
+
+            if(response.isSuccessful) {
+                newsArticleMutableLiveData.postValue(response.body())
+                Log.d("Retrofit Response", "Successful")
+            } else {
+                Log.d("Retrofit Response", "unsuccessful: RecipeRepository: Line 30")
+            }
+        }
+        return newsArticleMutableLiveData
+    }
+
+    // Gets recipes from Room DB and returns LiveData<List<Recipe>>
+
+    fun upsertArticle(article: NewsArticle) {
+        newsArticleDao?.upsertArticle(article)
     }
 
     fun getAllArticles(): LiveData<List<NewsArticle>>? {
