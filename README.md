@@ -2,7 +2,7 @@
 :fire:Team Phoenix – Project 3
 -
 
-Sports Social is a full featured sports app where you can showcase your athletic skills and where coaches and recruiters can discover their next top athletes.
+Sports Social is a full featured sports app where you can showcase your athletic skills and where coaches and recruiters can discover their next top athlete.
 
 Technologies Used
 -
