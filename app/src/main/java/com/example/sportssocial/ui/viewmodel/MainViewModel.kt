@@ -5,16 +5,16 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.sportssocial.data.model.Athletes
-import com.example.sportssocial.data.repo.AthleteRepository
+import com.example.sportssocial.data.repo.SportsRepository
 import kotlinx.coroutines.launch
 
 class MainViewModel(app: Application): AndroidViewModel(app) {
 
-    private val repo: AthleteRepository
+    private val repo: SportsRepository
     val allAthletes : LiveData<List<Athletes>>?
 
     init {
-        repo = AthleteRepository(app)
+        repo = SportsRepository(app)
         allAthletes = repo.getAllAthletes()
     }
 
