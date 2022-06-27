@@ -12,16 +12,16 @@ import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import java.lang.Exception
 
-class ArticlePreviewAdapter(val context: Context, val dataSource: ArrayList<NewsArticle>): BaseAdapter() {
+class ArticlePreviewAdapter(val context: Context, var articleList: ArrayList<NewsArticle>): BaseAdapter() {
     //inflater
     val inflater = LayoutInflater.from(context)
 
     override fun getCount(): Int {
-        return dataSource.size
+        return articleList.size
     }
 
     override fun getItem(position: Int): Any {
-        return dataSource[position]
+        return articleList[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -76,6 +76,11 @@ class ArticlePreviewAdapter(val context: Context, val dataSource: ArrayList<News
         lateinit var description: TextView
         lateinit var articleText: TextView
         lateinit var articleUrl: TextView
+    }
+
+    fun setItems(itemList: List<NewsArticle>){
+        this.articleList = itemList as ArrayList<NewsArticle>
+        notifyDataSetChanged()
     }
 }
 
