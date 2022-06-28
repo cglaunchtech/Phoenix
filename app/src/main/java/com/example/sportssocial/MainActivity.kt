@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.view.ArticlePreview
+import com.example.sportssocial.ui.view.RecyclerView
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         var viewModel = ArticleViewModel(application)
         viewModel.getNews(20, 1)
+        viewModel.clearArticleCache()
         viewModel.newsArticleMutableLiveData.observe(this){
             for(index in 0..(it.articles?.lastIndex!!)){
                 var article = NewsArticle(
@@ -33,8 +35,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        btn_test.setOnClickListener{
+        btn_test_news_preview.setOnClickListener{
             val intent = Intent(this, ArticlePreview::class.java)
+            startActivity(intent)
+        }
+
+        btn_test_recycler_view.setOnClickListener{
+            val intent = Intent(this, RecyclerView::class.java)
             startActivity(intent)
         }
     }

@@ -15,6 +15,9 @@
         android:theme="@style/Theme.SportsSocial"
         tools:targetApi="31">
         <activity
+            android:name=".ui.view.RecyclerView"
+            android:exported="false" />
+        <activity
             android:name=".ui.view.ArticlePreview"
             android:exported="false" />
         <activity
