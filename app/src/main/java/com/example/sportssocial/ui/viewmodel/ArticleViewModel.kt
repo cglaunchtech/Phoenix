@@ -27,6 +27,11 @@ class ArticleViewModel(app: Application) : AndroidViewModel(app) {
         repo.getAllArticles()
     }
 
+    fun getArticlebyId(id:Int) = viewModelScope.launch {
+
+        repo.getArticlesbyId(id)
+    }
+
     fun upsertArticle(article: NewsArticle) = viewModelScope.launch {
         repo.upsertArticle(article)
     }

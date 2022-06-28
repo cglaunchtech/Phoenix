@@ -14,6 +14,9 @@ interface NewsArticleDao {
     @Query("SELECT * FROM articles")
     fun getAllArticles(): LiveData<List<NewsArticle>>
 
+    @Query("SELECT * FROM articles where id = :id")
+    fun getArticlesbyId (id: Int): LiveData<NewsArticle>?
+
     @Delete
     fun deleteArticle(article: NewsArticle)
 //

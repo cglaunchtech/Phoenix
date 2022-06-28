@@ -38,4 +38,6 @@ class ArticlePreview : AppCompatActivity() {
         this.articleList.addAll(articleList)
         articlePreviewAdapter.notifyDataSetChanged()
     }
+
+
 }

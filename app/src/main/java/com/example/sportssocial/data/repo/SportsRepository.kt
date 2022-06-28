@@ -78,6 +78,11 @@ class SportsRepository (context: Context) {
         return newsArticleDao?.getAllArticles()
     }
 
+    fun getArticlesbyId (id: Int): LiveData<NewsArticle>?{
+
+        return newsArticleDao?.getArticlesbyId(id)
+    }
+
     suspend fun deleteArticle(article: NewsArticle) {
         newsArticleDao?.deleteArticle(article)
     }

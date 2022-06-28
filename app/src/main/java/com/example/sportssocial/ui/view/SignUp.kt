@@ -10,7 +10,10 @@ import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.cardview.widget.CardView
 import com.example.sportssocial.R
+import com.example.sportssocial.data.model.db.entities.Athlete
+import com.example.sportssocial.ui.viewmodel.MainViewModel
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -18,12 +21,14 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 
-class RegistrationForm : AppCompatActivity() {
+class SignUp : AppCompatActivity() {
 
-      lateinit var auth : FirebaseAuth
-      var databaseReference : DatabaseReference? =null
-      var database : FirebaseDatabase? = null
+    lateinit var auth : FirebaseAuth
+    lateinit var vm: MainViewModel
+    var databaseReference : DatabaseReference? =null
+    var database : FirebaseDatabase? = null
 
+    lateinit var addProfilepicture: CardView
     lateinit var usernameField : TextInputEditText
     lateinit var emailField : TextInputEditText
     lateinit var passwordField : TextInputEditText
@@ -43,6 +48,7 @@ class RegistrationForm : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_layout)
 
+        addProfilepicture = findViewById(R.id.addProfilePicture)
         usernameField = findViewById(R.id.usernameField)
         emailField  = findViewById(R.id.emailField)
         passwordField = findViewById(R.id.passwordField)
@@ -57,9 +63,21 @@ class RegistrationForm : AppCompatActivity() {
         titleAutocompleteSecond = findViewById(R.id.titleAutocompleteSecond)
         submitButton = findViewById(R.id.submitButton)
 
+        vm = MainViewModel(application)
+
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
         databaseReference = database?.reference!!.child("profile")
+
+        //onClickListener to Take Photo for Profile
+        addProfilepicture.bringToFront()
+        addProfilepicture.setOnClickListener() {
+
+
+           // val NextIntent = Intent(this, CameraActivity::class.java)
+            //startActivity(NextIntent)
+
+        }
 
         register()
 
@@ -110,14 +128,35 @@ class RegistrationForm : AppCompatActivity() {
             )
                 .addOnCompleteListener(this, OnCompleteListener{ task ->
                     if(task.isSuccessful){
+
+                        vm.insertAthlete(
+                            Athlete(
+                                null,
+                                addProfilepicture.toString(),
+                                usernameField.text.toString(),
+                                emailField.text.toString(),
+                                cityField.text.toString(),
+                                stateField.text.toString(),
+                                birthdayField.text.toString(),
+                                aboutMeField.text.toString(),
+                                sportsAutocomplete.text.toString(),
+                                //sportsAutocompleteSecond.text.toString(),
+                                //titleAutocomplete.text.toString(),
+                                //titleAutocompleteSecond.text.toString()
+                            )
+                        )
+
+
                         Log.d("AppDatabase","AAA to 1")
                         Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
+
                         finish()
+
                     }else {
                         Log.d("AppDatabase","AAA else 1")
-                        val builder = AlertDialog.Builder(this@RegistrationForm)
+                        val builder = AlertDialog.Builder(this@SignUp)
                         builder.setMessage("User Already Exists. Login with a different Email and Password or Register with another Email Address")
                         builder.setCancelable(true)
                         builder.setNegativeButton("OK", DialogInterface.OnClickListener
