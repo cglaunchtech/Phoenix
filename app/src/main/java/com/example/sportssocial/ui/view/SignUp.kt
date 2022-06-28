@@ -6,14 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.cardview.widget.CardView
+
 import com.example.sportssocial.R
-import com.example.sportssocial.data.model.db.entities.Athlete
-import com.example.sportssocial.ui.viewmodel.MainViewModel
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -21,71 +18,73 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 
-class SignUp : AppCompatActivity() {
+class RegistrationForm : AppCompatActivity() {
 
     lateinit var auth : FirebaseAuth
-    lateinit var vm: MainViewModel
     var databaseReference : DatabaseReference? =null
     var database : FirebaseDatabase? = null
 
-    lateinit var addProfilepicture: CardView
+    lateinit var firstNameField : TextInputEditText
+    lateinit var lastNameField : TextInputEditText
     lateinit var usernameField : TextInputEditText
     lateinit var emailField : TextInputEditText
     lateinit var passwordField : TextInputEditText
-   // lateinit var confirmPassword: TextInputEditText
+    lateinit var confirmPassword: TextInputEditText
     lateinit var cityField : TextInputEditText
     lateinit var stateField : TextInputEditText
     lateinit var birthdayField : TextInputEditText
     lateinit var aboutMeField : TextInputEditText
-    lateinit var sportsAutocomplete: AutoCompleteTextView
-    lateinit var sportsAutocompleteSecond: AutoCompleteTextView
-    lateinit var titleAutocomplete: AutoCompleteTextView
-    lateinit var titleAutocompleteSecond: AutoCompleteTextView
+    lateinit var sportsSelection : TextInputEditText
+    lateinit var sportsSelectionTwo : TextInputEditText
+
     lateinit var submitButton : Button
+    lateinit var cancelButton : Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_layout)
 
-        addProfilepicture = findViewById(R.id.addProfilePicture)
-        usernameField = findViewById(R.id.usernameField)
-        emailField  = findViewById(R.id.emailField)
-        passwordField = findViewById(R.id.passwordField)
+        firstNameField = findViewById(R.id.firstName1)
+        lastNameField  = findViewById(R.id.lastName1)
+        usernameField = findViewById(R.id.usernameField1)
+        emailField  = findViewById(R.id.emailField1)
+        passwordField = findViewById(R.id.passwordField1)
         //confirmPassword = findViewById(R.id.confirmPassword)
-        cityField = findViewById(R.id.cityField)
-        stateField = findViewById(R.id.stateField)
-        birthdayField = findViewById(R.id.birthdayField)
-        aboutMeField = findViewById(R.id.aboutMeField)
-        sportsAutocomplete = findViewById(R.id.sportsAutocomplete)
-        sportsAutocompleteSecond = findViewById(R.id.sportsAutocompleteSecond)
-        titleAutocomplete = findViewById(R.id.titleAutocomplete)
-        titleAutocompleteSecond = findViewById(R.id.titleAutocompleteSecond)
-        submitButton = findViewById(R.id.submitButton)
+        cityField = findViewById(R.id.cityField1)
+        stateField = findViewById(R.id.stateField1)
+        birthdayField = findViewById(R.id.birthdayField1)
+        aboutMeField = findViewById(R.id.aboutMeField1)
+        sportsSelection = findViewById(R.id.sportsAutocomplete)
+        sportsSelectionTwo = findViewById(R.id.sportsAutocompleteSecond)
 
-        vm = MainViewModel(application)
+        submitButton = findViewById(R.id.submitButton)
+        cancelButton = findViewById(R.id.cancelButton)
 
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
         databaseReference = database?.reference!!.child("profile")
 
-        //onClickListener to Take Photo for Profile
-        addProfilepicture.bringToFront()
-        addProfilepicture.setOnClickListener() {
-
-
-           // val NextIntent = Intent(this, CameraActivity::class.java)
-            //startActivity(NextIntent)
-
-        }
-
         register()
+
+        cancelButton.setOnClickListener {
+            val myIntent = Intent(this, MainActivity::class.java)
+            startActivity(myIntent)
+        }
 
     }
     private fun register(){
         submitButton.setOnClickListener {
 
-            if(TextUtils.isEmpty( usernameField.text.toString())){
+            if(TextUtils.isEmpty( firstNameField.text.toString())){
+                firstNameField.setError("Please Enter First Name")
+                return@setOnClickListener
+
+            }else if(TextUtils.isEmpty( lastNameField.text.toString())){
+                lastNameField.setError("Please Enter Last Name")
+                return@setOnClickListener
+
+            }else if(TextUtils.isEmpty( usernameField.text.toString())){
                 usernameField.setError("Please Enter User Name")
                 return@setOnClickListener
 
@@ -96,9 +95,9 @@ class SignUp : AppCompatActivity() {
             }else if (TextUtils.isEmpty( passwordField.text.toString())){
                 passwordField.setError("Please Enter Password")
                 return@setOnClickListener
-//            }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
-//                confirmPassword.setError("Please Confirm Password")
-//                return@setOnClickListener
+            }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
+                confirmPassword.setError("Please Confirm Password")
+                return@setOnClickListener
 
             }else if (TextUtils.isEmpty( cityField.text.toString())){
                 cityField.setError("Please Enter Your City")
@@ -112,62 +111,33 @@ class SignUp : AppCompatActivity() {
                 birthdayField.setError("Please Enter Your Date of Birth")
                 return@setOnClickListener
 
-            } else if (TextUtils.isEmpty(sportsAutocomplete.text.toString())) {
-                sportsAutocomplete.setError("Please Include at Least One Sport")
+            }else if (TextUtils.isEmpty( sportsSelection.text.toString())){
+                sportsSelection.setError("Please Select at Least One Sport")
                 return@setOnClickListener
 
-            } else if (TextUtils.isEmpty(titleAutocomplete.text.toString())) {
-                titleAutocomplete.setError("Please Include Your Current Title or Position")
-                return@setOnClickListener
             }
             println("Please complete all fields")
 
-            auth.createUserWithEmailAndPassword(
-                emailField.text.toString(),
-                passwordField.text.toString()
-            )
+            auth.createUserWithEmailAndPassword(emailField.text.toString(),passwordField.text.toString())
                 .addOnCompleteListener(this, OnCompleteListener{ task ->
                     if(task.isSuccessful){
-
-                        vm.insertAthlete(
-                            Athlete(
-                                null,
-                                addProfilepicture.toString(),
-                                usernameField.text.toString(),
-                                emailField.text.toString(),
-                                cityField.text.toString(),
-                                stateField.text.toString(),
-                                birthdayField.text.toString(),
-                                aboutMeField.text.toString(),
-                                sportsAutocomplete.text.toString(),
-                                //sportsAutocompleteSecond.text.toString(),
-                                //titleAutocomplete.text.toString(),
-                                //titleAutocompleteSecond.text.toString()
-                            )
-                        )
-
-
                         Log.d("AppDatabase","AAA to 1")
                         Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
-
                         finish()
-
                     }else {
                         Log.d("AppDatabase","AAA else 1")
-                        val builder = AlertDialog.Builder(this@SignUp)
+                        val builder = AlertDialog.Builder(this@RegistrationForm)
                         builder.setMessage("User Already Exists. Login with a different Email and Password or Register with another Email Address")
                         builder.setCancelable(true)
                         builder.setNegativeButton("OK", DialogInterface.OnClickListener
                         { dialog, which -> dialog.cancel() })
                         val alertDialog: AlertDialog = builder.create()
                         alertDialog.show()
-                        Toast.makeText(
-                            this, "Registration Failed; Please Try Again",
-                            Toast.LENGTH_LONG).show()
-                }
-            })
+                        Toast.makeText(this, "Registration Failed; Please Try Again", Toast.LENGTH_LONG).show()
+                    }
+                })
         }
     }
 }

@@ -13,16 +13,16 @@
 
 
         <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/addProfilePicture"
-                android:layout_width="@dimen/signup_img_size"
-                android:layout_height="@dimen/signup_img_size"
-                android:layout_marginTop="@dimen/signup_img_margin"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/profile_pic_circle"
-                android:src="@drawable/ic_baseline_photo_camera_24"
-                android:elevation="@dimen/card_elevation"/>
+            android:id="@+id/addProfilePicture"
+            android:layout_width="@dimen/signup_img_size"
+            android:layout_height="@dimen/signup_img_size"
+            android:layout_marginTop="@dimen/signup_img_margin"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/profile_pic_circle"
+            android:src="@drawable/ic_baseline_photo_camera_24"
+            android:elevation="@dimen/card_elevation"/>
 
 
         <TextView
@@ -67,132 +67,87 @@
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/usernameFieldlayout"
+            android:id="@+id/emailField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/username"
+            android:hint="@string/email"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
             app:layout_constraintTop_toBottomOf="@+id/lastName">
 
             <com.google.android.material.textfield.TextInputEditText
-
-                android:id="@+id/usernameField"
-
+                android:id="@+id/emailField1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailFieldlayout"
+            android:id="@+id/passwordField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:hint="@string/email"
-            android:layout_marginTop="@dimen/signup_margin_top"
-            android:layout_marginRight="@dimen/signup_margin"
-            android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/usernameFieldlayout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/emailField"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordFieldlayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
             android:hint="@string/password"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/emailFieldlayout">
+            app:layout_constraintTop_toBottomOf="@+id/emailField">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passwordField"
-
+                android:id="@+id/passwordField1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cityFieldlayout"
+            android:id="@+id/cityField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/city"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/passwordFieldlayout">
-
+            app:layout_constraintTop_toBottomOf="@+id/passwordField">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cityField"
+                android:id="@+id/cityField1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/stateFieldlayout"
+            android:id="@+id/stateField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:hint="@string/state"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/cityFieldlayout">
-
-
+            app:layout_constraintTop_toBottomOf="@+id/cityField">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/stateField"
-
+                android:id="@+id/stateField1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/birthdayFieldlayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:hint="@string/dob"
-            android:layout_marginTop="@dimen/signup_margin_top"
-            android:layout_marginRight="@dimen/signup_margin"
-            android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/stateFieldlayout">
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/birthdayField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/aboutMeFieldlayout"
+            android:id="@+id/aboutMeField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/about_me"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/birthdayFieldlayout">
-
+            app:layout_constraintTop_toBottomOf="@+id/stateField">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/aboutMeField"
+                android:id="@+id/aboutMeField1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="top|start"
@@ -213,7 +168,7 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/aboutMeFieldlayout">
+            app:layout_constraintTop_toBottomOf="@+id/aboutMeField">
 
             <AutoCompleteTextView
                 android:id="@+id/sportsAutocomplete"
@@ -252,7 +207,7 @@
             android:layout_marginTop="@dimen/signup_btn_margin_top"
             android:layout_marginBottom="@dimen/signup_btn_margin_bottom"
             android:textSize="@dimen/signup_btn_text"
-            android:text="@string/submit"
+            android:text="@string/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/light_grey_bubble"
