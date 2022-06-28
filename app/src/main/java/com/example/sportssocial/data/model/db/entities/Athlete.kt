@@ -9,7 +9,7 @@ import java.sql.Date
 data class Athlete(
     @PrimaryKey(autoGenerate = true) var Id: Int?,
     @ColumnInfo(name = "username") var username: String?,
-    @ColumnInfo(name = "password") var password: String?,
+    @ColumnInfo(name = "email") var email: String?,
     @ColumnInfo(name = "city") var city: String?,
     @ColumnInfo(name = "state") var state: String?,
     @ColumnInfo(name = "DOB") var DOB: String?,

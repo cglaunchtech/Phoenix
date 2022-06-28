@@ -1,5 +1,6 @@
 package com.example.sportssocial.ui.view
 
+import android.app.PendingIntent.getActivity
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,8 +11,11 @@ import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.example.sportssocial.MainActivity
 import com.example.sportssocial.R
-import com.example.sportssocial.data.model.UserProfile
+import com.example.sportssocial.data.model.db.entities.Athlete
+import com.example.sportssocial.data.model.db.entities.UserProfile
+import com.example.sportssocial.ui.viewmodel.UserProfileViewModel
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -24,6 +28,7 @@ class RegistrationForm : AppCompatActivity() {
       lateinit var auth : FirebaseAuth
       var databaseReference : DatabaseReference? =null
       var database : FirebaseDatabase? = null
+
 
     lateinit var usernameField : TextInputEditText
     lateinit var emailField : TextInputEditText
@@ -38,6 +43,7 @@ class RegistrationForm : AppCompatActivity() {
     lateinit var titleAutocomplete: AutoCompleteTextView
     lateinit var titleAutocompleteSecond: AutoCompleteTextView
     lateinit var submitButton : Button
+    lateinit var vm : UserProfileViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,6 +67,8 @@ class RegistrationForm : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
         databaseReference = database?.reference!!.child("profile")
+        vm = UserProfileViewModel(application)
+
 
         register()
 
@@ -113,6 +121,7 @@ class RegistrationForm : AppCompatActivity() {
                     if(task.isSuccessful){
                         Log.d("AppDatabase","AAA to 1")
                         Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
+                        firestoreAthleteInit()
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                         finish()
@@ -132,7 +141,25 @@ class RegistrationForm : AppCompatActivity() {
             })
         }
     }
+    private fun firestoreAthleteInit(){
+        val newProfile = UserProfile(
+            auth.uid,
+            Athlete(Id = null,
+                username = usernameField.text.toString(),
+                email = emailField.text.toString(),
+                city = cityField.text.toString(),
+                state = stateField.text.toString(),
+                DOB = birthdayField.text.toString(),
+                aboutMe =aboutMeField.text.toString(),
+                sport = sportsAutocomplete.text.toString(),
+                title = titleAutocomplete.text.toString()
+            ),
+            null,
+            null
+        )
+        vm.insertProfiles(newProfile)
 
+    }
 }
 
 

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.view.ArticlePreview
+import com.example.sportssocial.ui.view.LoginActivity
+import com.example.sportssocial.ui.view.RegistrationForm
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,6 +15,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
 
         var viewModel = ArticleViewModel(application)
         viewModel.getNews(20, 1)

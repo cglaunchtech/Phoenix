@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.sportssocial.data.api.FirestoreDataCalls
 import com.example.sportssocial.data.api.RetrofitClient
 import com.example.sportssocial.data.api.TopHeadlinesPojo
 import com.example.sportssocial.data.model.db.AppDatabase
@@ -11,6 +12,7 @@ import com.example.sportssocial.data.model.dao.AthleteDao
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.model.dao.NewsArticleDao
 import com.example.sportssocial.data.model.db.entities.NewsArticle
+import com.example.sportssocial.data.model.db.entities.UserProfile
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -100,6 +102,48 @@ class SportsRepository (context: Context) {
 //        return newsArticleDao?.search(searchText)
 //
 //    }
+
+    //Firestore Database
+    var firestoreDb = FirestoreDataCalls.create()
+
+    suspend fun fGetUsers():List<UserProfile> {
+        var userProfileList = listOf<UserProfile>()
+
+        CoroutineScope(Dispatchers.IO).launch {
+            var response = firestoreDb.getUsers()
+            if (response.isSuccessful) {
+                userProfileList = response.body()!!
+                Log.d("Firestore", "Got users from firestore db")
+            } else {
+                Log.e("Firestore", "Failed to get responce from firestore")
+            }
+        }
+            return userProfileList
+    }
+
+    suspend fun fNewProfile(user: UserProfile){
+        CoroutineScope(Dispatchers.IO).launch {
+            var response = firestoreDb.newAthlete(user)
+
+            if (response.isSuccessful) {
+                Log.d("Firestore", "Sucessfully added ${user.user.username}")
+            } else {
+                Log.e("Firestore", " Failed to add ${user.user.username}")
+            }
+        }
+    }
+
+    suspend fun fUpdateProfile(user: UserProfile) {
+        CoroutineScope(Dispatchers.IO).launch {
+            var response = firestoreDb.updateAthlete(user)
+
+            if (response.isSuccessful) {
+                Log.d("Firestore", "Sucessfully updated ${user.user.username}")
+            } else {
+                Log.e("Firestore", " Failed to update ${user.user.username}")
+            }
+        }
+    }
 }
 
 
