@@ -15,8 +15,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<Button>(R.id.submitButton)
-            .setOnClickListener { startActivity(Intent(this,BottomNavMain::class.java)) }
+        findViewById<Button>(R.id.crashButton).setOnClickListener {
+                startActivity(Intent(this,BottomNavMain::class.java)) }
 
+//        val btn:Button = findViewById(R.id.submitButton)
+//        btn.setOnClickListener {
+//            val intento = Intent(this, BottomNavMain::class.java)
+//            startActivity(intento)
+//        }
+
+//        sellBtn.setOnClickListener {
+//            val intentNext = Intent(this,SellMain::class.java)
+//            startActivity(intentNext)
+//            println("Main plus button Pressed")
+//        }
     }
 }

@@ -18,8 +18,8 @@
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Profile" />
     <item
-        android:id="@+id/eventsFragment"
-        android:icon="@drawable/ic_baseline_calendar_month_24"
-        android:title="Events" />
+        android:id="@+id/favoritesFragment"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="Favorites" />
 
 </menu>

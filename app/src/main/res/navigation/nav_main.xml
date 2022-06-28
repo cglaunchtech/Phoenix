@@ -26,8 +26,8 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/eventsFragment"
-        android:name="com.example.sportssocial.ui.navigation.EventsFragment"
-        android:label="fragment_events"
-        tools:layout="@layout/fragment_events" />
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.sportssocial.ui.navigation.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
 </navigation>
