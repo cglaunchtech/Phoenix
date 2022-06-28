@@ -7,19 +7,13 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
-<<<<<<< HEAD
-=======
 /.idea/misc.xml
 /.idea/.name
->>>>>>> 452afee7c507ad940f6f2337d53c3d812bb4cd64
 .DS_Store
 /build
 /captures
 .externalNativeBuild
 .cxx
 local.properties
-<<<<<<< HEAD
-=======
 google-services.json
 /google-services.json
->>>>>>> 452afee7c507ad940f6f2337d53c3d812bb4cd64
