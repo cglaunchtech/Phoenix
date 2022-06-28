@@ -10,7 +10,6 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 
-import com.example.sportssocial.MainActivity
 import com.example.sportssocial.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.textfield.TextInputEditText
@@ -21,9 +20,9 @@ import com.google.firebase.database.FirebaseDatabase
 
 class RegistrationForm : AppCompatActivity() {
 
-      lateinit var auth : FirebaseAuth
-      var databaseReference : DatabaseReference? =null
-      var database : FirebaseDatabase? = null
+    lateinit var auth : FirebaseAuth
+    var databaseReference : DatabaseReference? =null
+    var database : FirebaseDatabase? = null
 
     lateinit var firstNameField : TextInputEditText
     lateinit var lastNameField : TextInputEditText
@@ -137,8 +136,8 @@ class RegistrationForm : AppCompatActivity() {
                         val alertDialog: AlertDialog = builder.create()
                         alertDialog.show()
                         Toast.makeText(this, "Registration Failed; Please Try Again", Toast.LENGTH_LONG).show()
-                }
-            })
+                    }
+                })
         }
     }
 }

@@ -1,9 +1,10 @@
-package com.example.sportssocial
+package com.example.sportssocial.ui.view
 
 import android.content.Intent
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.view.ArticlePreview
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
