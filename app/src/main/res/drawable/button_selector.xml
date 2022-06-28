@@ -16,8 +16,11 @@
                 android:bottom="2dp"
                 android:left="2dp">
                 <shape>
-                    <solid
-                        android:color="@color/dark_grey"
+                    <gradient
+                        android:angle="50"
+                        android:startColor="@color/white"
+                        android:centerColor="@color/red"
+                        android:endColor="@color/white"
                         />
                     <corners
                         android:radius="32dp"
