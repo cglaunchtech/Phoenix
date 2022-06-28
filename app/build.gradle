@@ -147,9 +147,8 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
-<<<<<<< HEAD
-=======
+
     // RecyclerView
     implementation "androidx.recyclerview:recyclerview:1.2.1"
->>>>>>> 1a50445e18013c59ad260bc731e0f64449f4cbe6
+
 }
