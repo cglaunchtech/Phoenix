@@ -16,6 +16,9 @@ interface NewsArticleDao {
 
     @Delete
     fun deleteArticle(article: NewsArticle)
+
+    @Query("delete from articles")
+    fun deleteAll()
 //
 //    @Query("SELECT * FROM articles where id like :articleId")
 //    fun findArticleWithId(articleId: Long): List<NewsArticle>

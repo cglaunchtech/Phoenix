@@ -1,5 +1,6 @@
 package com.example.sportssocial.data.api
 
+import android.provider.Contacts.SettingsColumns.KEY
 import com.example.sportssocial.BuildConfig
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -10,7 +11,7 @@ import retrofit2.http.Query
 
 interface RetrofitClient {
     @Headers(
-        BuildConfig.KEY
+        BuildConfig.GMP_KEY
     )
     @GET("v2/top-headlines")
     suspend fun getNews(

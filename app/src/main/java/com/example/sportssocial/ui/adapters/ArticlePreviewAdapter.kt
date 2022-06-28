@@ -8,7 +8,9 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+
 import com.example.sportssocial.R
+
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import java.lang.Exception
 
@@ -32,7 +34,7 @@ class ArticlePreviewAdapter(val context: Context, var articleList: ArrayList<New
 
         val view: View
         val holder: ViewHolder
-        view = inflater.inflate(R.layout.layout_article_preview, parent, false)
+        view = inflater.inflate(R.layout.article_preview_layout, parent, false)
 
         holder = ViewHolder()
         holder.imageView = view.findViewById(R.id.image_view)

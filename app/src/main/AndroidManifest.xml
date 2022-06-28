@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.sportssocial">
+    package="com.example.sportssocial" >
 
     <application
         android:name=".App"
@@ -13,9 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SportsSocial"
-        tools:targetApi="31">
+        tools:targetApi="31" >
+
+        <activity
+            android:name=".ui.view.RecyclerView"
+            android:exported="false" />
         <activity
             android:name=".ui.view.ArticlePreview"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.EditForm"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.ProfilePicScroll"
             android:exported="false" />
         <activity
             android:name=".ui.navigation.BottomNavMain"
@@ -28,7 +38,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,6 +46,9 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="keyValue"
+            android:value="${GMP_KEY}" />
     </application>
 
 </manifest>
