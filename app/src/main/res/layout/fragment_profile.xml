@@ -1,16 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/layout_margin"
+    android:paddingBottom="@dimen/layout_padding"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.navigation.ProfileFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Profile Page"
-        android:gravity="center"/>
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profilePicture"
+            android:layout_width="@dimen/profile_img"
+            android:layout_height="@dimen/profile_img"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:shapeAppearanceOverlay="@style/profile_pic_circle"
+            android:src="@drawable/ic_baseline_photo_camera_24"
+            android:elevation="@dimen/card_elevation"
+            />
+
+        <ImageView
+            android:id="@+id/searchNotifications"
+            android:layout_width="@dimen/notification_size"
+            android:layout_height="@dimen/notification_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:src="@drawable/ic_baseline_notifications_24" />
+
+        <TextView
+            android:id="@+id/searchLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/profile_title_padding"
+            android:text="@string/app_name"
+            android:textSize="@dimen/profile_title_text"
+            android:textAlignment="center"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/profilePicture"
+            app:layout_constraintRight_toRightOf="@id/searchNotifications" />
+
+        <TextView
+            android:id="@+id/profileFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/first_name"
+            android:textSize="@dimen/profile_large_text"
+            android:layout_marginTop="@dimen/profile_margin"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profilePicture"/>
+
+        <TextView
+            android:id="@+id/profileLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/last_name"
+            android:textSize="@dimen/profile_large_text"
+            android:layout_marginTop="@dimen/profile_margin"
+            android:layout_marginLeft="@dimen/profile_margin_left"
+            app:layout_constraintLeft_toRightOf="@id/profileFirstName"
+            app:layout_constraintTop_toBottomOf="@id/profilePicture"/>
+
+        <TextView
+            android:id="@+id/profileAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:textSize="@dimen/profile_large_text"
+            android:layout_marginTop="@dimen/profile_margin"
+            android:layout_marginLeft="@dimen/profile_margin"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profilePicture"/>
+
+        <TextView
+            android:id="@+id/profileUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textSize="@dimen/profile_small_text"
+            app:layout_constraintTop_toBottomOf="@id/profileFirstName"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/profileLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/city"
+            android:textSize="@dimen/profile_small_text"
+            android:layout_marginLeft="@dimen/profile_margin"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileAge"/>
+
+        <TextView
+            android:id="@+id/profileAboutLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_me"
+            android:layout_marginTop="@dimen/profile_margin"
+            android:textSize="@dimen/profile_large_text"
+            app:layout_constraintTop_toBottomOf="@id/profileUsername"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/edit_icon"
+            android:layout_width="@dimen/edit_image"
+            android:layout_height="@dimen/edit_image"
+            android:layout_marginRight="@dimen/edit_icon_margin"
+            android:src="@drawable/ic_baseline_edit_24"
+
+            app:layout_constraintBottom_toTopOf="@+id/profileAboutText"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/profileAboutText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            android:textSize="@dimen/profile_medium_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileAboutLabel"/>
+
+        <TextView
+            android:id="@+id/profileWatchMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/watch_me"
+            android:layout_marginTop="@dimen/profile_margin"
+            android:textSize="@dimen/profile_large_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileAboutText"/>
+
+
+        <ImageButton
+            android:id="@+id/add_icon"
+            android:layout_width="@dimen/edit_image"
+            android:layout_height="@dimen/edit_image"
+            android:layout_marginRight="@dimen/edit_icon_margin"
+            android:src="@drawable/ic_baseline_add_24"
+
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/profileWatchMe"
+            tools:ignore="MissingConstraints"
+            tools:itemCount="4"
+            tools:listitem="@layout/image_card" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

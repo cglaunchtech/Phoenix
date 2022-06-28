@@ -11,7 +11,7 @@ import retrofit2.http.Query
 
 interface RetrofitClient {
     @Headers(
-        BuildConfig.KEY
+        BuildConfig.GMP_KEY
     )
     @GET("v2/top-headlines")
     suspend fun getNews(

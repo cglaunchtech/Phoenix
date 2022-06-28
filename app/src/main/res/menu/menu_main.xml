@@ -7,7 +7,7 @@
     android:title="Home" />
     <item
         android:id="@+id/highlightReelsFragment"
-        android:icon="@drawable/circle_play_solid"
+        android:icon="@drawable/ic_baseline_play_circle_24"
         android:title="Highlights" />
     <item
         android:id="@+id/searchFragment"
@@ -15,11 +15,11 @@
         android:title="Search" />
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/ic_baseline_person_24"
+        android:icon="@drawable/ic_baseline_person_search_24"
         android:title="Profile" />
     <item
-        android:id="@+id/favoritesFragment"
-        android:icon="@drawable/ic_baseline_favorite_24"
-        android:title="Favorites" />
+        android:id="@+id/eventsFragment"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Events" />
 
 </menu>
