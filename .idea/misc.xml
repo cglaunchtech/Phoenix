@@ -26,11 +26,29 @@
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/search_layout.xml" value="0.2" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/signup_layout.xml" value="0.22" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/upcoming_events.xml" value="0.22" />
+        <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/add_event_layout.xml" value="0.12239583333333333" />
+        <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/homepage.xml" value="0.26875" />
+        <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/signup_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_article_preview.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/activity_bottom_nav_main.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/add_event_layout.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_events.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_highlight_reels.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/homepage.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/layout_article_preview.xml" value="0.240625" />
+        <entry key="app/src/main/res/layout/login_layout.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/profile_layout.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/search_layout.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/signup_layout.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/upcoming_events.xml" value="0.23802083333333332" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

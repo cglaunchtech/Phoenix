@@ -1,13 +1,14 @@
 package com.example.sportssocial.data.api
 
+
 data class TopHeadlinesPojo (
 
     val status: String?,
     val totalResults: Int?,
-    val articles: ArrayList<Articles>?
+    val articles: ArrayList<Article>?
 )
 
-data class Articles (
+data class Article (
     val source: Source?,
     val author: String?,
     val title:String?,
