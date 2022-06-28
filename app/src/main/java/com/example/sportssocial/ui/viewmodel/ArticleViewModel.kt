@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.sportssocial.data.api.TopHeadlinesPojo
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.data.repo.SportsRepository
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class ArticleViewModel(app: Application) : AndroidViewModel(app) {
@@ -33,6 +32,10 @@ class ArticleViewModel(app: Application) : AndroidViewModel(app) {
 
     fun deleteArticle(article: NewsArticle) = viewModelScope.launch {
         repo.deleteArticle(article)
+    }
+
+    fun clearArticleCache() {
+        repo.clearArticleCache()
     }
 
     // Get articles form API
