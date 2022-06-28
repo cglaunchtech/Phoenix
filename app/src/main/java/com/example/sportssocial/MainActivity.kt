@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.view.ArticlePreview
+import com.example.sportssocial.ui.view.RecyclerView
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
 
 
@@ -21,8 +22,14 @@ class MainActivity : AppCompatActivity() {
 
         var viewModel = ArticleViewModel(application)
         viewModel.getNews(20, 1)
+<<<<<<< HEAD
         viewModel.newsArticleMutableLiveData.observe(this) {
             for (index in 0..(it.articles?.lastIndex!!)) {
+=======
+        viewModel.clearArticleCache()
+        viewModel.newsArticleMutableLiveData.observe(this){
+            for(index in 0..(it.articles?.lastIndex!!)){
+>>>>>>> 1a50445e18013c59ad260bc731e0f64449f4cbe6
                 var article = NewsArticle(
                     null,
                     it.articles[index].source?.name,
@@ -37,6 +44,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.upsertArticle(article)
             }
 
+<<<<<<< HEAD
 
 
 
@@ -45,6 +53,16 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, ArticlePreview::class.java)
                 startActivity(intent)
             }
+=======
+        btn_test_news_preview.setOnClickListener{
+            val intent = Intent(this, ArticlePreview::class.java)
+            startActivity(intent)
+>>>>>>> 1a50445e18013c59ad260bc731e0f64449f4cbe6
+        }
+
+        btn_test_recycler_view.setOnClickListener{
+            val intent = Intent(this, RecyclerView::class.java)
+            startActivity(intent)
         }
     }
 }

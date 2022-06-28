@@ -68,7 +68,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/usernameField"
+            android:id="@+id/usernameFieldlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/username"
@@ -78,16 +78,21 @@
             app:layout_constraintTop_toBottomOf="@+id/lastName">
 
             <com.google.android.material.textfield.TextInputEditText
+<<<<<<< HEAD
                 android:id="@+id/usernameField1"
+=======
+                android:id="@+id/usernameField"
+>>>>>>> 1a50445e18013c59ad260bc731e0f64449f4cbe6
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailField"
+            android:id="@+id/emailFieldlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:hint="@string/email"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
@@ -96,15 +101,26 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailField1"
+=======
+            android:hint="@string/placeholder"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginLeft="36dp"
+            app:layout_constraintTop_toBottomOf="@+id/usernameFieldlayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailField"
+>>>>>>> 1a50445e18013c59ad260bc731e0f64449f4cbe6
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordField"
+            android:id="@+id/passwordFieldlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:hint="@string/password"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
@@ -113,15 +129,26 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordField1"
+=======
+            android:hint="@string/placeholder"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginLeft="36dp"
+            app:layout_constraintTop_toBottomOf="@+id/emailFieldlayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordField"
+>>>>>>> 1a50445e18013c59ad260bc731e0f64449f4cbe6
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cityField"
+            android:id="@+id/cityFieldlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:hint="@string/city"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
@@ -130,14 +157,25 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/cityField1"
+=======
+            android:hint="@string/placeholder"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginLeft="36dp"
+            app:layout_constraintTop_toBottomOf="@+id/passwordFieldlayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cityField"
+>>>>>>> 1a50445e18013c59ad260bc731e0f64449f4cbe6
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/stateField"
+            android:id="@+id/stateFieldlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:hint="@string/state"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
@@ -146,14 +184,25 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/stateField1"
+=======
+            android:hint="@string/placeholder"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginLeft="36dp"
+            app:layout_constraintTop_toBottomOf="@+id/cityFieldlayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/stateField"
+>>>>>>> 1a50445e18013c59ad260bc731e0f64449f4cbe6
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/birthdayField"
+            android:id="@+id/birthdayFieldlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:hint="@string/dob"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
@@ -162,15 +211,26 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/birthdayField1"
+=======
+            android:hint="@string/placeholder"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginLeft="36dp"
+            app:layout_constraintTop_toBottomOf="@+id/stateFieldlayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/birthdayField"
+>>>>>>> 1a50445e18013c59ad260bc731e0f64449f4cbe6
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/aboutMeField"
+            android:id="@+id/aboutMeFieldlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:hint="@string/about_me"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
@@ -179,6 +239,16 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/aboutMeField1"
+=======
+            android:hint="@string/placeholder"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginLeft="36dp"
+            app:layout_constraintTop_toBottomOf="@+id/birthdayFieldlayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/aboutMeField"
+>>>>>>> 1a50445e18013c59ad260bc731e0f64449f4cbe6
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="top|start"
@@ -196,10 +266,17 @@
             android:background="@color/grey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
             app:layout_constraintTop_toBottomOf="@+id/aboutMeField">
+=======
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginLeft="36dp"
+            app:layout_constraintTop_toBottomOf="@+id/aboutMeFieldlayout">
+>>>>>>> 1a50445e18013c59ad260bc731e0f64449f4cbe6
 
             <AutoCompleteTextView
                 android:id="@+id/sportsAutocomplete"

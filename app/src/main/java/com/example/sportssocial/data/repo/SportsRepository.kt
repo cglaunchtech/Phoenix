@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.room.Query
 import com.example.sportssocial.data.api.RetrofitClient
 import com.example.sportssocial.data.api.TopHeadlinesPojo
 import com.example.sportssocial.data.model.db.AppDatabase
@@ -78,8 +79,12 @@ class SportsRepository (context: Context) {
         return newsArticleDao?.getAllArticles()
     }
 
-    suspend fun deleteArticle(article: NewsArticle) {
+    fun deleteArticle(article: NewsArticle) {
         newsArticleDao?.deleteArticle(article)
+    }
+
+    fun clearArticleCache() {
+        newsArticleDao?.deleteAll()
     }
 
 //    fun findArticleWithId(articleId: Long): List<NewsArticle>? {

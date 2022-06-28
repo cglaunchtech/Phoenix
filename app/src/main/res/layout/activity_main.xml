@@ -10,14 +10,27 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn_test"
+        android:id="@+id/btn_test_news_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test News Article"
+        android:text="Test News Preview"
+        app:layout_constraintBottom_toTopOf="@+id/btn_test_recycler_view"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_test_recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Recycler View"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
         />
 
+=======
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_test_news_preview" />
+>>>>>>> 1a50445e18013c59ad260bc731e0f64449f4cbe6
 </androidx.constraintlayout.widget.ConstraintLayout>

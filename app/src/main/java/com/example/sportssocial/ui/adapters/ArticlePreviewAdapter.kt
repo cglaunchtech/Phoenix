@@ -34,7 +34,7 @@ class ArticlePreviewAdapter(val context: Context, var articleList: ArrayList<New
 
         val view: View
         val holder: ViewHolder
-        view = inflater.inflate(R.layout.layout_article_preview, parent, false)
+        view = inflater.inflate(R.layout.article_preview_layout, parent, false)
 
         holder = ViewHolder()
         holder.imageView = view.findViewById(R.id.image_view)
