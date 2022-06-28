@@ -31,6 +31,7 @@ class ArticlePreview : AppCompatActivity() {
 
         articlePreviewAdapter = ArticlePreviewAdapter(this, articleList)
         listView.adapter = articlePreviewAdapter
+
     }
 
     private fun getArticles(articleList: List<NewsArticle>) {
