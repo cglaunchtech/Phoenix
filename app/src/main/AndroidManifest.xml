@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.sportssocial">
+    package="com.example.sportssocial" >
 
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SportsSocial"
+        tools:targetApi="31" >
 
+        <activity
+            android:name=".ui.view.RecyclerView"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.ArticlePreview"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.EditForm"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.ProfilePicScroll"
+            android:exported="false" />
+        <activity
+            android:name=".ui.navigation.BottomNavMain"
+            android:exported="true" />
+        <activity
+            android:name=".ui.view.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.view.RegistrationForm"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-        <application
-            android:name=".App"
-            android:allowBackup="true"
-            android:dataExtractionRules="@xml/data_extraction_rules"
-            android:fullBackupContent="@xml/backup_rules"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/Theme.SportsSocial"
-            tools:targetApi="31">
+        <meta-data
+            android:name="keyValue"
+            android:value="${GMP_KEY}" />
+    </application>
 
-            <activity
-                android:name=".ui.view.RegistrationForm"
-                android:exported="false" />
-            <activity
-                android:name=".ui.view.LoginActivity"
-                android:exported="false" />
-            <activity
-                android:name=".ui.view.ArticlePreview"
-                android:exported="false" />
-            <activity
-                android:name=".ui.view.EditForm"
-                android:exported="false" />
-            <activity
-                android:name=".ui.view.ProfilePicScroll"
-                android:exported="false" />
-            <activity
-                android:name=".ui.navigation.BottomNavMain"
-                android:exported="true" />
-            <activity
-                android:name=".ui.view.MainActivity"
-                android:exported="true">
-                <intent-filter>
-                    <action android:name="android.intent.action.MAIN" />
-
-                    <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>
-            </activity>
-            <meta-data
-                android:name="keyValue"
-                android:value="${GMP_KEY}" />
-        </application>
-
-    </manifest>
+</manifest>
