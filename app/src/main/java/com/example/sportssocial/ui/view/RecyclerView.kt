@@ -3,6 +3,7 @@ package com.example.sportssocial.ui.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.adapters.ArticleThumbnailAdapter
@@ -14,6 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class RecyclerView : AppCompatActivity() {
 
+    val viewModel : ArticleViewModel by viewModels()
     var articleList = ArrayList<NewsArticle>()
     lateinit var articleThumbnailAdapter: ArticleThumbnailAdapter
 
@@ -22,7 +24,7 @@ class RecyclerView : AppCompatActivity() {
         setContentView(R.layout.activity_recycler_view)
 
         this.articleList.clear()
-        var viewModel = ArticleViewModel(application)
+        //var viewModel = ArticleViewModel(application)
         var recyclerView: RecyclerView = findViewById(R.id.recycler_view)
 
         viewModel.getAllArticles()

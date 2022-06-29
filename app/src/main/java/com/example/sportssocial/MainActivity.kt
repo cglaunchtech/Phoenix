@@ -3,6 +3,7 @@ package com.example.sportssocial
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.view.ArticlePreview
 import com.example.sportssocial.ui.view.RecyclerView
@@ -13,11 +14,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    val viewModel : ArticleViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var viewModel = ArticleViewModel(application)
+        //var viewModel = ArticleViewModel(application)
         viewModel.getNews(20, 1)
         viewModel.clearArticleCache()
         viewModel.newsArticleMutableLiveData.observe(this){
