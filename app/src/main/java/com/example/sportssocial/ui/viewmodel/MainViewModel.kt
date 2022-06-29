@@ -6,9 +6,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.repo.SportsRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel(app: Application): AndroidViewModel(app) {
+@HiltViewModel
+class MainViewModel
+    @Inject
+    constructor(app: Application): AndroidViewModel(app) {
 
     private val repo: SportsRepository
     val allAthletes : LiveData<List<Athlete>>?

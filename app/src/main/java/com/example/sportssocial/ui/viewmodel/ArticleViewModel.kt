@@ -5,12 +5,18 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.bumptech.glide.Glide.init
 import com.example.sportssocial.data.api.TopHeadlinesPojo
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.data.repo.SportsRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ArticleViewModel(app: Application) : AndroidViewModel(app) {
+@HiltViewModel
+class ArticleViewModel
+    @Inject
+    constructor(app: Application) : AndroidViewModel(app) {
 
     private val repo: SportsRepository
     val allArticles: LiveData<List<NewsArticle>>?

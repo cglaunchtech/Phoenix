@@ -7,8 +7,10 @@ import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.view.ArticlePreview
 import com.example.sportssocial.ui.view.RecyclerView
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

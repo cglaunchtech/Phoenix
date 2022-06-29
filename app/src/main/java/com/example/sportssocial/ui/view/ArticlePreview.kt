@@ -9,7 +9,9 @@ import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.adapters.ArticlePreviewAdapter
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ArticlePreview : AppCompatActivity() {
 
     var articleList = ArrayList<NewsArticle>()
