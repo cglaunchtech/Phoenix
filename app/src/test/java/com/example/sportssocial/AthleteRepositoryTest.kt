@@ -1,27 +1,19 @@
 package com.example.sportssocial
 
-import com.example.sportssocial.data.api.Article
 import com.example.sportssocial.data.api.RetrofitClient
 import com.example.sportssocial.data.model.dao.AthleteDao
 import com.example.sportssocial.data.model.dao.NewsArticleDao
-import com.example.sportssocial.data.model.db.entities.Athlete
-import com.example.sportssocial.data.repo.SportsRepository
-import io.reactivex.rxjava3.core.Single
-import kotlinx.coroutines.runBlocking
-import org.junit.Assert
+import com.example.sportssocial.data.repo.AthleteRepository
 import org.junit.Before
-import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
-import retrofit2.Response
 
 @RunWith(JUnit4::class)
-class SportsRepositoryTest {
+class AthleteRepositoryTest {
 
-    lateinit var repo: SportsRepository
+    lateinit var repo: AthleteRepository
 
     @Mock
     lateinit var athleteDao: AthleteDao
@@ -35,7 +27,7 @@ class SportsRepositoryTest {
     @Before()
     fun setup(){
         MockitoAnnotations.openMocks(this)
-//        repo = SportsRepository(inter, athleteDao, newsArticleDao)
+//        repo = AthleteRepository(inter, athleteDao, newsArticleDao)
 //    }
 //
 //    @Test

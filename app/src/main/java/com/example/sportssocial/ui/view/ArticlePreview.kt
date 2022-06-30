@@ -21,6 +21,7 @@ class ArticlePreview : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article_preview)
 
+
         this.articleList.clear()
         var viewModel = ArticleViewModel(application)
         var listView: ListView = findViewById(R.id.list_view_article)
@@ -34,20 +35,15 @@ class ArticlePreview : AppCompatActivity() {
         articlePreviewAdapter = ArticlePreviewAdapter(this, articleList)
         listView.adapter = articlePreviewAdapter
 
+        var readMore: TextView? = findViewById(R.id.read_more)
 
-        var read_more: TextView = findViewById(R.id.read_more)
+        readMore?.setOnClickListener {
 
-        read_more.setOnClickListener {
+            val newIntent = Intent(this, NewsArticleWebView::class.java)
+           // newIntent.putExtra("articleId", articleList.first().id)
 
-//            val newIntent = Intent(this, NewsArticleWebView::class.java)
-//            newIntent.putExtra("articleId", articleList.first().Id)
-//
-//            startActivity(newIntent)
+            startActivity(newIntent)
         }
-
-
-
-
     }
 
     private fun getArticles(articleList: List<NewsArticle>) {
@@ -55,7 +51,4 @@ class ArticlePreview : AppCompatActivity() {
         this.articleList.addAll(articleList)
         articlePreviewAdapter.notifyDataSetChanged()
     }
-
-
-
 }

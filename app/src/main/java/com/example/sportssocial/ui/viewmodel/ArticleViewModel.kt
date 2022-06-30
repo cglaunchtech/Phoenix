@@ -1,28 +1,26 @@
 package com.example.sportssocial.ui.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.sportssocial.data.api.TopHeadlinesPojo
 import com.example.sportssocial.data.model.db.entities.NewsArticle
-import com.example.sportssocial.data.repo.SportsRepository
+import com.example.sportssocial.data.repo.AthleteRepository
+import com.example.sportssocial.data.repo.NewsArticleRepository
 import kotlinx.coroutines.launch
 
 class ArticleViewModel(app: Application) : AndroidViewModel(app) {
 
-    private val repo: SportsRepository
+    private val repo: NewsArticleRepository
     val allArticles: LiveData<List<NewsArticle>>?
     var newsArticleMutableLiveData = MutableLiveData<TopHeadlinesPojo>()
+    var currArticle = MutableLiveData<NewsArticle>()
 
     init {
-        repo = SportsRepository(app)
+        repo = NewsArticleRepository(app)
         allArticles = repo.getAllArticles()
     }
 
     fun getAllArticles() = viewModelScope.launch {
-
         repo.getAllArticles()
     }
 
@@ -45,9 +43,16 @@ class ArticleViewModel(app: Application) : AndroidViewModel(app) {
         )
     }
 
-    fun getArticlesbyId(articleId:Int) = viewModelScope.launch {
-       repo.getArticlesbyId(articleId)
+    fun getArticlebyId(id: Int?) = viewModelScope.launch {
+        currArticle.value?.let { current ->
 
+            current.id = repo.getArticlesbyId(id!!)?.value?.id
+        }
     }
 
+    val article: LiveData<NewsArticle> = Transformations.switchMap(currArticle) { article ->
+        repo.getArticlesbyId(article.id!!)
+    }
 }
+
+

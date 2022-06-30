@@ -4,47 +4,17 @@ import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.room.Query
 import com.example.sportssocial.data.api.RetrofitClient
 import com.example.sportssocial.data.api.TopHeadlinesPojo
-import com.example.sportssocial.data.model.db.AppDatabase
-import com.example.sportssocial.data.model.dao.AthleteDao
-import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.model.dao.NewsArticleDao
+import com.example.sportssocial.data.model.db.AppDatabase
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SportsRepository (context: Context) {
-    var db: AthleteDao? = AppDatabase.getInstance(context)?.athleteDao()
+class NewsArticleRepository (context: Context){
 
-    fun getAllAthletes(): LiveData<List<Athlete>>? {
-
-        return db?.selectAthlete()
-    }
-
-    fun insertAthlete(athletes: Athlete) {
-
-        db?.insertAthlete(athletes)
-    }
-
-    fun updateAthlete(athletes: Athlete) {
-        db?.updateAthlete(athletes)
-    }
-
-    fun deleteAthlete(athlete: Athlete) {
-        db?.deleteAthlete(athlete)
-    }
-
-    fun findAthletebyUsername(search: String): List<Athlete> {
-
-        return db?.findAthletesbyUsername(search)!!
-    }
-
-    fun searchAthletes(searchText: String): LiveData<List<Athlete>>? {
-        return db?.search(searchText)
-    }
 
     // News Articles
     // Gets articles from API and returns MutableLiveData<TopHeadlinesPojo>
@@ -62,7 +32,7 @@ class SportsRepository (context: Context) {
                 newsArticleMutableLiveData.postValue(response.body())
                 Log.d("Retrofit Response", "Successful")
             } else {
-                Log.d("Retrofit Response", "unsuccessful: RecipeRepository: Line 30")
+                Log.d("Retrofit Response", "unsuccessful: NewsArticleRepository: Line 30")
             }
         }
         return newsArticleMutableLiveData
@@ -89,9 +59,4 @@ class SportsRepository (context: Context) {
     fun clearArticleCache() {
         newsArticleDao?.deleteAll()
     }
-
-
-
 }
-
-
