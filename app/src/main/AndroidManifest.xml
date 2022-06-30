@@ -37,7 +37,7 @@
             android:name=".ui.view.RegistrationForm"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.view.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,7 +48,7 @@
 
         <meta-data
             android:name="keyValue"
-            android:value="${GMP_KEY}" />
+            android:value="${KEY}" />
     </application>
 
 </manifest>

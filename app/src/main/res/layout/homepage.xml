@@ -139,9 +139,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            tools:listitem="@layout/home_screen_card"
+            app:layout_constraintTop_toBottomOf="@id/athletesLabel"
             tools:itemCount="1"
-            app:layout_constraintTop_toBottomOf="@id/athletesLabel"/>
+            tools:layout_editor_absoluteX="-11dp"
+            tools:listitem="@layout/home_screen_card" />
 
         <TextView
             android:id="@+id/newsLabel"
@@ -161,13 +162,5 @@
             tools:listitem="@layout/home_screen_card"
             tools:itemCount="1"
             app:layout_constraintTop_toBottomOf="@id/newsLabel"/>
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
 </ScrollView>

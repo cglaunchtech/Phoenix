@@ -39,6 +39,7 @@ class ArticleThumbnailAdapter(
         try {
             Glide.with(context).load(article.urlToImage).into(holder.imageView)
         } catch (e: Exception) {
+
             //TODO: Timber log null pointer exception for article image
         }
     }

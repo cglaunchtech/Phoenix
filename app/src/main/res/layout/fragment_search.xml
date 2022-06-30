@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:layout_margin="@dimen/layout_margin"
     android:paddingBottom="@dimen/layout_padding"
-    tools:context=".MainActivity">
+    tools:context=".ui.view.MainActivity">
 
  <com.google.android.material.imageview.ShapeableImageView
      android:id="@+id/profilePicture"
