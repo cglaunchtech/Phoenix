@@ -13,13 +13,20 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.Athlete
-import com.example.sportssocial.data.model.db.entities.UserProfile
-import com.example.sportssocial.ui.viewmodel.UserProfileViewModel
+import com.example.sportssocial.util.Constants.Companion.FIRESTORE
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.signup_layout.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import timber.log.Timber
+import java.lang.Exception
 
 
 class RegistrationForm : AppCompatActivity() {
@@ -33,33 +40,32 @@ class RegistrationForm : AppCompatActivity() {
     lateinit var usernameField : TextInputEditText
     lateinit var emailField : TextInputEditText
     lateinit var passwordField : TextInputEditText
-    lateinit var confirmPassword: TextInputEditText
+    //lateinit var confirmPassword: TextInputEditText
     lateinit var cityField : TextInputEditText
     lateinit var stateField : TextInputEditText
     lateinit var birthdayField : TextInputEditText
     lateinit var aboutMeField : TextInputEditText
-    lateinit var sportsSelection : TextInputEditText
-    lateinit var sportsSelectionTwo : TextInputEditText
+    lateinit var sportsSelection : MaterialAutoCompleteTextView
+    lateinit var sportsSelectionTwo : MaterialAutoCompleteTextView
 
     lateinit var submitButton : Button
     lateinit var cancelButton : Button
-    lateinit var vm : UserProfileViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_layout)
 
-        firstNameField = findViewById(R.id.firstName1)
-        lastNameField  = findViewById(R.id.lastName1)
+        firstNameField = findViewById(R.id.firstName)
+        lastNameField  = findViewById(R.id.lastName)
         usernameField = findViewById(R.id.usernameField)
-        emailField  = findViewById(R.id.emailField1)
+        emailField  = findViewById(R.id.emailField)
         passwordField = findViewById(R.id.passwordField)
         //confirmPassword = findViewById(R.id.confirmPassword)
-        cityField = findViewById(R.id.cityField1)
-        stateField = findViewById(R.id.stateField1)
+        cityField = findViewById(R.id.cityField)
+        stateField = findViewById(R.id.stateField)
         birthdayField = findViewById(R.id.birthdayField)
-        aboutMeField = findViewById(R.id.aboutMeField1)
+        aboutMeField = findViewById(R.id.aboutMeField)
         sportsSelection = findViewById(R.id.sportsAutocomplete)
         sportsSelectionTwo = findViewById(R.id.sportsAutocompleteSecond)
 
@@ -69,7 +75,7 @@ class RegistrationForm : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
         databaseReference = database?.reference!!.child("profile")
-        vm = UserProfileViewModel(application)
+
 
 
         register()
@@ -102,9 +108,9 @@ class RegistrationForm : AppCompatActivity() {
             }else if (TextUtils.isEmpty( passwordField.text.toString())){
                 passwordField.setError("Please Enter Password")
                 return@setOnClickListener
-            }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
-                confirmPassword.setError("Please Confirm Password")
-                return@setOnClickListener
+//            }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
+//                confirmPassword.setError("Please Confirm Password")
+//                return@setOnClickListener
 
             }else if (TextUtils.isEmpty( cityField.text.toString())){
                 cityField.setError("Please Enter Your City")
@@ -148,23 +154,30 @@ class RegistrationForm : AppCompatActivity() {
                 })
         }
     }
-    private fun firestoreAthleteInit(){
-        val newProfile = UserProfile(
-            auth.uid,
-            Athlete(Id = null,
-                username = usernameField.text.toString(),
-                email = emailField.text.toString(),
-                city = cityField.text.toString(),
-                state = stateField.text.toString(),
-                DOB = birthdayField.text.toString(),
-                aboutMe =aboutMeField.text.toString(),
-                sport = sportsSelection.text.toString()
-            ),
-            null,
-            null
-        )
-        vm.insertProfiles(newProfile)
+    private fun firestoreAthleteInit() = CoroutineScope(Dispatchers.IO).launch{
+        try {
+            //Firebase.firestore.collection("users").add(Athlete(....)).await()
+            FIRESTORE.add(Athlete(
+                    Id = null,
+                    uid =  auth.uid,
+                    username = usernameField.text.toString(),
+                    profilePhoto = null,
+                    first = firstNameField.text.toString(),
+                    last = lastNameField.text.toString(),
+                    city = cityField.text.toString(),
+                    state = stateField.text.toString(),
+                    DOB = birthdayField.text.toString(),
+                    aboutMe = aboutMeField.text.toString(),
+                    sport1 = sportsSelection.text.toString(),
+                    sport2 = sportsSelection.text.toString(),
+//                    photoCollection = mutableListOf(),
+//                    highlightVideos = mutableListOf(),
+//                    following = mutableListOf(),
+                )).await()
 
+        }catch (e: Exception){
+            Timber.e(e)
+        }
     }
 }
 
