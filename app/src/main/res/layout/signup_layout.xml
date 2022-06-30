@@ -36,7 +36,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/firstName"
+            android:id="@+id/firstNameLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/first_name"
@@ -46,23 +46,23 @@
             app:layout_constraintTop_toBottomOf="@+id/pageLabel">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/firstName1"
+                android:id="@+id/firstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/lastName"
+            android:id="@+id/lastNameLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/last_name"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/firstName">
+            app:layout_constraintTop_toBottomOf="@+id/firstNameLayout">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/lastName1"
+                android:id="@+id/lastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -75,7 +75,7 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/lastName">
+            app:layout_constraintTop_toBottomOf="@+id/lastNameLayout">
 
             <com.google.android.material.textfield.TextInputEditText
 
