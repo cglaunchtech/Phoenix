@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.example.sportssocial.MainActivity
 
 import com.example.sportssocial.R
 import com.google.android.gms.tasks.OnCompleteListener
@@ -18,7 +19,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 
-class RegistrationForm : AppCompatActivity() {
+class SignUp : AppCompatActivity() {
 
     lateinit var auth : FirebaseAuth
     var databaseReference : DatabaseReference? =null
@@ -128,7 +129,7 @@ class RegistrationForm : AppCompatActivity() {
                         finish()
                     }else {
                         Log.d("AppDatabase","AAA else 1")
-                        val builder = AlertDialog.Builder(this@RegistrationForm)
+                        val builder = AlertDialog.Builder(this@SignUp)
                         builder.setMessage("User Already Exists. Login with a different Email and Password or Register with another Email Address")
                         builder.setCancelable(true)
                         builder.setNegativeButton("OK", DialogInterface.OnClickListener

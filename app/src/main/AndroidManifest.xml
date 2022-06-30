@@ -50,7 +50,7 @@
 
         <meta-data
             android:name="keyValue"
-            android:value="${GMP_KEY}" />
+            android:value="${KEY}" />
     </application>
 
 </manifest>
