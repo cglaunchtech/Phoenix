@@ -22,18 +22,5 @@ interface NewsArticleDao {
 
     @Query("delete from articles")
     fun deleteAll()
-//
-//    @Query("SELECT * FROM articles where id like :articleId")
-//    fun findArticleWithId(articleId: Long): List<NewsArticle>
 
-//    @Query("select * from articles where title like :search")
-//    fun findArticlesbyTitle(search: String): List<NewsArticle>
-//
-//
-//    @Query("select * from articles where content like :search")
-//    fun findArticlesbykeywords(search: String): List<NewsArticle>
-//
-//
-//    @Query("select * from articles where upper(content) like '%' || upper(:searchText) || '%' ")
-//    fun search(searchText : String): LiveData<List<NewsArticle>>
 }

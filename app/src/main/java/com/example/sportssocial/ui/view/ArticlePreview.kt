@@ -1,8 +1,10 @@
 package com.example.sportssocial.ui.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sportssocial.R
@@ -20,7 +22,7 @@ class ArticlePreview : AppCompatActivity() {
         setContentView(R.layout.activity_article_preview)
 
         this.articleList.clear()
-        var viewModel =  ArticleViewModel(application)
+        var viewModel = ArticleViewModel(application)
         var listView: ListView = findViewById(R.id.list_view_article)
 
         viewModel.getAllArticles()
@@ -32,6 +34,20 @@ class ArticlePreview : AppCompatActivity() {
         articlePreviewAdapter = ArticlePreviewAdapter(this, articleList)
         listView.adapter = articlePreviewAdapter
 
+
+        var read_more: TextView = findViewById(R.id.read_more)
+
+        read_more.setOnClickListener {
+
+//            val newIntent = Intent(this, NewsArticleWebView::class.java)
+//            newIntent.putExtra("articleId", articleList.first().Id)
+//
+//            startActivity(newIntent)
+        }
+
+
+
+
     }
 
     private fun getArticles(articleList: List<NewsArticle>) {
@@ -39,6 +55,7 @@ class ArticlePreview : AppCompatActivity() {
         this.articleList.addAll(articleList)
         articlePreviewAdapter.notifyDataSetChanged()
     }
+
 
 
 }

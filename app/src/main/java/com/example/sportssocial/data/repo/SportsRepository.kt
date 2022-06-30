@@ -68,7 +68,6 @@ class SportsRepository (context: Context) {
         return newsArticleMutableLiveData
     }
 
-    // Gets recipes from Room DB and returns LiveData<List<Recipe>>
 
     fun upsertArticle(article: NewsArticle) {
         newsArticleDao?.upsertArticle(article)
@@ -79,6 +78,10 @@ class SportsRepository (context: Context) {
         return newsArticleDao?.getAllArticles()
     }
 
+    fun getArticlesbyId(articleId: Int): LiveData<NewsArticle>? {
+        return newsArticleDao?.getArticlesbyId(articleId)
+    }
+
     fun deleteArticle(article: NewsArticle) {
         newsArticleDao?.deleteArticle(article)
     }
@@ -87,24 +90,8 @@ class SportsRepository (context: Context) {
         newsArticleDao?.deleteAll()
     }
 
-//    fun findArticleWithId(articleId: Long): List<NewsArticle>? {
-//        return newsArticleDao?.findArticleWithId(articleId)
-//    }
 
-//    fun findArticlesbyTitle(search: String): List<NewsArticle> {
-//
-//        return newsArticleDao?.findArticlesbyTitle(search)!!
-//    }
-//
-//    fun findArticlesbyKeyword(search: String): List<NewsArticle> {
-//
-//        return newsArticleDao?.findArticlesbykeywords(search)!!
-//    }
-//
-//    fun searchArticles(searchText: String): LiveData<List<NewsArticle>>? {
-//        return newsArticleDao?.search(searchText)
-//
-//    }
+
 }
 
 

@@ -26,11 +26,6 @@ class ArticleViewModel(app: Application) : AndroidViewModel(app) {
         repo.getAllArticles()
     }
 
-    fun getArticlebyId(id:Int) = viewModelScope.launch {
-
-        repo.getArticlesbyId(id)
-    }
-
     fun upsertArticle(article: NewsArticle) = viewModelScope.launch {
         repo.upsertArticle(article)
     }
@@ -50,18 +45,9 @@ class ArticleViewModel(app: Application) : AndroidViewModel(app) {
         )
     }
 
-//    fun findArticleWithId(articleId: Long): List<NewsArticle>? {
-//        return repo.findArticleWithId(articleId)
-//    }
-//
-//        fun findArticlebyTitle(search: String): List<NewsArticle> {
-//
-//            return repo.findArticlesbyTitle(search)
-//        }
-//
-//        fun findArticlebyKeyword(search: String): List<NewsArticle> {
-//
-//            return repo.findArticlesbyKeyword(search)
-//        }
-//    }
+    fun getArticlesbyId(articleId:Int) = viewModelScope.launch {
+       repo.getArticlesbyId(articleId)
+
+    }
+
 }
