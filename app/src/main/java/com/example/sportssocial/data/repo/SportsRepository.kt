@@ -15,6 +15,7 @@ import com.example.sportssocial.data.model.db.entities.NewsArticle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class SportsRepository (context: Context) {
     var db: AthleteDao? = AppDatabase.getInstance(context)?.athleteDao()
@@ -105,6 +106,7 @@ class SportsRepository (context: Context) {
 //        return newsArticleDao?.search(searchText)
 //
 //    }
+
 }
 
 
