@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             btnToRegister.setOnClickListener{
-                val intent = Intent(this, RegistrationForm::class.java)
+                val intent = Intent(this, SignUp::class.java)
                 startActivity(intent)
             }
 

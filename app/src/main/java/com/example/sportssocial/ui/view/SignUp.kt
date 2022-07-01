@@ -29,11 +29,11 @@ import timber.log.Timber
 import java.lang.Exception
 
 
-class RegistrationForm : AppCompatActivity() {
+class SignUp : AppCompatActivity() {
 
-      lateinit var auth : FirebaseAuth
-      var databaseReference : DatabaseReference? =null
-      var database : FirebaseDatabase? = null
+    lateinit var auth : FirebaseAuth
+    var databaseReference : DatabaseReference? =null
+    var database : FirebaseDatabase? = null
 
     lateinit var firstNameField : TextInputEditText
     lateinit var lastNameField : TextInputEditText
@@ -142,7 +142,7 @@ class RegistrationForm : AppCompatActivity() {
                         finish()
                     }else {
                         Log.d("AppDatabase","AAA else 1")
-                        val builder = AlertDialog.Builder(this@RegistrationForm)
+                        val builder = AlertDialog.Builder(this)
                         builder.setMessage("User Already Exists. Login with a different Email and Password or Register with another Email Address")
                         builder.setCancelable(true)
                         builder.setNegativeButton("OK", DialogInterface.OnClickListener
@@ -158,7 +158,7 @@ class RegistrationForm : AppCompatActivity() {
         try {
             //Firebase.firestore.collection("users").add(Athlete(....)).await()
             FIRESTORE.add(Athlete(
-                    Id = null,
+                    id = null,
                     uid =  auth.uid,
                     username = usernameField.text.toString(),
                     profilePhoto = null,
@@ -166,13 +166,13 @@ class RegistrationForm : AppCompatActivity() {
                     last = lastNameField.text.toString(),
                     city = cityField.text.toString(),
                     state = stateField.text.toString(),
-                    DOB = birthdayField.text.toString(),
+                    dob = birthdayField.text.toString(),
                     aboutMe = aboutMeField.text.toString(),
                     sport1 = sportsSelection.text.toString(),
                     sport2 = sportsSelection.text.toString(),
-//                    photoCollection = mutableListOf(),
-//                    highlightVideos = mutableListOf(),
-//                    following = mutableListOf(),
+                    photoCollection = mutableListOf(),
+                    highlightVideos = mutableListOf(),
+                    following = mutableListOf(),
                 )).await()
 
         }catch (e: Exception){

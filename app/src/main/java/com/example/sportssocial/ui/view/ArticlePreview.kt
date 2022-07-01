@@ -3,6 +3,7 @@ package com.example.sportssocial.ui.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,7 +35,14 @@ class ArticlePreview : AppCompatActivity() {
         articlePreviewAdapter = ArticlePreviewAdapter(this, articleList)
         listView.adapter = articlePreviewAdapter
 
-        var readMore: TextView? = findViewById(R.id.read_more)
+    }
+
+    private fun getArticles(articleList: List<NewsArticle>) {
+        this.articleList.clear()
+        this.articleList.addAll(articleList)
+        articlePreviewAdapter.notifyDataSetChanged()
+
+        var readMore: Button? = findViewById(R.id.read_more)
 
         readMore?.setOnClickListener {
 
@@ -43,11 +51,5 @@ class ArticlePreview : AppCompatActivity() {
 
             startActivity(newIntent)
         }
-    }
-
-    private fun getArticles(articleList: List<NewsArticle>) {
-        this.articleList.clear()
-        this.articleList.addAll(articleList)
-        articlePreviewAdapter.notifyDataSetChanged()
     }
 }
