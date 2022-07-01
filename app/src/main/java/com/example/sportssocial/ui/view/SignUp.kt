@@ -55,8 +55,8 @@ class SignUp : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_layout)
 
-        firstNameField = findViewById(R.id.firstName)
-        lastNameField  = findViewById(R.id.lastName)
+        firstNameField = findViewById(R.id.text_view_fname)
+        lastNameField  = findViewById(R.id.text_view_lname)
         usernameField = findViewById(R.id.usernameField)
         emailField  = findViewById(R.id.emailField)
         passwordField = findViewById(R.id.passwordField)
