@@ -26,7 +26,7 @@ class ArticleThumbnailAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflate a view and return it
         var viewInflater = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_card_layout, parent, false)
+            .inflate(R.layout.sports_news_card, parent, false)
 
         return ViewHolder(viewInflater, onCardClick)
     }
@@ -55,9 +55,9 @@ class ArticleThumbnailAdapter(
             itemView.setOnClickListener(this)
         }
 
-        var title: TextView = view.findViewById(R.id.item_title)
-        var source: TextView = view.findViewById(R.id.item_tag)
-        var imageView: ImageView = view.findViewById(R.id.image_view)
+        var title: TextView = view.findViewById(R.id.text_view_title)
+        var source: TextView = view.findViewById(R.id.text_view_source)
+        var imageView: ImageView = view.findViewById(R.id.img_url)
 
         override fun onClick(v: View?) {
            val position = absoluteAdapterPosition

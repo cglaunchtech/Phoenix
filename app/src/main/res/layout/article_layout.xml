@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,9 +47,8 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <TextView
-        android:id="@+id/newsHeadline"
+        android:id="@+id/text_view_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/home_scrollview_margin"
@@ -61,27 +59,37 @@
         app:layout_constraintTop_toBottomOf="@id/constraintLayout" />
 
     <TextView
-        android:id="@+id/newsAuthor"
+        android:id="@+id/text_view_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/home_scrollview_margin"
         android:text="@string/author"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newsHeadline" />
+        app:layout_constraintTop_toBottomOf="@id/text_view_title" />
 
     <TextView
-        android:id="@+id/newsSource"
+        android:id="@+id/text_view_source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/home_scrollview_margin"
         android:text="@string/news_source"
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newsAuthor" />
+        app:layout_constraintTop_toBottomOf="@id/text_view_author" />
+
+    <TextView
+        android:id="@+id/text_view_published_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/home_scrollview_margin"
+        android:text="@string/published_at"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_source" />
 
     <ImageView
-        android:id="@+id/newsImage"
+        android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_margin="@dimen/home_scrollview_margin"
@@ -90,10 +98,10 @@
         android:src="@drawable/card_gradient"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newsAuthor" />
+        app:layout_constraintTop_toBottomOf="@id/text_view_published_date" />
 
     <TextView
-        android:id="@+id/newsDescription"
+        android:id="@+id/text_view_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/home_scrollview_margin"
@@ -101,10 +109,10 @@
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newsImage" />
+        app:layout_constraintTop_toBottomOf="@id/image_view" />
 
     <TextView
-        android:id="@+id/newsContent"
+        android:id="@+id/text_view_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/home_scrollview_margin"
@@ -113,27 +121,27 @@
         android:textSize="@dimen/login_btn_text"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newsDescription" />
+        app:layout_constraintTop_toBottomOf="@id/text_view_description" />
 
     <TextView
-        android:id="@+id/newslink"
+        android:id="@+id/text_view_read_more"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/home_scrollview_margin"
         android:text="@string/link"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newsContent" />
+        app:layout_constraintTop_toBottomOf="@id/text_view_content" />
 
     <TextView
-        android:id="@+id/article_url"
+        android:id="@+id/text_view_article_url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/home_scrollview_margin"
         android:text="@string/article_url"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newslink" />
+        app:layout_constraintTop_toBottomOf="@id/text_view_read_more" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
