@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.NewsArticle
+import timber.log.Timber
 import java.lang.Exception
 
 class ArticleThumbnailAdapter(
@@ -39,8 +40,7 @@ class ArticleThumbnailAdapter(
         try {
             Glide.with(context).load(article.urlToImage).into(holder.imageView)
         } catch (e: Exception) {
-
-            //TODO: Timber log null pointer exception for article image
+            Timber.e("ArticleThumbnailAdapter: Line 43. Exception: $e")
         }
     }
 
