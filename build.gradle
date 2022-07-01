@@ -10,7 +10,7 @@ buildscript {
     dependencies {
         // Add the Crashlytics Gradle plugin
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.0'
-        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.google.gms:google-services:4.3.13'
         //Hilt
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
         classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3'
