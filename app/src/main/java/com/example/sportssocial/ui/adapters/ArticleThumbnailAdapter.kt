@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.NewsArticle
+import timber.log.Timber
 import java.lang.Exception
 
 class ArticleThumbnailAdapter(
@@ -25,7 +26,7 @@ class ArticleThumbnailAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflate a view and return it
         var viewInflater = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_card_layout, parent, false)
+            .inflate(R.layout.sports_news_card, parent, false)
 
         return ViewHolder(viewInflater, onCardClick)
     }
@@ -39,7 +40,7 @@ class ArticleThumbnailAdapter(
         try {
             Glide.with(context).load(article.urlToImage).into(holder.imageView)
         } catch (e: Exception) {
-            //TODO: Timber log null pointer exception for article image
+            Timber.e("ArticleThumbnailAdapter: Line 43. Exception: $e")
         }
     }
 
@@ -54,12 +55,12 @@ class ArticleThumbnailAdapter(
             itemView.setOnClickListener(this)
         }
 
-        var title: TextView = view.findViewById(R.id.item_title)
-        var source: TextView = view.findViewById(R.id.item_tag)
-        var imageView: ImageView = view.findViewById(R.id.image_view)
+        var title: TextView = view.findViewById(R.id.text_view_title)
+        var source: TextView = view.findViewById(R.id.text_view_source)
+        var imageView: ImageView = view.findViewById(R.id.img_url)
 
         override fun onClick(v: View?) {
-            val position = absoluteAdapterPosition
+           val position = absoluteAdapterPosition
             onCardClick(position)
         }
     }

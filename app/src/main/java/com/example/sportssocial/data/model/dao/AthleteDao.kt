@@ -23,7 +23,7 @@ interface AthleteDao {
     @Query("delete from athletes")
     fun deleteAll()
 
-    @Query("select * from athletes where Id like :search")
+    @Query("select * from athletes where id like :search")
     fun findAthletebyId(search: String): List<Athlete>
 
 

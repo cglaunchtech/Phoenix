@@ -1,7 +1,76 @@
 <resources>
+
+
+    <string name="first_name">First</string>
+    <string name="last_name">Last</string>
+    <string name="category_header">Header</string>
+    <string name="sign_in">Log In</string>
+    <string name="sign_up">Create an Account</string>
+    <string name="register">Not Registered Yet?</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="baseball">Baseball</string>
+    <string name="basketball">Basketball</string>
+    <string name="football">Football</string>
+    <string name="soccer">Soccer</string>
+    <string name="hockey">Hockey</string>
+    <string name="lacrosse">Lacrosse</string>
+    <string name="tennis">Tennis</string>
+    <string name="wrestling">Wrestling</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="save_password">Save Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="view">Just Viewing?</string>
+    <string name="username">Username</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="dob">DOB</string>
+    <string name="about_me">About Me</string>
+    <string name="sports">Sports</string>
+    <string name="news_title">Title</string>
+    <string name="news_source">News Source</string>
+    <string name="athletes">Featured Athletes</string>
+    <string name="teams">Featured Teams</string>
+    <string name="trainers">Featured Trainers</string>
+    <string name="sports_news">Sports News</string>
+    <string name="events">Events</string>
+    <string name="watch_me">Highlights</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
+    <string name="author">Author</string>
+    <string name="link">Read More link</string>
+    <string name="description">Description</string>
+    <string name="article_url">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+
+
+    <!--sports spinner-->
+    <string-array name="sports_array">
+        <item>Baseball</item>
+        <item>Basketball</item>
+        <item>Football</item>
+        <item>Soccer</item>
+        <item>Hockey</item>
+        <item>Lacrosse</item>
+        <item>Tennis</item>
+        <item>Wrestling</item>
+    </string-array>
+
+    <!--    roles spinner-->
+    <string-array name="roles_array">
+        <item>Athlete</item>
+        <item>Organization</item>
+        <item>Trainer</item>
+    </string-array>
+
+
     <string name="app_name">SportsSocial</string>
     <string name="placeholder">PLACEHOLDER</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Integer eu ante posuere, pharetra quam ac, vestibulum lectus.
         Aliquam malesuada semper nisi vitae porta. Sed sodales iaculis nisi sed sodales.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="published_at">Published date</string>
 </resources>

@@ -1,215 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScrollView
+
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="24dp"
-    android:paddingBottom="60dp">
+
+    >
+
     <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/home_scrollview_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/homeHamburgerMenu"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            app:layout_constraintTop_toTopOf="parent"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profilePicture"
+            android:layout_width="@dimen/profile_img"
+            android:layout_height="@dimen/profile_img"
+            android:elevation="@dimen/card_elevation"
+            android:src="@drawable/ic_baseline_photo_camera_24"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:src="@drawable/ic_baseline_menu_24" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/profile_pic_circle" />
 
         <ImageView
-            android:id="@+id/homeNotifications"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/searchNotifications"
+            android:layout_width="@dimen/notification_size"
+            android:layout_height="@dimen/notification_size"
+            android:src="@drawable/ic_baseline_notifications_24"
             app:layout_constraintRight_toRightOf="parent"
-            android:src="@drawable/ic_baseline_notifications_24" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/homeLabel"
+            android:id="@+id/searchLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="24dp"
-            android:text="@string/placeholder"
-            android:textSize="20dp"
-            android:textAlignment="center"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="@id/homeHamburgerMenu"
-            app:layout_constraintRight_toRightOf="@id/homeNotifications" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/baseballButton"
-            android:textSize="8dp"
-            android:text="@string/placeholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/borderless_grey_bubble"
-            app:layout_constraintTop_toBottomOf="@id/homeLabel"
-            app:layout_constraintLeft_toLeftOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/basketballButton"
-            android:textSize="8dp"
-            android:text="@string/placeholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/borderless_grey_bubble"
-            app:layout_constraintTop_toBottomOf="@id/homeLabel"
-            app:layout_constraintLeft_toRightOf="@id/baseballButton" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/footballButton"
-            android:textSize="8dp"
-            android:text="@string/placeholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/borderless_grey_bubble"
-            app:layout_constraintTop_toBottomOf="@id/homeLabel"
-            app:layout_constraintLeft_toRightOf="@id/basketballButton" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/soccerButton"
-            android:textSize="8dp"
-            android:text="@string/placeholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/borderless_grey_bubble"
-            app:layout_constraintTop_toBottomOf="@id/homeLabel"
-            app:layout_constraintLeft_toRightOf="@id/footballButton" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/hockeyButton"
-            android:textSize="8dp"
-            android:text="@string/placeholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/borderless_grey_bubble"
-            app:layout_constraintTop_toBottomOf="@id/baseballButton"
-            app:layout_constraintLeft_toLeftOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/lacrosseButton"
-            android:textSize="8dp"
-            android:text="@string/placeholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/borderless_grey_bubble"
-            app:layout_constraintTop_toBottomOf="@id/baseballButton"
-            app:layout_constraintLeft_toRightOf="@id/hockeyButton" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/tennisButton"
-            android:textSize="8dp"
-            android:text="@string/placeholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/borderless_grey_bubble"
-            app:layout_constraintTop_toBottomOf="@id/baseballButton"
-            app:layout_constraintLeft_toRightOf="@id/lacrosseButton" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/wrestlingButton"
-            android:textSize="8dp"
-            android:text="@string/placeholder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/borderless_grey_bubble"
-            app:layout_constraintTop_toBottomOf="@id/baseballButton"
-            app:layout_constraintLeft_toRightOf="@id/tennisButton" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/reelsRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@id/hockeyButton"/>
-
-        <TextView
-            android:id="@+id/athletesLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/placeholder"
-            app:layout_constraintTop_toBottomOf="@id/reelsRecyclerView"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/athletesRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/athletesLabel"/>
-
-        <TextView
-            android:id="@+id/teamsLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/placeholder"
-            app:layout_constraintTop_toBottomOf="@id/athletesRecyclerView"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/teamsRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/teamsLabel"/>
-
-        <TextView
-            android:id="@+id/trainersLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/placeholder"
-            app:layout_constraintTop_toBottomOf="@id/teamsRecyclerView"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/trainersRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/trainersLabel"/>
-
-        <TextView
-            android:id="@+id/newsLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/placeholder"
-            app:layout_constraintTop_toBottomOf="@id/trainersRecyclerView"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/newsRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/newsLabel"/>
-        <TextView
-            android:id="@+id/upcomingLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/placeholder"
-            app:layout_constraintTop_toBottomOf="@id/newsRecyclerView"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/upcomingRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/upcomingLabel"/>
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textSize="@dimen/profile_title_text"
+            app:layout_constraintLeft_toLeftOf="@id/profilePicture"
+            app:layout_constraintRight_toRightOf="@id/searchNotifications"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/home_scrollview_margin"
+            android:layout_marginTop="@dimen/home_scrollview_margin"
+            android:layout_marginRight="@dimen/home_scrollview_margin"
+            app:layout_constraintTop_toBottomOf="@id/constraintLayout">
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/baseballButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/light_grey_bubble"
+                android:text="@string/baseball"
+                android:textSize="@dimen/home_btn_text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/basketballButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/light_grey_bubble"
+                android:text="@string/basketball"
+                android:textSize="@dimen/home_btn_text"
+                app:layout_constraintLeft_toRightOf="@id/baseballButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/footballButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/light_grey_bubble"
+                android:text="@string/football"
+                android:textSize="@dimen/home_btn_text"
+                app:layout_constraintLeft_toRightOf="@id/basketballButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/soccerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/light_grey_bubble"
+                android:text="@string/soccer"
+                android:textSize="@dimen/home_btn_text"
+                app:layout_constraintLeft_toRightOf="@id/footballButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/hockeyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/light_grey_bubble"
+                android:text="@string/hockey"
+                android:textSize="@dimen/home_btn_text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/baseballButton" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/lacrosseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/light_grey_bubble"
+                android:text="@string/lacrosse"
+                android:textSize="@dimen/home_btn_text"
+                app:layout_constraintLeft_toRightOf="@id/hockeyButton"
+                app:layout_constraintTop_toBottomOf="@id/baseballButton" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/tennisButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/light_grey_bubble"
+                android:text="@string/tennis"
+                android:textSize="@dimen/home_btn_text"
+                app:layout_constraintLeft_toRightOf="@id/lacrosseButton"
+                app:layout_constraintTop_toBottomOf="@id/baseballButton" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/wrestlingButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/light_grey_bubble"
+                android:text="@string/wrestling"
+                android:textSize="@dimen/home_btn_text"
+                app:layout_constraintLeft_toRightOf="@id/tennisButton"
+                app:layout_constraintTop_toBottomOf="@id/baseballButton" />
+
+            <TextView
+                android:id="@+id/newsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/home_margin_top"
+                android:text="@string/sports_news"
+                android:textSize="@dimen/home_label_text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hockeyButton" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/newsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/newsLabel"
+                tools:itemCount="1"
+                tools:listitem="@layout/sports_news_card" />
+
+            <TextView
+                android:id="@+id/athletesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/home_margin_top"
+                android:text="@string/athletes"
+                android:textSize="@dimen/home_label_text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/newsRecyclerView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/athletesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/athletesLabel"
+                tools:itemCount="1"
+                tools:listitem="@layout/home_screen_card" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+android:id="@+id/constraintLayout2"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent">
+
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bottomNavigationView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black"
+    app:itemIconTint="@color/dark_grey"
+    app:labelVisibilityMode="unlabeled"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:menu="@menu/menu_main" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

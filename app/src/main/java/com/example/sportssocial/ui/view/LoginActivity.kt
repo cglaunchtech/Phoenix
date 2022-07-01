@@ -12,7 +12,6 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.example.sportssocial.MainActivity
 import com.example.sportssocial.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -20,8 +19,9 @@ import com.google.firebase.auth.FirebaseAuth
 class LoginActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
     lateinit var signInButton: Button
+    lateinit var signUpButton: Button
 
-    // lateinit var cancel_btn : Button
+
     lateinit var forgotLogin: TextView
     lateinit var loginEmailField: TextInputEditText
     lateinit var loginPasswordField: TextInputEditText
@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.login_layout)
 
         signInButton = findViewById(R.id.signInButton)
-        //  cancel_btn = findViewById(R.id.cancel_btn)
+        signUpButton = findViewById(R.id.signUpButton)
         forgotLogin = findViewById(R.id.forgotLogin)
         loginEmailField = findViewById(R.id.loginEmailField)
         loginPasswordField = findViewById(R.id.loginPasswordField)
@@ -78,6 +78,11 @@ class LoginActivity : AppCompatActivity() {
 
         login()
 
+
+        signUpButton.setOnClickListener {
+            val myIntent = Intent(this, SignUp::class.java)
+            startActivity(myIntent)
+        }
     }
 
     private fun login() {

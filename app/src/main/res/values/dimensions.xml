@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="notification_size">30dp</dimen>
+    <dimen name="profile_img">30dp</dimen>
+    <dimen name="profile_title_padding">24dp</dimen>
+    <dimen name="profile_title_text">20sp</dimen>
+    <dimen name="layout_margin">24dp</dimen>
+    <dimen name="layout_padding">60dp</dimen>
+
+<!--    buttons-->
+    <dimen name="login_btn_text">16sp</dimen>
+    <dimen name="login_btn_width">150dp</dimen>
+    <dimen name="login_btn_padding">16dp</dimen>
+
+    <dimen name="signup_btn_padding">16dp</dimen>
+    <dimen name="signup_btn_margin_top">36dp</dimen>
+    <dimen name="signup_btn_margin_bottom">20dp</dimen>
+    <dimen name="signup_btn_text">16sp</dimen>
+
+    <dimen name="home_btn_text">8sp</dimen>
+
+<!--    login page-->
+    <dimen name="login_constraint_margin">24dp</dimen>
+    <dimen name="login_img_size">200dp</dimen>
+    <dimen name="login_margin">36dp</dimen>
+    <dimen name="login_margin_top">24dp</dimen>
+    <dimen name="login_small_text">12sp</dimen>
+    <dimen name="card_elevation">6dp</dimen>
+    <dimen name="input_padding">20dp</dimen>
+    <dimen name="login_text_margin_top">10dp</dimen>
+    <dimen name="login_view_padding">100dp</dimen>
+
+<!--    signup page-->
+    <dimen name="signup_img_size">100dp</dimen>
+    <dimen name="signup_img_margin">100dp</dimen>
+    <dimen name="signup_label_margin">24dp</dimen>
+    <dimen name="signup_label_text">14sp</dimen>
+    <dimen name="signup_margin">36dp</dimen>
+    <dimen name="signup_margin_top">18dp</dimen>
+
+
+<!--   homepage -->
+    <dimen name="home_scrollview_margin">24dp</dimen>
+    <dimen name="home_scrollview_padding">60dp</dimen>
+    <dimen name="home_title_padding">24dp</dimen>
+    <dimen name="home_title_text">20sp</dimen>
+    <dimen name="home_margin_top">24dp</dimen>
+    <dimen name="home_label_text">18sp</dimen>
+
+<!--    search fragment-->
+    <dimen name="search_margin">24dp</dimen>
+
+<!--    profile fragment-->
+    <dimen name="profile_large_text">16sp</dimen>
+    <dimen name="profile_medium_text">16sp</dimen>
+    <dimen name="profile_small_text">12sp</dimen>
+    <dimen name="profile_margin">24dp</dimen>
+    <dimen name="profile_margin_left">5dp</dimen>
+    <dimen name="edit_image">15dp</dimen>
+    <dimen name="edit_icon_margin">8dp</dimen>
+
+
+
+<!--    profile page img/video cards-->
+    <dimen name="profile_img_height">400dp</dimen>
+    <dimen name="profile_favorites_icon">50dp</dimen>
+    <dimen name="profile_favorites_margin">20dp</dimen>
+    <dimen name="profile_text_padding">60dp</dimen>
+    <dimen name="profile_text_margin">30dp</dimen>
+
+<!--    cards-->
+    <dimen name="carousel_card_height">225dp</dimen>
+    <dimen name="card_margin">16dp</dimen>
+    <dimen name="card_radius">20dp</dimen>
+    <dimen name="highlight_reel_margin_top">24dp</dimen>
+    <dimen name="home_recycler_card_width">150dp</dimen>
+    <dimen name="home_recycler_card_height">225dp</dimen>
+
+    <dimen name="img_card_width">100dp</dimen>
+    <dimen name="img_card_height">125dp</dimen>
+
+    <dimen name="img_large_card_width">250dp</dimen>
+    <dimen name="img_large_card_height">350dp</dimen>
+
+    <dimen name="card_name_margin">5dp</dimen>
+
+
+
+
+
+
+</resources>
