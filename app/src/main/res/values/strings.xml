@@ -5,7 +5,8 @@
     <string name="last_name">Last</string>
     <string name="category_header">Header</string>
     <string name="sign_in">Log In</string>
-    <string name="sign_up">Sign Up</string>
+    <string name="sign_up">Create an Account</string>
+    <string name="register">Not Registered Yet?</string>
     <string name="submit">Submit</string>
     <string name="cancel">Cancel</string>
     <string name="baseball">Baseball</string>
@@ -18,6 +19,7 @@
     <string name="wrestling">Wrestling</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
     <string name="save_password">Save Password</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="view">Just Viewing?</string>
@@ -27,7 +29,8 @@
     <string name="dob">DOB</string>
     <string name="about_me">About Me</string>
     <string name="sports">Sports</string>
-    <string name="title">My Role</string>
+    <string name="news_title">Title</string>
+    <string name="news_source">News Source</string>
     <string name="athletes">Featured Athletes</string>
     <string name="teams">Featured Teams</string>
     <string name="trainers">Featured Trainers</string>
@@ -36,6 +39,10 @@
     <string name="watch_me">Highlights</string>
     <string name="edit">Edit</string>
     <string name="save">Save</string>
+    <string name="author">Author</string>
+    <string name="link">Read More link</string>
+    <string name="description">Description</string>
+    <string name="article_url">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
 
 
     <!--sports spinner-->
@@ -63,18 +70,7 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Integer eu ante posuere, pharetra quam ac, vestibulum lectus.
         Aliquam malesuada semper nisi vitae porta. Sed sodales iaculis nisi sed sodales.</string>
-    <string name="update_profile_photo">Update Profile Photo</string>
-    <string name="update_username">Update Username</string>
-    <string name="email_address">Email Address</string>
-    <string name="update_password">Update Password</string>
-    <string name="update_email_address">Update Email Address</string>
-    <string name="update_city">Update City</string>
-    <string name="update_state">Update State</string>
-    <string name="update_birthday">Update Birthday</string>
-    <string name="update_about_me_section">Update About Me Section</string>
-    <string name="update_sport_selection">Update Sport Selection</string>
-    <string name="update_secondary_sport_selection">Update Secondary Sport Selection</string>
-    <string name="update_title">Update Title</string>
-    <string name="update_secondary_title">Update Secondary Title</string>
-    <string name="update_profile_information">Update Profile Information</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="published_at">Published date</string>
 </resources>
