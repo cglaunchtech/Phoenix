@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.sportssocial.R
 
 import com.example.sportssocial.data.model.db.entities.NewsArticle
+import timber.log.Timber
 import java.lang.Exception
 
 class ArticlePreviewAdapter(val context: Context, var articleList: ArrayList<NewsArticle>): BaseAdapter() {
@@ -45,27 +46,25 @@ class ArticlePreviewAdapter(val context: Context, var articleList: ArrayList<New
         holder.description = view.findViewById(R.id.description_text)
         holder.articleText = view.findViewById(R.id.article_text)
         holder.articleUrl = view.findViewById(R.id.article_url)
-//
-//        view.tag = holder
-//
+
         val article = getItem(position) as NewsArticle
         try {
             Glide.with(context).load(article.urlToImage).into(holder.imageView)
         } catch (e: Exception) {
-            //TODO: Timber log null pointer exception for article image
+            Timber.e("ArticlePreviewAdapter: Line 56. Exception: $e")
         }
         holder.apply {
             try {
             source.text = article.source
                 } catch (e: Exception){
                     source.text = ""
-                //TODO: Tiber log null pointer exception for author
+                Timber.e("ArticlePreviewAdapter: Line 64. Exception: $e")
                 }
             try {
                 author.text = article.author
             } catch (e: Exception){
                 author.text = ""
-                //TODO: Tiber log null pointer exception for author
+                Timber.e("ArticlePreviewAdapter: Line 69. Exception: $e")
             }
             title.text = article.title
             publishedAt.text = article.publishedAt
