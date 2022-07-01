@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.sportssocial.data.api.TopHeadlinesPojo
 import com.example.sportssocial.data.model.db.entities.NewsArticle
-import com.example.sportssocial.data.repo.AthleteRepository
 import com.example.sportssocial.data.repo.NewsArticleRepository
 import kotlinx.coroutines.launch
 
@@ -47,12 +46,15 @@ class ArticleViewModel(app: Application) : AndroidViewModel(app) {
         currArticle.value?.let { current ->
 
             current.id = repo.getArticlesbyId(id!!)?.value?.id
+
+            val article: LiveData<NewsArticle> = Transformations.switchMap(currArticle) { article ->
+                repo.getArticlesbyId(article.id!!)
+            }
         }
     }
 
-    val article: LiveData<NewsArticle> = Transformations.switchMap(currArticle) { article ->
-        repo.getArticlesbyId(article.id!!)
-    }
+
+
 }
 
 
