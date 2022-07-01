@@ -2,7 +2,6 @@ package com.example.sportssocial.data.model.db
 
 import androidx.room.TypeConverter
 import com.example.sportssocial.data.api.Source
-import com.example.sportssocial.data.model.db.entities.Athlete
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

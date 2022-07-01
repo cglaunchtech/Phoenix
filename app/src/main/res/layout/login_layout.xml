@@ -14,7 +14,6 @@
     android:layout_height="wrap_content"
     >
 
-
     <ImageView
         android:id="@+id/landing_image"
         android:layout_width="@dimen/login_img_size"

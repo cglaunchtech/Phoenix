@@ -8,8 +8,8 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        var TAG = "tag"
-        var PRIORITY = "priority"
+        val TAG = "tag"
+        val PRIORITY = "priority"
 
         //if (BuildConfig.DEBUG) {
             Timber.plant(object : Timber.DebugTree() {

@@ -12,6 +12,7 @@ import com.example.sportssocial.data.model.db.entities.NewsArticle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class NewsArticleRepository (context: Context){
 
@@ -30,9 +31,9 @@ class NewsArticleRepository (context: Context){
 
             if(response.isSuccessful) {
                 newsArticleMutableLiveData.postValue(response.body())
-                Log.d("Retrofit Response", "Successful")
+                Timber.d("Retrofit Response: Successful")
             } else {
-                Log.d("Retrofit Response", "unsuccessful: NewsArticleRepository: Line 30")
+                Timber.d("Retrofit Response: Unsuccessful: NewsArticleRepository: Line 30")
             }
         }
         return newsArticleMutableLiveData
@@ -44,7 +45,6 @@ class NewsArticleRepository (context: Context){
     }
 
     fun getAllArticles(): LiveData<List<NewsArticle>>? {
-
         return newsArticleDao?.getAllArticles()
     }
 
