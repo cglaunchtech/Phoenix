@@ -10,7 +10,7 @@ import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.model.dao.NewsArticleDao
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 
-@Database(entities = [Athlete::class, NewsArticle::class], version = 3, exportSchema = false)
+@Database(entities = [Athlete::class, NewsArticle::class], version = 7, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun athleteDao(): AthleteDao
@@ -26,7 +26,9 @@ abstract class AppDatabase: RoomDatabase() {
                         context.applicationContext,
                         AppDatabase::class.java, "app_database.db"
                     )
-                        .allowMainThreadQueries().build()
+                        .allowMainThreadQueries()
+                        .fallbackToDestructiveMigration()
+                        .build()
                 }
             }
             return INSTANCE

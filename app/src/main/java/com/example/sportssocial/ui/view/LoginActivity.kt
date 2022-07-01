@@ -33,8 +33,8 @@ class LoginActivity : AppCompatActivity() {
         signInButton = findViewById(R.id.signInButton)
         signUpButton = findViewById(R.id.signUpButton)
         forgotLogin = findViewById(R.id.forgotLogin)
-        loginEmailField = findViewById(R.id.loginEmailField1)
-        loginPasswordField = findViewById(R.id.loginPasswordField1)
+        loginEmailField = findViewById(R.id.loginEmailField)
+        loginPasswordField = findViewById(R.id.loginPasswordField)
 
         auth = FirebaseAuth.getInstance()
 
@@ -80,7 +80,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         signUpButton.setOnClickListener {
-            val myIntent = Intent(this, RegistrationForm::class.java)
+            val myIntent = Intent(this, SignUp::class.java)
             startActivity(myIntent)
         }
     }
