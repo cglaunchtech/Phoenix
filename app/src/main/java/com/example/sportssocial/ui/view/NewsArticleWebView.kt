@@ -27,20 +27,13 @@ class NewsArticleWebView : AppCompatActivity() {
 
             val newIntent = Intent(this, ArticlePreview::class.java)
             startActivity(newIntent)
-        }
-
-        fun onCardclick(position: Int) {
-            println("position:::$position")
-
-            val myIntent = Intent(this, NewsArticleWebView::class.java)
-            startActivity(myIntent)
 
         }
 
         vm.getArticlebyId(intent.getIntExtra("articleId", 0))
-        vm.currArticle.observe(this, {
+        vm.currArticle.observe(this) {
             setWebviewUrl(it.url)
-        } )
+        }
 
         webView.webViewClient = WebViewClient()
 

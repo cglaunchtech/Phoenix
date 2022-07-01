@@ -21,7 +21,6 @@ class ArticlePreview : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article_preview)
 
-
         this.articleList.clear()
         var viewModel = ArticleViewModel(application)
         var listView: ListView = findViewById(R.id.list_view_article)
@@ -40,7 +39,7 @@ class ArticlePreview : AppCompatActivity() {
         readMore?.setOnClickListener {
 
             val newIntent = Intent(this, NewsArticleWebView::class.java)
-           // newIntent.putExtra("articleId", articleList.first().id)
+            newIntent.putExtra("articleId", articleList.first().id)
 
             startActivity(newIntent)
         }

@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.AutoCompleteTextView
 import android.widget.Button
-import com.example.sportssocial.MainActivity
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.repo.AthleteRepository

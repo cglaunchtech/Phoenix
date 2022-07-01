@@ -19,8 +19,8 @@ data class Athlete(
     @ColumnInfo(name = "aboutMe") var aboutMe: String?,
     @ColumnInfo(name = "sport1") var sport1: String?,
     @ColumnInfo(name = "sport2") var sport2: String?,
-    @ColumnInfo(name = "photoCollection") var photoCollection: List<String?>,
-    @ColumnInfo(name = "highlightVideos") var highlightVideos: List<String?>,
-    @ColumnInfo(name = "following") var following: List<String?>,
+    @ColumnInfo(name = "photoCollection") var photoCollection: List<String?>?,
+    @ColumnInfo(name = "highlightVideos") var highlightVideos: List<String?>?,
+    @ColumnInfo(name = "following") var following: List<String?>?,
 )
 
