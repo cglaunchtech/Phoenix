@@ -5,13 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ListView
-import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.adapters.ArticlePreviewAdapter
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.kotlin.subscribeBy
+import io.reactivex.rxjava3.schedulers.Schedulers
+import timber.log.Timber
 
 class ArticlePreview : AppCompatActivity() {
 
@@ -27,10 +29,20 @@ class ArticlePreview : AppCompatActivity() {
         var listView: ListView = findViewById(R.id.list_view_article)
 
         viewModel.getAllArticles()
-        viewModel.allArticles?.observe(this) { articleList ->
-            getArticles(articleList)
-            articlePreviewAdapter.setItems(articleList)
-        }
+
+        viewModel.allArticles
+            ?.subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.subscribeBy(
+                onNext = {
+                    getArticles(it)
+                },
+                onComplete = {
+                    articlePreviewAdapter.setItems(articleList)
+                },
+                onError = {e -> Timber.e(e)}
+            )
+
 
         articlePreviewAdapter = ArticlePreviewAdapter(this, articleList)
         listView.adapter = articlePreviewAdapter

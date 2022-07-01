@@ -8,6 +8,10 @@ import android.webkit.WebViewClient
 import android.widget.Button
 import com.example.sportssocial.R
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.kotlin.subscribeBy
+import io.reactivex.rxjava3.schedulers.Schedulers
+import timber.log.Timber
 
 class NewsArticleWebView : AppCompatActivity() {
     lateinit var vm: ArticleViewModel
@@ -31,9 +35,14 @@ class NewsArticleWebView : AppCompatActivity() {
         }
 
         vm.getArticlebyId(intent.getIntExtra("articleId", 0))
-        vm.currArticle.observe(this) {
-            setWebviewUrl(it.url)
-        }
+            ?.subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.subscribeBy(
+                onNext = {
+                    setWebviewUrl((it.url))
+                },
+                onError = {e -> Timber.e(e) }
+            )
 
         webView.webViewClient = WebViewClient()
 
