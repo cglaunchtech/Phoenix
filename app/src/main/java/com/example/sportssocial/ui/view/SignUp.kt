@@ -16,6 +16,9 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
@@ -131,26 +134,25 @@ class SignUp : AppCompatActivity() {
             println("Please complete all fields")
 
             auth.createUserWithEmailAndPassword(emailField.text.toString(),passwordField.text.toString())
-                .addOnCompleteListener(this, OnCompleteListener{ task ->
-                    if(task.isSuccessful){
-                        Log.d("AppDatabase","AAA to 1")
-                        Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
-                        firestoreAthleteInit()
-                        val intent = Intent(this, LoginActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }else {
-                        Log.d("AppDatabase","AAA else 1")
-                        val builder = AlertDialog.Builder(this)
-                        builder.setMessage("User Already Exists. Login with a different Email and Password or Register with another Email Address")
-                        builder.setCancelable(true)
-                        builder.setNegativeButton("OK", DialogInterface.OnClickListener
+                .addOnSuccessListener {
+                    Log.d("AppDatabase","AAA to 1")
+                    Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
+                    firestoreAthleteInit()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                .addOnFailureListener {
+                    Log.d("AppDatabase","AAA else 1")
+                    val builder = AlertDialog.Builder(this)
+                    builder.setMessage(it.message)
+                    builder.setCancelable(true)
+                    builder.setNegativeButton("OK", DialogInterface.OnClickListener
                         { dialog, which -> dialog.cancel() })
                         val alertDialog: AlertDialog = builder.create()
                         alertDialog.show()
                         Toast.makeText(this, "Registration Failed; Please Try Again", Toast.LENGTH_LONG).show()
-                    }
-                })
+                }
         }
     }
     private fun firestoreAthleteInit() = CoroutineScope(Dispatchers.IO).launch{
