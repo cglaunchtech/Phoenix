@@ -1,13 +1,11 @@
 package com.example.sportssocial.ui.view
 
-import android.app.PendingIntent.getActivity
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -23,7 +21,8 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.signup_layout.*
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -158,7 +157,7 @@ class SignUp : AppCompatActivity() {
     }
     private fun firestoreAthleteInit() = CoroutineScope(Dispatchers.IO).launch{
         try {
-            //Firebase.firestore.collection("users").add(Athlete(....)).await()
+            Firebase.firestore.collection("users")
             FIRESTORE.add(Athlete(
                     id = null,
                     uid =  auth.uid,

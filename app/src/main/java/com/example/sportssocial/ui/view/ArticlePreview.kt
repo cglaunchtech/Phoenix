@@ -54,7 +54,7 @@ class ArticlePreview : AppCompatActivity() {
         this.articleList.addAll(articleList)
         articlePreviewAdapter.notifyDataSetChanged()
 
-        var readMore: Button? = findViewById(R.id.read_more)
+        var readMore: Button? = findViewById(R.id.text_view_read_more)
 
         readMore?.setOnClickListener {
 
