@@ -1,16 +1,16 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/article_card"
+    android:id="@+id/home_card"
     android:layout_width="match_parent"
     android:layout_height="@dimen/home_recycler_card_height"
     app:cardCornerRadius="@dimen/card_radius"
     app:cardElevation="@dimen/card_elevation"
+    android:layout_margin="@dimen/card_margin"
     >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/list_view_article"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
@@ -19,6 +19,7 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:background="@drawable/card_gradient" />
 
         <ImageView
@@ -38,25 +39,27 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                android:id="@+id/article_title"
+                android:id="@+id/newsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="@string/news_title"
                 android:textColor="@color/white"
+
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
-                android:id="@+id/article_source"
+                android:id="@+id/newsSource"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/news_source"
                 android:textColor="@color/white"
+
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/article_title" />
+                app:layout_constraintTop_toBottomOf="@id/newsTitle"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

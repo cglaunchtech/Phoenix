@@ -4,6 +4,7 @@ import android.content.Intent
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.view.ArticlePreview
@@ -15,10 +16,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-
+    lateinit var splash: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
 
         var viewModel = ArticleViewModel(application)
@@ -42,7 +44,11 @@ class MainActivity : AppCompatActivity() {
                 viewModel.upsertArticle(article)
             }
 
-
+            splash = findViewById(R.id.splash)
+            splash.setOnClickListener {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
             btn_test_news_preview.setOnClickListener {
                 val intent = Intent(this, ArticlePreview::class.java)
                 startActivity(intent)
