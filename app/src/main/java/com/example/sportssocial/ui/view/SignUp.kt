@@ -40,7 +40,7 @@ class SignUp : AppCompatActivity() {
     lateinit var usernameField : TextInputEditText
     lateinit var emailField : TextInputEditText
     lateinit var passwordField : TextInputEditText
-    //lateinit var confirmPassword: TextInputEditText
+    lateinit var confirmPassword: TextInputEditText
     lateinit var cityField : TextInputEditText
     lateinit var stateField : TextInputEditText
     lateinit var birthdayField : TextInputEditText
@@ -108,9 +108,9 @@ class SignUp : AppCompatActivity() {
             }else if (TextUtils.isEmpty( passwordField.text.toString())){
                 passwordField.setError("Please Enter Password")
                 return@setOnClickListener
-//            }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
-//                confirmPassword.setError("Please Confirm Password")
-//                return@setOnClickListener
+            }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
+                confirmPassword.setError("Please Confirm Password")
+                return@setOnClickListener
 
             }else if (TextUtils.isEmpty( cityField.text.toString())){
                 cityField.setError("Please Enter Your City")
