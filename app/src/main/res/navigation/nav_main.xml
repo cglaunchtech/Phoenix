@@ -3,13 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/fragmentFollowing">
 
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.sportssociallayouts.ui.navigation.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/highlightReelsFragment"
         android:name="com.example.sportssociallayouts.ui.navigation.HighlightReelsFragment"
@@ -26,8 +21,7 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/eventsFragment"
-        android:name="com.example.sportssociallayouts.ui.navigation.EventsFragment"
-        android:label="fragment_events"
-        tools:layout="@layout/fragment_events" />
+        android:id="@+id/fragmentFollowing"
+        android:name="com.example.sportssociallayouts.ui.navigation.FragmentFollowing"
+        android:label="FragmentFollowing" />
 </navigation>
