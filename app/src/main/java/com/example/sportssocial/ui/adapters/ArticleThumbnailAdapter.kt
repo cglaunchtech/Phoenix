@@ -31,12 +31,14 @@ class ArticleThumbnailAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val article = articleList[position]
-        holder.source.text = article.source
-        holder.title.text = article.title
+
+        holder.apply {
+            source.text = articleList[position].source
+            title.text = articleList[position].title
+        }
 
         try {
-            Glide.with(context).load(article.urlToImage).into(holder.imageView)
+            Glide.with(context).load(articleList[position].urlToImage).into(holder.imageView)
         } catch (e: Exception) {
             Timber.e("ArticleThumbnailAdapter: Line 43. Exception: $e")
         }
