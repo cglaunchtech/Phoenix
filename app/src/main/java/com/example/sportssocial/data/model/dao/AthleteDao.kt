@@ -1,8 +1,10 @@
 package com.example.sportssocial.data.model.dao
 
+
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.sportssocial.data.model.db.entities.Athlete
+import io.reactivex.rxjava3.core.Observable
 
 @Dao
 interface AthleteDao {
@@ -11,7 +13,7 @@ interface AthleteDao {
     fun insertAthlete(athletes: Athlete)
 
     @Query("select * from athletes")
-    fun selectAthlete(): LiveData<List<Athlete>>
+    fun selectAthlete(): Observable<List<Athlete>>
 
     @Update
     fun updateAthlete(athletes: Athlete)
@@ -23,7 +25,7 @@ interface AthleteDao {
     @Query("delete from athletes")
     fun deleteAll()
 
-    @Query("select * from athletes where Id like :search")
+    @Query("select * from athletes where id like :search")
     fun findAthletebyId(search: String): List<Athlete>
 
 
@@ -31,5 +33,5 @@ interface AthleteDao {
     fun findAthletesbyUsername(search: String): List<Athlete>
 
     @Query("select * from athletes where upper(username) like '%' || upper(:searchText) || '%' ")
-    fun search(searchText : String): LiveData<List<Athlete>>
+    fun search(searchText : String): Observable<List<Athlete>>
 }

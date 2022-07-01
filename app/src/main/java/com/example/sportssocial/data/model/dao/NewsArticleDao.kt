@@ -3,6 +3,7 @@ package com.example.sportssocial.data.model.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.sportssocial.data.model.db.entities.NewsArticle
+import io.reactivex.rxjava3.core.Observable
 
 
 @Dao
@@ -12,25 +13,15 @@ interface NewsArticleDao {
     fun upsertArticle(article: NewsArticle)
 
     @Query("SELECT * FROM articles")
-    fun getAllArticles(): LiveData<List<NewsArticle>>
+    fun getAllArticles(): Observable<List<NewsArticle>>
+
+    @Query("SELECT * FROM articles where id = :id")
+    fun getArticlesbyId (id: Int): Observable<NewsArticle>?
 
     @Delete
     fun deleteArticle(article: NewsArticle)
 
     @Query("delete from articles")
     fun deleteAll()
-//
-//    @Query("SELECT * FROM articles where id like :articleId")
-//    fun findArticleWithId(articleId: Long): List<NewsArticle>
 
-//    @Query("select * from articles where title like :search")
-//    fun findArticlesbyTitle(search: String): List<NewsArticle>
-//
-//
-//    @Query("select * from articles where content like :search")
-//    fun findArticlesbykeywords(search: String): List<NewsArticle>
-//
-//
-//    @Query("select * from articles where upper(content) like '%' || upper(:searchText) || '%' ")
-//    fun search(searchText : String): LiveData<List<NewsArticle>>
 }
