@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-//import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 import java.lang.Exception
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             btnToRegister.setOnClickListener{
-                val intent = Intent(this, SignUp::class.java)
+                val intent = Intent(this, RegistrationForm::class.java)
                 startActivity(intent)
             }
 

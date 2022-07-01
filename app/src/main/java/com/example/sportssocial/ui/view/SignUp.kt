@@ -20,8 +20,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.signup_layout.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,7 +29,7 @@ import timber.log.Timber
 import java.lang.Exception
 
 
-class SignUp : AppCompatActivity() {
+class RegistrationForm : AppCompatActivity() {
 
       lateinit var auth : FirebaseAuth
       var databaseReference : DatabaseReference? =null
@@ -89,7 +87,6 @@ class SignUp : AppCompatActivity() {
 
     }
     private fun register(){
-
         submitButton.setOnClickListener {
 
             if(TextUtils.isEmpty( firstNameField.text.toString())){
@@ -145,7 +142,7 @@ class SignUp : AppCompatActivity() {
                         finish()
                     }else {
                         Log.d("AppDatabase","AAA else 1")
-                        val builder = AlertDialog.Builder(this)
+                        val builder = AlertDialog.Builder(this@RegistrationForm)
                         builder.setMessage("User Already Exists. Login with a different Email and Password or Register with another Email Address")
                         builder.setCancelable(true)
                         builder.setNegativeButton("OK", DialogInterface.OnClickListener
@@ -159,9 +156,9 @@ class SignUp : AppCompatActivity() {
     }
     private fun firestoreAthleteInit() = CoroutineScope(Dispatchers.IO).launch{
         try {
-            //Firebase.firestore.collection("users").add(Athlete(....))).await()
+            //Firebase.firestore.collection("users").add(Athlete(....)).await()
             FIRESTORE.add(Athlete(
-                    id = null,
+                    Id = null,
                     uid =  auth.uid,
                     username = usernameField.text.toString(),
                     profilePhoto = null,
@@ -169,14 +166,14 @@ class SignUp : AppCompatActivity() {
                     last = lastNameField.text.toString(),
                     city = cityField.text.toString(),
                     state = stateField.text.toString(),
-                    dob = birthdayField.text.toString(),
+                    DOB = birthdayField.text.toString(),
                     aboutMe = aboutMeField.text.toString(),
                     sport1 = sportsSelection.text.toString(),
                     sport2 = sportsSelection.text.toString(),
-                    photoCollection = null,
-                    highlightVideos = null,
-                    following = null
-            )).await()
+//                    photoCollection = mutableListOf(),
+//                    highlightVideos = mutableListOf(),
+//                    following = mutableListOf(),
+                )).await()
 
         }catch (e: Exception){
             Timber.e(e)
