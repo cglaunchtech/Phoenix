@@ -25,6 +25,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:menu="@menu/menu_main" />
+        app:menu="@menu/menu_main"
+        android:background="@drawable/bg_rounded"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginBottom="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

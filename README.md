@@ -14,13 +14,14 @@ Technologies Used
 - Firebase Crashlytics
 - Room DB
 - Retrofit
+- Timber
 
 Features
 -
 
 <p align="center">
 <img src="/rm-imgs/muphoss.png" width=356 height=719> 
-<img src="/rm-imgs/placeholder.gif" width=356 height=719>
+<img src="/rm-imgs/higherres.gif" width=356 height=719>
 </p>
 
 

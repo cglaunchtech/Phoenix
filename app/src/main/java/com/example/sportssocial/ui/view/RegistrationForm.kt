@@ -16,6 +16,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import timber.log.Timber
 
 
 class RegistrationForm : AppCompatActivity() {
@@ -45,21 +46,25 @@ class RegistrationForm : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_layout)
 
-        firstNameField = findViewById(R.id.firstName1)
-        lastNameField  = findViewById(R.id.lastName1)
-        usernameField = findViewById(R.id.usernameField1)
-        emailField  = findViewById(R.id.emailField1)
-        passwordField = findViewById(R.id.passwordField1)
-        //confirmPassword = findViewById(R.id.confirmPassword)
-        cityField = findViewById(R.id.cityField1)
-        stateField = findViewById(R.id.stateField1)
-        birthdayField = findViewById(R.id.birthdayField1)
-        aboutMeField = findViewById(R.id.aboutMeField1)
-        sportsSelection = findViewById(R.id.sportsAutocomplete)
-        sportsSelectionTwo = findViewById(R.id.sportsAutocompleteSecond)
+        try{
+            firstNameField = findViewById(R.id.firstName1)
+            lastNameField  = findViewById(R.id.lastName1)
+            //usernameField = findViewById(R.id.usernameField1)
+            emailField  = findViewById(R.id.emailField1)
+            passwordField = findViewById(R.id.passwordField1)
+            //confirmPassword = findViewById(R.id.confirmPassword)
+            cityField = findViewById(R.id.cityField1)
+            stateField = findViewById(R.id.stateField1)
+//            birthdayField = findViewById(R.id.birthdayField1)
+            aboutMeField = findViewById(R.id.aboutMeField1)
+            sportsSelection = findViewById(R.id.sportsAutocomplete)
+            sportsSelectionTwo = findViewById(R.id.sportsAutocompleteSecond)
 
-        submitButton = findViewById(R.id.submitButton)
-        cancelButton = findViewById(R.id.cancelButton)
+            submitButton = findViewById(R.id.submitButton)
+            cancelButton = findViewById(R.id.cancelButton)
+        } catch (e: Exception){
+            Timber.e(e)
+        }
 
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
@@ -76,58 +81,62 @@ class RegistrationForm : AppCompatActivity() {
     private fun register(){
         submitButton.setOnClickListener {
 
-            if(TextUtils.isEmpty( firstNameField.text.toString())){
-                firstNameField.setError("Please Enter First Name")
-                return@setOnClickListener
+            try {
+                if(TextUtils.isEmpty( firstNameField.text.toString())){
+                    firstNameField.setError("Please Enter First Name")
+                    return@setOnClickListener
 
-            }else if(TextUtils.isEmpty( lastNameField.text.toString())){
-                lastNameField.setError("Please Enter Last Name")
-                return@setOnClickListener
+                }else if(TextUtils.isEmpty( lastNameField.text.toString())){
+                    lastNameField.setError("Please Enter Last Name")
+                    return@setOnClickListener
 
-            }else if(TextUtils.isEmpty( usernameField.text.toString())){
-                usernameField.setError("Please Enter User Name")
-                return@setOnClickListener
+                }else if(TextUtils.isEmpty( usernameField.text.toString())){
+                    usernameField.setError("Please Enter User Name")
+                    return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( emailField.text.toString())){
-                emailField.setError("Please Enter Your Email Address")
-                return@setOnClickListener
+                }else if (TextUtils.isEmpty( emailField.text.toString())){
+                    emailField.setError("Please Enter Your Email Address")
+                    return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( passwordField.text.toString())){
-                passwordField.setError("Please Enter Password")
-                return@setOnClickListener
-            }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
-                confirmPassword.setError("Please Confirm Password")
-                return@setOnClickListener
+                }else if (TextUtils.isEmpty( passwordField.text.toString())){
+                    passwordField.setError("Please Enter Password")
+                    return@setOnClickListener
+                }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
+                    confirmPassword.setError("Please Confirm Password")
+                    return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( cityField.text.toString())){
-                cityField.setError("Please Enter Your City")
-                return@setOnClickListener
+                }else if (TextUtils.isEmpty( cityField.text.toString())){
+                    cityField.setError("Please Enter Your City")
+                    return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( stateField.text.toString())){
-                stateField.setError("Please Enter Your State of Residency")
-                return@setOnClickListener
+                }else if (TextUtils.isEmpty( stateField.text.toString())){
+                    stateField.setError("Please Enter Your State of Residency")
+                    return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( birthdayField.text.toString())){
-                birthdayField.setError("Please Enter Your Date of Birth")
-                return@setOnClickListener
+                }else if (TextUtils.isEmpty( birthdayField.text.toString())){
+                    birthdayField.setError("Please Enter Your Date of Birth")
+                    return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( sportsSelection.text.toString())){
-                sportsSelection.setError("Please Select at Least One Sport")
-                return@setOnClickListener
+                }else if (TextUtils.isEmpty( sportsSelection.text.toString())){
+                    sportsSelection.setError("Please Select at Least One Sport")
+                    return@setOnClickListener
 
+                }
+            } catch (e:Exception){
+                Timber.e(e)
             }
             println("Please complete all fields")
 
             auth.createUserWithEmailAndPassword(emailField.text.toString(),passwordField.text.toString())
                 .addOnCompleteListener(this, OnCompleteListener{ task ->
                     if(task.isSuccessful){
-                        Log.d("AppDatabase","AAA to 1")
+                        Timber.tag("AppDatabase").d("AAA to 1")
                         Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                         finish()
                     }else {
-                        Log.d("AppDatabase","AAA else 1")
+                        Timber.tag("AppDatabase").d("AAA else 1")
                         val builder = AlertDialog.Builder(this@RegistrationForm)
                         builder.setMessage("User Already Exists. Login with a different Email and Password or Register with another Email Address")
                         builder.setCancelable(true)
