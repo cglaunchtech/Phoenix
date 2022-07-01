@@ -53,7 +53,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.2'
-    implementation 'com.google.firebase:firebase-firestore:21.4.0'
+    implementation 'com.google.firebase:firebase-firestore:24.2.0'
 
     //Test
     testImplementation 'junit:junit:4.13.2'
