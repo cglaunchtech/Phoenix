@@ -63,4 +63,18 @@
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Integer eu ante posuere, pharetra quam ac, vestibulum lectus.
         Aliquam malesuada semper nisi vitae porta. Sed sodales iaculis nisi sed sodales.</string>
+    <string name="update_profile_photo">Update Profile Photo</string>
+    <string name="update_username">Update Username</string>
+    <string name="email_address">Email Address</string>
+    <string name="update_password">Update Password</string>
+    <string name="update_email_address">Update Email Address</string>
+    <string name="update_city">Update City</string>
+    <string name="update_state">Update State</string>
+    <string name="update_birthday">Update Birthday</string>
+    <string name="update_about_me_section">Update About Me Section</string>
+    <string name="update_sport_selection">Update Sport Selection</string>
+    <string name="update_secondary_sport_selection">Update Secondary Sport Selection</string>
+    <string name="update_title">Update Title</string>
+    <string name="update_secondary_title">Update Secondary Title</string>
+    <string name="update_profile_information">Update Profile Information</string>
 </resources>
