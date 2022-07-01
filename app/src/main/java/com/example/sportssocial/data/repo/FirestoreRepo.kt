@@ -1,21 +1,18 @@
 package com.example.sportssocial.data.repo
 
-import androidx.lifecycle.MutableLiveData
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.util.Constants.Companion.FIRESTORE
 import com.google.firebase.firestore.ktx.toObject
+import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
 import kotlin.Exception
 
-class FirestoneRepo {
-    var userList: MutableLiveData<List<Athlete>> //Observable
+class FirestoreRepo {
+
     lateinit var followingList : MutableList<Athlete>
 
-    init{
-        userList = MutableLiveData(getAllProfiles())
-    }
 
     fun newProfile(athlete: Athlete) = CoroutineScope(Dispatchers.IO).launch{
         try{
@@ -25,22 +22,22 @@ class FirestoneRepo {
         }
     }
 
-    private fun getAllProfiles(): MutableList<Athlete> {
-        val tempList = mutableListOf<Athlete>()
-        CoroutineScope(Dispatchers.IO).launch {
+    fun getAllProfiles(): Observable<List<Athlete>> {
+        val userList = mutableListOf<Athlete>()
+        runBlocking {
             try {
                 val querySnapshot = FIRESTORE.get().await()
 
                 for (document in querySnapshot.documents) {
                     val user = document.toObject<Athlete>()
-                    tempList.add(user!!)
+                    userList.add(user!!)
                 }
-                userList.postValue(tempList)
+
             } catch (e: Exception) {
                 Timber.e(e)
             }
         }
-        return tempList
+        return Observable.just(userList)
     }
 
      fun getProfileByUsername(following: List<String>) : MutableList<Athlete> {
