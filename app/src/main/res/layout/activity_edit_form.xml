@@ -86,22 +86,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/password"
-            android:layout_marginTop="@dimen/signup_margin_top"
-            android:layout_marginRight="@dimen/signup_margin"
-            android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/emailField">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passwordField1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cityField"
@@ -111,7 +95,7 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/passwordField">
+            app:layout_constraintTop_toBottomOf="@+id/emailField">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/cityField1"

@@ -60,7 +60,7 @@ class ArticleThumbnailAdapter(
         var imageView: ImageView = view.findViewById(R.id.image_view)
 
         override fun onClick(v: View?) {
-            val position = absoluteAdapterPosition
+           val position = absoluteAdapterPosition
             onCardClick(position)
         }
     }

@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         >
 
+
         <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/addProfilePicture"
                 android:layout_width="@dimen/signup_img_size"
@@ -22,6 +23,7 @@
                 app:shapeAppearanceOverlay="@style/profile_pic_circle"
                 android:src="@drawable/ic_baseline_photo_camera_24"
                 android:elevation="@dimen/card_elevation"/>
+
 
         <TextView
             android:id="@+id/pageLabel"
@@ -76,7 +78,9 @@
             app:layout_constraintTop_toBottomOf="@+id/lastNameLayout">
 
             <com.google.android.material.textfield.TextInputEditText
+
                 android:id="@+id/usernameField"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -95,6 +99,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailField"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -113,6 +118,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordField"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -139,24 +145,24 @@
             android:id="@+id/stateFieldlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:hint="@string/state"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
             app:layout_constraintTop_toBottomOf="@+id/cityFieldlayout">
 
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/stateField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/stateField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/birthdayFieldlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:hint="@string/dob"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
@@ -262,5 +268,7 @@
             app:layout_constraintTop_toBottomOf="@id/sportsSelectionTwo"
             app:layout_constraintLeft_toLeftOf="@id/submitButton"
             app:layout_constraintRight_toRightOf="parent"/>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
