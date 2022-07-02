@@ -23,13 +23,19 @@ class LoginFragment : Fragment() {
         val createUpButton : View = view.findViewById(R.id.signUpButton)
         val viewerButton : View = view.findViewById(R.id.viewerButton)
         val signUpButton : View = view.findViewById(R.id.signUpButton)
+        val passwordCheckbox : View = view.findViewById(R.id.passwordCheckbox)
 
         //Page Actions
         signInButton.setOnClickListener {
+            //TODO: ENSURE FORM IS FILLED
+            //TODO: AUTHENTICATE LOGIN
+            //TODO: CHECK CHECKBOX isCHECKED
             signInButton.findNavController().navigate(R.id.action_loginFragment_to_homepageFragment)
         }
 
         viewerButton.setOnClickListener {
+            //TODO: SET TOOLBAR TO HIDDEN IN HOMEPAGE FRAGMENT
+            //TODO: SET VIEWER MODE TO TRUE
             viewerButton.findNavController().navigate(R.id.action_loginFragment_to_homepageFragment)
         }
 
