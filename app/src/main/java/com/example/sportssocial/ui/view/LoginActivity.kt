@@ -12,19 +12,19 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatButton
 import com.example.sportssocial.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
-    lateinit var signInButton: Button
-    lateinit var signUpButton: Button
-
-
+    lateinit var signInButton: AppCompatButton
+    lateinit var signUpButton: TextView
     lateinit var forgotLogin: TextView
     lateinit var loginEmailField: TextInputEditText
     lateinit var loginPasswordField: TextInputEditText
+    lateinit var viewerButton: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +33,9 @@ class LoginActivity : AppCompatActivity() {
         signInButton = findViewById(R.id.signInButton)
         signUpButton = findViewById(R.id.signUpButton)
         forgotLogin = findViewById(R.id.forgotLogin)
-        loginEmailField = findViewById(R.id.loginEmailField)
-        loginPasswordField = findViewById(R.id.loginPasswordField)
+        loginEmailField = findViewById(R.id.loginEmailField1)
+        loginPasswordField = findViewById(R.id.loginPasswordField1)
+        viewerButton = findViewById(R.id.viewerButton)
 
         auth = FirebaseAuth.getInstance()
 
