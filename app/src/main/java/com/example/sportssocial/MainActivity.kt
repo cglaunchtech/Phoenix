@@ -15,7 +15,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var firestore = FirestoneRepo()
+
+        //instantiates firestore
+/*        var firestore = FirestoneRepo()
+
+        //starts manipulating viewmodel
         var viewModel = ArticleViewModel(application)
         viewModel.getNews(20, 1)
         viewModel.clearArticleCache()
@@ -35,27 +39,7 @@ class MainActivity : AppCompatActivity() {
                 )
                 viewModel.upsertArticle(article)
             }
-        }
+        }*/
 
-        btn_test_news_preview.setOnClickListener {
-            val intent = Intent(this, ArticlePreview::class.java)
-            startActivity(intent)
-        }
-
-        btn_test_recycler_view.setOnClickListener {
-            val intent = Intent(this, RecyclerView::class.java)
-            startActivity(intent)
-        }
-
-        btnToRegister.setOnClickListener {
-            val intent = Intent(this, SignUp::class.java)
-            startActivity(intent)
-        }
-
-        btnToPull.setOnClickListener {
-            firestore.userList.observe(this) {
-                testUser.text = it.toString()
-            }
-        }
     }
 }

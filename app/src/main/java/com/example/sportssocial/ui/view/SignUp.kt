@@ -53,7 +53,7 @@ class SignUp : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.signup_layout)
+        setContentView(R.layout.fragment_sign_up)
 
         firstNameField = findViewById(R.id.firstName)
         lastNameField  = findViewById(R.id.lastName)
