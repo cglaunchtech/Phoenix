@@ -129,12 +129,9 @@ class LoginActivity : AppCompatActivity() {
                         val alertDialog: AlertDialog = builder.create()
                         alertDialog.show()
                         Toast.makeText(this, "Login failed, please try again!", Toast.LENGTH_SHORT)
-                    }
-                }
-
-        }
-        // cancel_btn.setOnClickListener {
-        // startActivity(Intent(this, LandingPage::class.java))
+               }
+           }
+       }
     }
 
     private fun fieldValidationError(): String {
