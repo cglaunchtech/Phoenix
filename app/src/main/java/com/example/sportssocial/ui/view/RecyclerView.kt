@@ -12,10 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class RecyclerView : AppCompatActivity() {
 
-    val viewModel : ArticleViewModel by viewModels()
     var articleList = ArrayList<NewsArticle>()
     lateinit var articleThumbnailAdapter: ArticleThumbnailAdapter
 
@@ -24,7 +22,7 @@ class RecyclerView : AppCompatActivity() {
         setContentView(R.layout.activity_recycler_view)
 
         this.articleList.clear()
-        //var viewModel = ArticleViewModel(application)
+        var viewModel = ArticleViewModel(application)
         var recyclerView: RecyclerView = findViewById(R.id.recycler_view)
 
         viewModel.getAllArticles()
