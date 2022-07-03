@@ -12,6 +12,7 @@ import com.example.sportssocial.data.model.dao.AthleteDao
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.model.dao.NewsArticleDao
 import com.example.sportssocial.data.model.db.entities.NewsArticle
+import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,7 +20,7 @@ import kotlinx.coroutines.launch
 class AthleteRepository (context: Context) {
     var db: AthleteDao? = AppDatabase.getInstance(context)?.athleteDao()
 
-    fun getAllAthletes(): LiveData<List<Athlete>>? {
+    fun getAllAthletes(): Observable<List<Athlete>>? {
 
         return db?.selectAthlete()
     }
@@ -42,7 +43,7 @@ class AthleteRepository (context: Context) {
         return db?.findAthletesbyUsername(search)!!
     }
 
-    fun searchAthletes(searchText: String): LiveData<List<Athlete>>? {
+    fun searchAthletes(searchText: String): Observable<List<Athlete>>? {
         return db?.search(searchText)
     }
 }
