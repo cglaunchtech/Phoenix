@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -17,6 +18,7 @@ import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.ui.view.camera.ProfilePhotoCapture
 import com.example.sportssocial.util.Constants.Companion.FIRESTORE
+import com.example.sportssocial.util.Constants.Companion.STORAGE
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
@@ -29,12 +31,16 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
 import java.lang.Exception
+import java.util.*
+
 
 
 class SignUp : AppCompatActivity() {
@@ -42,6 +48,7 @@ class SignUp : AppCompatActivity() {
     lateinit var auth : FirebaseAuth
     var databaseReference : DatabaseReference? =null
     var database : FirebaseDatabase? = null
+    var profilePicUrl : String? = null
 
     lateinit var addProfilepic: ShapeableImageView
     lateinit var firstNameField : TextInputEditText
@@ -98,9 +105,9 @@ class SignUp : AppCompatActivity() {
 
             var bytes: ByteArray = Base64.decode(profilePhotostr, Base64.DEFAULT);
             // Initialize bitmap
-            var bitmap: Bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size);
+            var bitmap: Bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
             // set bitmap on imageView
-            profilePhoto.setImageBitmap(bitmap);
+            profilePhoto.setImageBitmap(bitmap)
         }
         cancelButton.setOnClickListener {
             val myIntent = Intent(this, MainActivity::class.java)
@@ -163,7 +170,8 @@ class SignUp : AppCompatActivity() {
                 .addOnSuccessListener {
                     Log.d("AppDatabase","AAA to 1")
                     Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
-                    firestoreAthleteInit()
+                    uploadToFirebase()
+
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -181,14 +189,15 @@ class SignUp : AppCompatActivity() {
                 }
         }
     }
+
     private fun firestoreAthleteInit() = CoroutineScope(Dispatchers.IO).launch{
         try {
-            Firebase.firestore.collection("users")
+
             FIRESTORE.add(Athlete(
                     id = null,
                     uid =  auth.uid,
                     username = usernameField.text.toString(),
-                    profilePhoto = null,
+                    profilePhoto = profilePicUrl,
                     first = firstNameField.text.toString(),
                     last = lastNameField.text.toString(),
                     city = cityField.text.toString(),
@@ -201,10 +210,35 @@ class SignUp : AppCompatActivity() {
                     highlightVideos = mutableListOf(),
                     following = mutableListOf(),
                 )).await()
+            Log.d("Firestore", "Successfully added user to db")
 
         }catch (e: Exception){
             Timber.e(e)
         }
+    }
+    private fun uploadToFirebase() = CoroutineScope(Dispatchers.IO).launch{
+        val filename = UUID.randomUUID().toString()
+        val ref = STORAGE.getReference("images/$filename")
+        val uri = intent.getParcelableExtra<Uri>("profilePhotoUri")
+            try {
+
+                if (uri != null) {
+                    ref.putFile(uri)
+                        .addOnSuccessListener {
+                            Log.d("Firestore", "Successfully uploaded photo to firestore")
+                            ref.downloadUrl.addOnCompleteListener {
+                                profilePicUrl = it.result.toString()
+                                Log.d("Firestore", "Successfully got url from firestore")
+                                firestoreAthleteInit()
+                            }
+                        }
+                        .addOnFailureListener {
+                            Timber.d("Failed to upload image")
+                        }
+                }
+            } catch (e: Exception) {
+                Timber.e(e)
+            }
     }
 }
 
