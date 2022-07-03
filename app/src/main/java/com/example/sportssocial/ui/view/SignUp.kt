@@ -171,7 +171,6 @@ class SignUp : AppCompatActivity() {
                     Log.d("AppDatabase","AAA to 1")
                     Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
                     uploadToFirebase()
-
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -228,14 +227,17 @@ class SignUp : AppCompatActivity() {
                             Log.d("Firestore", "Successfully uploaded photo to firestore")
                             ref.downloadUrl.addOnCompleteListener {
                                 profilePicUrl = it.result.toString()
-                                Log.d("Firestore", "Successfully got url from firestore")
                                 firestoreAthleteInit()
                             }
                         }
                         .addOnFailureListener {
-                            Timber.d("Failed to upload image")
+                            Timber.e("Failed to upload image: $it")
+                            firestoreAthleteInit()
                         }
+                }else{
+                    firestoreAthleteInit()
                 }
+
             } catch (e: Exception) {
                 Timber.e(e)
             }
