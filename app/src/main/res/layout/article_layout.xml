@@ -4,16 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/home_scrollview_margin"
+    tools:context=".ui.view.ArticlePreview"
+    android:id="@+id/article"
     >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/home_scrollview_margin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profilePicture"
@@ -21,6 +17,7 @@
             android:layout_height="@dimen/profile_img"
             android:elevation="@dimen/card_elevation"
             android:src="@drawable/ic_baseline_photo_camera_24"
+
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/profile_pic_circle" />
@@ -45,24 +42,24 @@
             app:layout_constraintLeft_toLeftOf="@id/profilePicture"
             app:layout_constraintRight_toRightOf="@id/searchNotifications"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <TextView
         android:id="@+id/text_view_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/home_scrollview_margin"
+
         android:layout_marginTop="@dimen/home_scrollview_margin"
         android:text="@string/news_title"
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@id/profilePicture" />
 
     <TextView
         android:id="@+id/text_view_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/home_scrollview_margin"
+
         android:text="@string/author"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -72,7 +69,7 @@
         android:id="@+id/text_view_source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/home_scrollview_margin"
+
         android:text="@string/news_source"
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -82,7 +79,7 @@
         android:id="@+id/text_view_published_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/home_scrollview_margin"
+
         android:text="@string/published_at"
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -92,7 +89,7 @@
         android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:layout_margin="@dimen/home_scrollview_margin"
+        android:layout_marginTop="@dimen/home_scrollview_margin"
 
         android:scaleType="centerCrop"
         android:src="@drawable/card_gradient"
@@ -104,7 +101,7 @@
         android:id="@+id/text_view_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/home_scrollview_margin"
+        android:layout_marginTop="@dimen/home_scrollview_margin"
         android:text="@string/description"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -115,8 +112,7 @@
         android:id="@+id/text_view_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/home_scrollview_margin"
-        android:layout_marginRight="@dimen/home_scrollview_margin"
+
         android:text="@string/lorem_ipsum"
         android:textSize="@dimen/login_btn_text"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -127,7 +123,7 @@
         android:id="@+id/text_view_read_more"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/home_scrollview_margin"
+        android:layout_marginTop="@dimen/home_scrollview_margin"
         android:text="@string/link"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -137,31 +133,11 @@
         android:id="@+id/text_view_article_url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/home_scrollview_margin"
+
         android:text="@string/article_url"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_view_read_more" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/black"
-            app:itemIconTint="@color/dark_grey"
-            app:labelVisibilityMode="unlabeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/menu_main" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,13 @@
     tools:context=".ui.view.MainActivity">
 
     <Button
+        android:id="@+id/cgtest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cg"
+        />
+
+    <Button
         android:id="@+id/btn_test_news_preview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

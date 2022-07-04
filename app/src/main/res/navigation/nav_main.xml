@@ -3,25 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/fragmentFollowing">
-
-    <fragment
-        android:id="@+id/highlightReelsFragment"
-        android:name="com.example.sportssociallayouts.ui.navigation.HighlightReelsFragment"
-        android:label="fragment_highlight_reels"
-        tools:layout="@layout/fragment_highlight_reels" />
+    app:startDestination="@id/searchFragment"
+    >
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.sportssociallayouts.ui.navigation.SearchFragment"
+        android:name="com.example.sportssocial.ui.navigation.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
+        android:id="@+id/highlightReelsFragment"
+        android:name="com.example.sportssocial.ui.navigation.HighlightReelsFragment"
+        android:label="fragment_highlight_reels"
+        tools:layout="@layout/fragment_highlight_reels" />
+    <activity
+        android:id="@+id/homepage"
+        android:name="com.example.sportssocial.ui.navigation.Homepage"
+        android:label="Homepage"
+        tools:layout="@layout/activity_homepage"/>
+    <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.sportssociallayouts.ui.navigation.ProfileFragment"
+        android:name="com.example.sportssocial.ui.navigation.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/fragmentFollowing"
-        android:name="com.example.sportssociallayouts.ui.navigation.FragmentFollowing"
-        android:label="FragmentFollowing" />
+        android:name="com.example.sportssocial.ui.navigation.FragmentFollowing"
+        android:label="FragmentFollowing"
+        tools:layout="@layout/fragment_following"/>
+
 </navigation>

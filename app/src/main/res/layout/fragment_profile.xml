@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/home_scrollview_margin"
+    android:id="@+id/profilefragment"
+    tools:context="ui.navigation.ProfileFragment"
     >
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/home_scrollview_margin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profilePicture"
@@ -47,154 +45,124 @@
             app:layout_constraintLeft_toLeftOf="@id/profilePicture"
             app:layout_constraintRight_toRightOf="@id/searchNotifications"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/home_scrollview_margin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraintLayout">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/profileFirstName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/first_name"
-            android:textSize="@dimen/profile_large_text"
-            android:layout_marginTop="@dimen/profile_margin"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/constraintLayout"
-            tools:ignore="NotSibling" />
-
-        <TextView
-            android:id="@+id/profileLastName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/last_name"
-            android:textSize="@dimen/profile_large_text"
-            android:layout_marginTop="@dimen/profile_margin"
-            android:layout_marginLeft="@dimen/profile_margin_left"
-            app:layout_constraintLeft_toRightOf="@id/profileFirstName"
-            app:layout_constraintTop_toBottomOf="@id/constraintLayout"
-            tools:ignore="NotSibling" />
-
-        <TextView
-            android:id="@+id/profileAge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="00"
-            android:textSize="@dimen/profile_large_text"
-            android:layout_marginTop="@dimen/profile_margin"
-            android:layout_marginLeft="@dimen/profile_margin"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/constraintLayout"
-            tools:ignore="NotSibling" />
-
-        <TextView
-            android:id="@+id/profileUsername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/username"
-            android:textSize="@dimen/profile_small_text"
-            app:layout_constraintTop_toBottomOf="@id/profileFirstName"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-        <TextView
-            android:id="@+id/profileLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/city"
-            android:textSize="@dimen/profile_small_text"
-            android:layout_marginLeft="@dimen/profile_margin"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profileAge"/>
-
-        <TextView
-            android:id="@+id/profileAboutLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/about_me"
-            android:layout_marginTop="@dimen/profile_margin"
-            android:textSize="@dimen/profile_large_text"
-            app:layout_constraintTop_toBottomOf="@id/profileUsername"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-        <ImageButton
-            android:id="@+id/edit_icon"
-            android:layout_width="@dimen/edit_image"
-            android:layout_height="@dimen/edit_image"
-            android:layout_marginRight="@dimen/edit_icon_margin"
-            android:src="@drawable/ic_baseline_edit_24"
-
-            app:layout_constraintBottom_toTopOf="@+id/profileAboutText"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <TextView
-            android:id="@+id/profileAboutText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/lorem_ipsum"
-            android:textSize="@dimen/profile_medium_text"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profileAboutLabel"/>
-
-        <TextView
-            android:id="@+id/profileWatchMe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/watch_me"
-            android:layout_marginTop="@dimen/profile_margin"
-            android:textSize="@dimen/profile_large_text"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profileAboutText"/>
 
 
-        <ImageButton
-            android:id="@+id/add_icon"
-            android:layout_width="@dimen/edit_image"
-            android:layout_height="@dimen/edit_image"
-            android:layout_marginRight="@dimen/edit_icon_margin"
-            android:src="@drawable/ic_baseline_add_24"
 
-            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-            app:layout_constraintRight_toRightOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/profileWatchMe"
-            tools:ignore="MissingConstraints"
-            tools:itemCount="4"
-            tools:listitem="@layout/image_card" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/profileFirstName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/first_name"
+                android:textSize="@dimen/profile_large_text"
+                android:layout_marginTop="@dimen/profile_margin"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profilePicture"
+                tools:ignore="NotSibling" />
 
-</ScrollView>
-<androidx.constraintlayout.widget.ConstraintLayout
-android:id="@+id/constraintLayout2"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-app:layout_constraintBottom_toBottomOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintEnd_toEndOf="parent">
+            <TextView
+                android:id="@+id/profileLastName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/last_name"
+                android:textSize="@dimen/profile_large_text"
+                android:layout_marginTop="@dimen/profile_margin"
+                android:layout_marginLeft="@dimen/profile_margin_left"
+                app:layout_constraintLeft_toRightOf="@id/profileFirstName"
+                app:layout_constraintTop_toBottomOf="@id/profilePicture"
+                tools:ignore="NotSibling" />
 
-<com.google.android.material.bottomnavigation.BottomNavigationView
-    android:id="@+id/bottomNavigationView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/black"
-    app:itemIconTint="@color/dark_grey"
-    app:labelVisibilityMode="unlabeled"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:menu="@menu/menu_main" />
+            <TextView
+                android:id="@+id/profileAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textSize="@dimen/profile_large_text"
+                android:layout_marginTop="@dimen/profile_margin"
+                android:layout_marginLeft="@dimen/profile_margin"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/searchNotifications"
+                tools:ignore="NotSibling" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/profileUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/username"
+                android:textSize="@dimen/profile_small_text"
+                app:layout_constraintTop_toBottomOf="@id/profileFirstName"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/profileLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/city"
+                android:textSize="@dimen/profile_small_text"
+                android:layout_marginLeft="@dimen/profile_margin"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profileAge"/>
+
+            <TextView
+                android:id="@+id/profileAboutLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_me"
+                android:layout_marginTop="@dimen/profile_margin"
+                android:textSize="@dimen/profile_large_text"
+                app:layout_constraintTop_toBottomOf="@id/profileUsername"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <ImageButton
+                android:id="@+id/edit_icon"
+                android:layout_width="@dimen/edit_image"
+                android:layout_height="@dimen/edit_image"
+                android:layout_marginRight="@dimen/edit_icon_margin"
+                android:src="@drawable/ic_baseline_edit_24"
+
+                app:layout_constraintBottom_toTopOf="@+id/profileAboutText"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <TextView
+                android:id="@+id/profileAboutText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lorem_ipsum"
+                android:textSize="@dimen/profile_medium_text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profileAboutLabel"/>
+
+            <TextView
+                android:id="@+id/profileWatchMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/watch_me"
+                android:layout_marginTop="@dimen/profile_margin"
+                android:textSize="@dimen/profile_large_text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profileAboutText"/>
+
+
+            <ImageButton
+                android:id="@+id/add_icon"
+                android:layout_width="@dimen/edit_image"
+                android:layout_height="@dimen/edit_image"
+                android:layout_marginRight="@dimen/edit_icon_margin"
+                android:src="@drawable/ic_baseline_camera_alt_24"
+
+                app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/profileWatchMe"
+                tools:ignore="MissingConstraints"
+                tools:itemCount="4"
+                tools:listitem="@layout/image_card" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>

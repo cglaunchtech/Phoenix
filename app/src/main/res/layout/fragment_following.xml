@@ -6,19 +6,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:layout_margin="@dimen/home_scrollview_margin"
+    android:id="@+id/fragmentFollowing"
+    tools:context=".ui.navigation.FragmentFollowing"
     >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/home_scrollview_margin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.imageview.ShapeableImageView
+   <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profilePicture"
             android:layout_width="@dimen/profile_img"
             android:layout_height="@dimen/profile_img"
@@ -48,8 +41,6 @@
             app:layout_constraintLeft_toLeftOf="@id/profilePicture"
             app:layout_constraintRight_toRightOf="@id/searchNotifications"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
     <androidx.appcompat.widget.SearchView
@@ -59,7 +50,9 @@
         android:layout_margin="@dimen/search_margin"
 
         android:background="@drawable/borderless_grey_bubble"
-        app:layout_constraintTop_toBottomOf="@id/constraintLayout"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchLabel" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchRecyclerView"
@@ -67,29 +60,11 @@
         android:layout_height="wrap_content"
         tools:listitem="@layout/search_card"
         tools:itemCount="1"
+        android:layout_marginTop="@dimen/home_scrollview_margin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchSearch"
-        app:layout_constraintBottom_toTopOf="@id/constraintLayout2"/>
+        />
 
-<androidx.constraintlayout.widget.ConstraintLayout
-android:id="@+id/constraintLayout2"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-app:layout_constraintBottom_toBottomOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintEnd_toEndOf="parent">
 
-<com.google.android.material.bottomnavigation.BottomNavigationView
-    android:id="@+id/bottomNavigationView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/black"
-    app:itemIconTint="@color/dark_grey"
-    app:labelVisibilityMode="unlabeled"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:menu="@menu/menu_main" />
-</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

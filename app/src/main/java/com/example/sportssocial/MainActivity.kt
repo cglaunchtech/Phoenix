@@ -6,8 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sportssocial.R
 import com.example.sportssocial.data.repo.FirestoreRepo
+
+import com.example.sportssocial.ui.navigation.Homepage
+
+
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
 import com.example.sportssocial.util.Constants.Companion.AUTH
+
+
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -25,6 +31,10 @@ class MainActivity : AppCompatActivity() {
         var viewModel = ArticleViewModel(application)
         viewModel.getNews()
 
+        cgtest.setOnClickListener {
+            val intent = Intent(this, Homepage::class.java)
+            startActivity(intent)
+        }
 
         btn_test_news_preview.setOnClickListener {
             val intent = Intent(this, ArticlePreview::class.java)
