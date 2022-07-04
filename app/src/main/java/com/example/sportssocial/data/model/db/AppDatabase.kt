@@ -10,7 +10,7 @@ import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.model.dao.NewsArticleDao
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 
-@Database(entities = [Athlete::class, NewsArticle::class], version = 7, exportSchema = false)
+@Database(entities = [Athlete::class, NewsArticle::class], version = 10, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun athleteDao(): AthleteDao
