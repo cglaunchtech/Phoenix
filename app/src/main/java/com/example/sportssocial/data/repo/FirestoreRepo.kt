@@ -63,9 +63,9 @@ class FirestoreRepo {
         return followingList
     }
 
-    fun updateProfile(athlete : Athlete) =  CoroutineScope(Dispatchers.IO).launch {
+    fun updateProfile(uid : String, athlete : Athlete) =  CoroutineScope(Dispatchers.IO).launch {
         val personQuery = FIRESTORE
-            .whereEqualTo("uid", athlete.uid)
+            .whereEqualTo("uid", uid)
             .get()
             .await()
         if(personQuery.documents.isNotEmpty()){
@@ -108,27 +108,71 @@ class FirestoreRepo {
         }
     }
 
-//    fun getAllImages(): MutableList<String>{
-//        var imageUrls = mutableListOf<String>()
-//
-//        CoroutineScope(Dispatchers.IO).launch {
-//            try {
-//                val querySnapshot = FIRESTORE
-//                    .get()
-//                    .await()
-//
-//                for (document in querySnapshot.documents) {
-//
-//                    val user = document.toObject<Athlete>()
-//                    for (image in user.photoCollection) {
-//                        imageUrls.add(image)
-//                    }
-//
-//                }
-//            } catch (e: Exception) {
-//                Timber.e(e)
-//            }
-//        }
-//        return imageUrls
-//    }
+    fun getAllImages(): MutableList<String>{
+        var imageUrls = mutableListOf<String>()
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val querySnapshot = FIRESTORE
+                    .get()
+                    .await()
+
+                for (document in querySnapshot.documents) {
+                    val user = document.toObject<Athlete>()
+                    if (user != null) user.photoCollection!!.forEach { image ->
+                        if (image != null) {
+                            imageUrls.add(image)
+                        }
+                    }
+
+                }
+            } catch (e: Exception) {
+                Timber.e(e)
+            }
+        }
+        return imageUrls
+    }
+
+    fun addImageToCollection(url : String, uid: String){
+        var images = mutableListOf<String>()
+        CoroutineScope(Dispatchers.IO).launch {
+            val personQuery = FIRESTORE
+                .whereEqualTo("uid", uid)
+                .get()
+                .await()
+            for (document in personQuery.documents) {
+                val user = document.toObject<Athlete>()
+                if (user != null) user.photoCollection!!.forEach { image ->
+                    if (image != null) {
+                        images.add(image)
+                    }
+                    images.add(url)
+                }
+                user?.photoCollection = images
+                if (user != null) updateProfile(uid, user)
+            }
+        }
+
+    }
+    fun removeImageFromCollection(url : String, uid: String){
+        var images = mutableListOf<String>()
+        CoroutineScope(Dispatchers.IO).launch {
+            val personQuery = FIRESTORE
+                .whereEqualTo("uid", uid)
+                .get()
+                .await()
+            for (document in personQuery.documents) {
+                val user = document.toObject<Athlete>()
+                if (user != null) user.photoCollection!!.forEach { image ->
+                    if (image != null) {
+                        images.add(image)
+                    }
+                }
+                images.remove(url)
+                user?.photoCollection = images
+                if (user != null) updateProfile(uid, user)
+            }
+        }
+
+    }
 }
