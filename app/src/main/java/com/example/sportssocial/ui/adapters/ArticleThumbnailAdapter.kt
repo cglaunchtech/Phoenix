@@ -24,7 +24,6 @@ class ArticleThumbnailAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // inflate a view and return it
         var viewInflater = LayoutInflater.from(parent.context)
             .inflate(R.layout.sports_news_card, parent, false)
 
@@ -32,13 +31,14 @@ class ArticleThumbnailAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        // add current item to the holder
-        val article = articleList[position]
-        holder.source.text = article.source
-        holder.title.text = article.title
+
+        holder.apply {
+            source.text = articleList[position].source
+            title.text = articleList[position].title
+        }
 
         try {
-            Glide.with(context).load(article.urlToImage).into(holder.imageView)
+            Glide.with(context).load(articleList[position].urlToImage).into(holder.imageView)
         } catch (e: Exception) {
             Timber.e("ArticleThumbnailAdapter: Line 43. Exception: $e")
         }
@@ -57,7 +57,7 @@ class ArticleThumbnailAdapter(
 
         var title: TextView = view.findViewById(R.id.text_view_title)
         var source: TextView = view.findViewById(R.id.text_view_source)
-        var imageView: ImageView = view.findViewById(R.id.img_url)
+        var imageView: ImageView = view.findViewById(R.id.image_view)
 
         override fun onClick(v: View?) {
            val position = absoluteAdapterPosition

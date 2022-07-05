@@ -1,11 +1,7 @@
 package com.example.sportssocial.data.repo
 
 import android.content.Context
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.sportssocial.data.api.RetrofitClient
-import com.example.sportssocial.data.api.TopHeadlinesPojo
 import com.example.sportssocial.data.model.dao.NewsArticleDao
 import com.example.sportssocial.data.model.db.AppDatabase
 import com.example.sportssocial.data.model.db.entities.NewsArticle
@@ -13,9 +9,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class NewsArticleRepository (context: Context){
@@ -29,11 +22,11 @@ class NewsArticleRepository (context: Context){
     fun getNews() {
         clearArticleCache()
         retrofitClient.getNews("us", "sports", "", 20, 1)
-            ?.subscribeOn(Schedulers.io())
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.subscribeBy(
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
                 onNext = {
-                    for (index in 0..(it.articles?.lastIndex!!)) {
+                    for (index in 0..(it.articles!!.lastIndex)) {
 
                         var article = NewsArticle(
                             null,

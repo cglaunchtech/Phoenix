@@ -1,2 +1,5 @@
 /build
 .idea/misc.xml
+.gradle/7.3.3/
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gitignore
