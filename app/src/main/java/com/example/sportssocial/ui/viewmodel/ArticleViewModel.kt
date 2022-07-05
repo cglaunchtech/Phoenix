@@ -2,9 +2,7 @@ package com.example.sportssocial.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.sportssocial.data.api.TopHeadlinesPojo
 import com.example.sportssocial.data.model.db.entities.NewsArticle
-import com.example.sportssocial.data.repo.AthleteRepository
 import com.example.sportssocial.data.repo.NewsArticleRepository
 import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.launch

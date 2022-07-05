@@ -22,7 +22,7 @@
             />
 
         <ImageView
-            android:id="@+id/img_url"
+            android:id="@+id/image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_launcher_foreground"
@@ -36,7 +36,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                android:id="@+id/firstName"
+                android:id="@+id/text_view_fname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/card_name_margin"
@@ -44,11 +44,11 @@
                 android:textColor="@color/white"
 
 
-                app:layout_constraintRight_toLeftOf="@+id/lastName"
+                app:layout_constraintRight_toLeftOf="@+id/text_view_lname"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/lastName"
+                android:id="@+id/text_view_lname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/card_name_margin"
@@ -56,7 +56,7 @@
                 android:textColor="@color/white"
 
 
-                app:layout_constraintLeft_toRightOf="@+id/firstName"
+                app:layout_constraintLeft_toRightOf="@+id/text_view_fname"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

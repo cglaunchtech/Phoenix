@@ -36,7 +36,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/firstName"
+            android:id="@+id/text_view_fname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/first_name"
@@ -52,14 +52,14 @@
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/lastName"
+            android:id="@+id/text_view_lname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/last_name"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/firstName">
+            app:layout_constraintTop_toBottomOf="@+id/text_view_fname">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/lastName1"
@@ -77,7 +77,7 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/lastName">
+            app:layout_constraintTop_toBottomOf="@+id/text_view_lname">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailField1"

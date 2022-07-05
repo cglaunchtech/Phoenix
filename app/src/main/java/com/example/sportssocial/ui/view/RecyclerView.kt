@@ -42,7 +42,7 @@ class RecyclerView : AppCompatActivity() {
             )
 
         articleThumbnailAdapter =
-            ArticleThumbnailAdapter(this, articleList, { position -> onCardClick(position) })
+            ArticleThumbnailAdapter(this, articleList) { position -> onCardClick(position) }
         recyclerView.layoutManager = LinearLayoutManager(
             this, LinearLayoutManager.HORIZONTAL,
             false
