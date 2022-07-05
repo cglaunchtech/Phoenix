@@ -68,9 +68,9 @@ class SignUp : AppCompatActivity() {
 
         addProfilepic = findViewById(R.id.addProfilePicture)
         firstNameField = findViewById(R.id.firstName1)
-        lastNameField  = findViewById(R.id.lastName1)
+        lastNameField = findViewById(R.id.lastName1)
         usernameField = findViewById(R.id.usernameField)
-        emailField  = findViewById(R.id.emailField)
+        emailField = findViewById(R.id.emailField)
         passwordField = findViewById(R.id.passwordField)
         confirmPassword = findViewById(R.id.confirmPasswordField)
         cityField = findViewById(R.id.cityField)
@@ -88,98 +88,120 @@ class SignUp : AppCompatActivity() {
         databaseReference = database?.reference!!.child("profile")
 
 
-
         register()
 
         var profilePhoto: ImageView = findViewById(R.id.addProfilePicture)
-        profilePhotostr= intent.getStringExtra("profilePhoto")
+        profilePhotostr = intent.getStringExtra("profilePhoto")
         //decode base64 string
-        if (profilePhotostr != null) {
 
-            var bytes: ByteArray = Base64.decode(profilePhotostr, Base64.DEFAULT);
-            // Initialize bitmap
-            var bitmap: Bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size);
-            // set bitmap on imageView
-            profilePhoto.setImageBitmap(bitmap);
-        }
-        cancelButton.setOnClickListener {
-            val myIntent = Intent(this, MainActivity::class.java)
-            startActivity(myIntent)
-        }
+        try {
+            if (profilePhotostr != null) {
 
-        addProfilepic.bringToFront()
-        addProfilepic.setOnClickListener() {
+                var bytes: ByteArray = Base64.decode(profilePhotostr, Base64.DEFAULT);
+                // Initialize bitmap
+                var bitmap: Bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size);
+                // set bitmap on imageView
+                profilePhoto.setImageBitmap(bitmap);
+            }
+            cancelButton.setOnClickListener {
+                val myIntent = Intent(this, MainActivity::class.java)
+                startActivity(myIntent)
+            }
 
-            val NextIntent = Intent(this, ProfilePhotoCapture::class.java)
-            startActivity(NextIntent)
+            addProfilepic.bringToFront()
+            addProfilepic.setOnClickListener() {
+
+                val NextIntent = Intent(this, ProfilePhotoCapture::class.java)
+                startActivity(NextIntent)
+            }
+
+        } catch (e: Exception) {
+            Timber.e(e)
         }
     }
+
     private fun register(){
-        submitButton.setOnClickListener {
 
-            if(TextUtils.isEmpty( firstNameField.text.toString())){
-                firstNameField.setError("Please Enter First Name")
-                return@setOnClickListener
+       try {
+           submitButton.setOnClickListener {
 
-            }else if(TextUtils.isEmpty( lastNameField.text.toString())){
-                lastNameField.setError("Please Enter Last Name")
-                return@setOnClickListener
+               if (TextUtils.isEmpty(firstNameField.text.toString())) {
+                   firstNameField.setError("Please Enter First Name")
+                   return@setOnClickListener
 
-            }else if(TextUtils.isEmpty( usernameField.text.toString())){
-                usernameField.setError("Please Enter User Name")
-                return@setOnClickListener
+               } else if (TextUtils.isEmpty(lastNameField.text.toString())) {
+                   lastNameField.setError("Please Enter Last Name")
+                   return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( emailField.text.toString())){
-                emailField.setError("Please Enter Your Email Address")
-                return@setOnClickListener
+               } else if (TextUtils.isEmpty(usernameField.text.toString())) {
+                   usernameField.setError("Please Enter User Name")
+                   return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( passwordField.text.toString())){
-                passwordField.setError("Please Enter Password")
-                return@setOnClickListener
-            }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
-                confirmPassword.setError("Please Confirm Password")
-                return@setOnClickListener
+               } else if (TextUtils.isEmpty(emailField.text.toString())) {
+                   emailField.setError("Please Enter Your Email Address")
+                   return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( cityField.text.toString())){
-                cityField.setError("Please Enter Your City")
-                return@setOnClickListener
+               } else if (TextUtils.isEmpty(passwordField.text.toString())) {
+                   passwordField.setError("Please Enter Password")
+                   return@setOnClickListener
+               } else if (TextUtils.isEmpty(confirmPassword.text.toString())) {
+                   confirmPassword.setError("Please Confirm Password")
+                   return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( stateField.text.toString())){
-                stateField.setError("Please Enter Your State of Residency")
-                return@setOnClickListener
+               } else if (TextUtils.isEmpty(cityField.text.toString())) {
+                   cityField.setError("Please Enter Your City")
+                   return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( birthdayField.text.toString())){
-                birthdayField.setError("Please Enter Your Date of Birth")
-                return@setOnClickListener
+               } else if (TextUtils.isEmpty(stateField.text.toString())) {
+                   stateField.setError("Please Enter Your State of Residency")
+                   return@setOnClickListener
 
-            }else if (TextUtils.isEmpty( sportsSelection.text.toString())){
-                sportsSelection.setError("Please Select at Least One Sport")
-                return@setOnClickListener
+               } else if (TextUtils.isEmpty(birthdayField.text.toString())) {
+                   birthdayField.setError("Please Enter Your Date of Birth")
+                   return@setOnClickListener
 
-            }
-            println("Please complete all fields")
+               } else if (TextUtils.isEmpty(sportsSelection.text.toString())) {
+                   sportsSelection.setError("Please Select at Least One Sport")
+                   return@setOnClickListener
 
-            auth.createUserWithEmailAndPassword(emailField.text.toString(),passwordField.text.toString())
-                .addOnSuccessListener {
-                    Log.d("AppDatabase","AAA to 1")
-                    Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
-                    firestoreAthleteInit()
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-                .addOnFailureListener {
-                    Log.d("AppDatabase","AAA else 1")
-                    val builder = AlertDialog.Builder(this)
-                    builder.setMessage(it.message)
-                    builder.setCancelable(true)
-                    builder.setNegativeButton("OK", DialogInterface.OnClickListener
-                        { dialog, which -> dialog.cancel() })
-                        val alertDialog: AlertDialog = builder.create()
-                        alertDialog.show()
-                        Toast.makeText(this, "Registration Failed; Please Try Again", Toast.LENGTH_LONG).show()
-                }
-        }
+               }
+               println("Please complete all fields")
+
+               auth.createUserWithEmailAndPassword(
+                   emailField.text.toString(),
+                   passwordField.text.toString()
+               )
+                   .addOnSuccessListener {
+                       Log.d("AppDatabase", "AAA to 1")
+                       Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
+                       firestoreAthleteInit()
+                       val intent = Intent(this, LoginActivity::class.java)
+                       startActivity(intent)
+                       finish()
+                   }
+                   .addOnFailureListener {
+                       Log.d("AppDatabase", "AAA else 1")
+                       val builder = AlertDialog.Builder(this)
+                       builder.setMessage(it.message)
+                       builder.setCancelable(true)
+                       builder.setNegativeButton("OK", DialogInterface.OnClickListener
+                       { dialog, which -> dialog.cancel() })
+                       val alertDialog: AlertDialog = builder.create()
+                       alertDialog.show()
+                       Toast.makeText(
+                           this,
+                           "Registration Failed; Please Try Again",
+                           Toast.LENGTH_LONG
+                       )
+                           .show()
+//                } catch (e: Exception){
+//                        Timber.e(e)
+                   }
+
+           }
+       } catch (e: Exception) {
+           Timber.e(e)
+       }
     }
     private fun firestoreAthleteInit() = CoroutineScope(Dispatchers.IO).launch{
         try {

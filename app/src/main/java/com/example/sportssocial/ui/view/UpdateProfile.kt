@@ -37,8 +37,8 @@ import java.lang.Exception
 
 class UpdateProfile : AppCompatActivity() {
     //val repo: AthleteRepository by lazy { AthleteRepository(this) }
-    var databaseReference : DatabaseReference? =null
-    var database : FirebaseDatabase? = null
+    var databaseReference: DatabaseReference? = null
+    var database: FirebaseDatabase? = null
     lateinit var auth: FirebaseAuth
     lateinit var vm: MainViewModel
     lateinit var repo: FirestoreRepo
@@ -67,7 +67,7 @@ class UpdateProfile : AppCompatActivity() {
         updateRequiredfields()
 
         var addProfilePicture: ShapeableImageView = findViewById(R.id.addProfilePicture)
-        var profilePhotostr= intent.getStringExtra("profilePhoto")
+        var profilePhotostr = intent.getStringExtra("profilePhoto")
         if (profilePhotostr != null) {
 
             var bytes: ByteArray = Base64.decode(profilePhotostr, Base64.DEFAULT);
@@ -85,8 +85,9 @@ class UpdateProfile : AppCompatActivity() {
         sportsAutocomplete.setText(intent.getStringExtra("sport1"))
         sportsAutocompleteSecond.setText(intent.getStringExtra("sport2"))
 
-
+        try {
         submitButton.setOnClickListener {
+
             vm.updateAthlete(
                 Athlete(
                     id = null,
@@ -106,6 +107,11 @@ class UpdateProfile : AppCompatActivity() {
                     following = mutableListOf()
                 )
             )
+        }
+
+    } catch (e: Exception) {
+              Timber.e(e)
+
             val myIntent = Intent(this, MainActivity::class.java)
             startActivity(myIntent)
         }
@@ -127,54 +133,61 @@ class UpdateProfile : AppCompatActivity() {
     }
 
     private fun updateRequiredfields() {
+        try {
+            submitButton.setOnClickListener {
 
-        submitButton.setOnClickListener {
+                if (TextUtils.isEmpty(firstName1.text.toString())) {
+                    cityField.setError("First Name Required")
+                    return@setOnClickListener
 
-            if (TextUtils.isEmpty(firstName1.text.toString())) {
-                cityField.setError("First Name Required")
-                return@setOnClickListener
+                } else if (TextUtils.isEmpty(lastName1.text.toString())) {
+                    cityField.setError("Last Name Required")
+                    return@setOnClickListener
 
-            } else if (TextUtils.isEmpty(lastName1.text.toString())) {
-                cityField.setError("Last Name Required")
-                return@setOnClickListener
+                } else if (TextUtils.isEmpty(cityField1.text.toString())) {
+                    cityField.setError("City Required")
+                    return@setOnClickListener
 
-            } else if (TextUtils.isEmpty(cityField1.text.toString())) {
-                cityField.setError("City Required")
-                return@setOnClickListener
+                } else if (TextUtils.isEmpty(stateField1.text.toString())) {
+                    stateField1.setError("State Required")
+                    return@setOnClickListener
 
-            } else if (TextUtils.isEmpty(stateField1.text.toString())) {
-                stateField1.setError("State Required")
-                return@setOnClickListener
-
-            } else if (TextUtils.isEmpty(sportsAutocomplete.text.toString())) {
-                sportsAutocomplete.setError("At Least One Sport is Required")
-                return@setOnClickListener
+                } else if (TextUtils.isEmpty(sportsAutocomplete.text.toString())) {
+                    sportsAutocomplete.setError("At Least One Sport is Required")
+                    return@setOnClickListener
+                }
+                println("Please complete all required fields before updating profile.")
             }
-            println("Please complete all required fields before updating profile.")
-        }
-        fun firestoreAthleteInit() = CoroutineScope(Dispatchers.IO).launch {
-            try {
-                //Firebase.firestore.collection("users").add(Athlete(....)).await()
-                repo.updateProfile(
-                    Athlete(
-                        id = null,
-                        uid = auth.uid,
-                        username = usernameField.text.toString(),
-                        profilePhoto = null,
-                        first = firstName1.text.toString(),
-                        last = lastName1.text.toString(),
-                        city = cityField1.text.toString(),
-                        state = stateField1.text.toString(),
-                        dob = birthdayField.text.toString(),
-                        aboutMe = aboutMeField1.text.toString(),
-                        sport1 = sportsAutocomplete.text.toString(),
-                        sport2 = null,
-                        photoCollection = mutableListOf(),
-                        highlightVideos = mutableListOf(),
-                        following = mutableListOf()))
 
-            } catch (e: Exception) {
-                Timber.e(e)
+        } catch (e: Exception) {
+            Timber.e(e)
+
+            fun firestoreAthleteInit() = CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    //Firebase.firestore.collection("users").add(Athlete(....)).await()
+                    repo.updateProfile(
+                        Athlete(
+                            id = null,
+                            uid = auth.uid,
+                            username = usernameField.text.toString(),
+                            profilePhoto = null,
+                            first = firstName1.text.toString(),
+                            last = lastName1.text.toString(),
+                            city = cityField1.text.toString(),
+                            state = stateField1.text.toString(),
+                            dob = birthdayField.text.toString(),
+                            aboutMe = aboutMeField1.text.toString(),
+                            sport1 = sportsAutocomplete.text.toString(),
+                            sport2 = null,
+                            photoCollection = mutableListOf(),
+                            highlightVideos = mutableListOf(),
+                            following = mutableListOf()
+                        )
+                    )
+
+                } catch (e: Exception) {
+                    Timber.e(e)
+                }
             }
         }
     }
