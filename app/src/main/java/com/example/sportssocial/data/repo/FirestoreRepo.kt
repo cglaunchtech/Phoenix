@@ -1,12 +1,16 @@
 package com.example.sportssocial.data.repo
 
+import android.net.Uri
+import android.util.Log
 import com.example.sportssocial.data.model.db.entities.Athlete
+import com.example.sportssocial.util.Constants
 import com.example.sportssocial.util.Constants.Companion.FIRESTORE
 import com.google.firebase.firestore.ktx.toObject
 import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
+import java.util.*
 import kotlin.Exception
 
 class FirestoreRepo {
@@ -16,7 +20,7 @@ class FirestoreRepo {
 
     fun newProfile(athlete: Athlete) = CoroutineScope(Dispatchers.IO).launch{
         try{
-            FIRESTORE.add(athlete)
+            FIRESTORE.add(athlete).await()
         }catch(e: Exception){
             Timber.e(e)
         }
@@ -61,7 +65,7 @@ class FirestoreRepo {
 
     fun updateProfile(athlete : Athlete) =  CoroutineScope(Dispatchers.IO).launch {
         val personQuery = FIRESTORE
-            .whereEqualTo("uid", "dbUid")
+            .whereEqualTo("uid", athlete.uid)
             .get()
             .await()
         if(personQuery.documents.isNotEmpty()){
@@ -74,6 +78,33 @@ class FirestoreRepo {
             }
         }else{
             Timber.d("Search for user in firestore failed to find.")
+        }
+    }
+
+    fun uploadToFirebase(uri : Uri?, athlete: Athlete) = CoroutineScope(Dispatchers.IO).launch{
+        val filename = UUID.randomUUID().toString()
+        val ref = Constants.STORAGE.getReference("images/$filename")
+        try {
+
+            if (uri != null) {
+                ref.putFile(uri)
+                    .addOnSuccessListener {
+                        Timber.d("Firestore", "Successfully uploaded photo to firestore")
+                        ref.downloadUrl.addOnCompleteListener {
+                            athlete.profilePhoto = it.result.toString()
+                            newProfile(athlete)
+                        }
+                    }
+                    .addOnFailureListener {
+                        Timber.e("Failed to upload image: $it")
+                        newProfile(athlete)
+                    }
+            }else{
+                newProfile(athlete)
+            }
+
+        } catch (e: java.lang.Exception) {
+            Timber.e(e)
         }
     }
 

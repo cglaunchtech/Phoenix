@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.Athlete
+import com.example.sportssocial.data.repo.FirestoreRepo
 import com.example.sportssocial.ui.view.camera.ProfilePhotoCapture
 import com.example.sportssocial.util.Constants.Companion.FIRESTORE
 import com.example.sportssocial.util.Constants.Companion.STORAGE
@@ -48,6 +49,7 @@ class SignUp : AppCompatActivity() {
     lateinit var auth : FirebaseAuth
     var databaseReference : DatabaseReference? =null
     var database : FirebaseDatabase? = null
+    lateinit var firestoreRepo : FirestoreRepo
     var profilePicUrl : String? = null
 
     lateinit var addProfilepic: ShapeableImageView
@@ -91,6 +93,7 @@ class SignUp : AppCompatActivity() {
         cancelButton = findViewById(R.id.cancelButton)
 
         auth = FirebaseAuth.getInstance()
+        firestoreRepo = FirestoreRepo()
         database = FirebaseDatabase.getInstance()
         databaseReference = database?.reference!!.child("profile")
 
@@ -170,7 +173,24 @@ class SignUp : AppCompatActivity() {
                 .addOnSuccessListener {
                     Log.d("AppDatabase","AAA to 1")
                     Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
-                    uploadToFirebase()
+                    firestoreRepo.uploadToFirebase(intent.getParcelableExtra<Uri>("profilePhotoUri"),
+                        Athlete(
+                            id = null,
+                            uid =  auth.uid,
+                            username = usernameField.text.toString(),
+                            profilePhoto = profilePicUrl,
+                            first = firstNameField.text.toString(),
+                            last = lastNameField.text.toString(),
+                            city = cityField.text.toString(),
+                            state = stateField.text.toString(),
+                            dob = birthdayField.text.toString(),
+                            aboutMe = aboutMeField.text.toString(),
+                            sport1 = sportsSelection.text.toString(),
+                            sport2 = sportsSelection.text.toString(),
+                            photoCollection = mutableListOf(),
+                            highlightVideos = mutableListOf(),
+                            following = mutableListOf()
+                        ))
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -187,60 +207,6 @@ class SignUp : AppCompatActivity() {
                         Toast.makeText(this, "Registration Failed; Please Try Again", Toast.LENGTH_LONG).show()
                 }
         }
-    }
-
-    private fun firestoreAthleteInit() = CoroutineScope(Dispatchers.IO).launch{
-        try {
-
-            FIRESTORE.add(Athlete(
-                    id = null,
-                    uid =  auth.uid,
-                    username = usernameField.text.toString(),
-                    profilePhoto = profilePicUrl,
-                    first = firstNameField.text.toString(),
-                    last = lastNameField.text.toString(),
-                    city = cityField.text.toString(),
-                    state = stateField.text.toString(),
-                    dob = birthdayField.text.toString(),
-                    aboutMe = aboutMeField.text.toString(),
-                    sport1 = sportsSelection.text.toString(),
-                    sport2 = sportsSelection.text.toString(),
-                    photoCollection = mutableListOf(),
-                    highlightVideos = mutableListOf(),
-                    following = mutableListOf(),
-                )).await()
-            Log.d("Firestore", "Successfully added user to db")
-
-        }catch (e: Exception){
-            Timber.e(e)
-        }
-    }
-    private fun uploadToFirebase() = CoroutineScope(Dispatchers.IO).launch{
-        val filename = UUID.randomUUID().toString()
-        val ref = STORAGE.getReference("images/$filename")
-        val uri = intent.getParcelableExtra<Uri>("profilePhotoUri")
-            try {
-
-                if (uri != null) {
-                    ref.putFile(uri)
-                        .addOnSuccessListener {
-                            Log.d("Firestore", "Successfully uploaded photo to firestore")
-                            ref.downloadUrl.addOnCompleteListener {
-                                profilePicUrl = it.result.toString()
-                                firestoreAthleteInit()
-                            }
-                        }
-                        .addOnFailureListener {
-                            Timber.e("Failed to upload image: $it")
-                            firestoreAthleteInit()
-                        }
-                }else{
-                    firestoreAthleteInit()
-                }
-
-            } catch (e: Exception) {
-                Timber.e(e)
-            }
     }
 }
 
