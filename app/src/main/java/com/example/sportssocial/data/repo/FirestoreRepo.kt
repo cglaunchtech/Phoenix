@@ -202,4 +202,25 @@ class FirestoreRepo {
         }
 
     }
+
+    fun usersBySport(sport: String): Observable<List<Athlete>>{
+        val searchList = mutableListOf<Athlete>()
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val querySnapshot = FIRESTORE
+                    .whereEqualTo("sport1", sport)
+                    .whereEqualTo("sport2" , sport)
+                    .get()
+                    .await()
+
+                for (document in querySnapshot.documents) {
+                    val user = document.toObject<Athlete>()
+                    searchList.add(user!!)
+                }
+            } catch (e: Exception) {
+                Timber.e(e)
+            }
+        }
+        return Observable.just(searchList)
+    }
 }
