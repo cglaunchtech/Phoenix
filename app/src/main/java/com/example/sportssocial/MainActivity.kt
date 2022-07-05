@@ -4,6 +4,9 @@ package com.example.sportssocial.ui.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.sportssocial.R
 import com.example.sportssocial.data.repo.FirestoreRepo
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
@@ -21,8 +24,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
 
         var firestore = FirestoreRepo()
         var viewModel = ArticleViewModel(application)

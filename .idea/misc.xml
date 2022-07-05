@@ -24,9 +24,10 @@
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout-land/search_layout.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/activity_article_preview.xml" value="0.14764492753623187" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/activity_bottom_nav_main.xml" value="0.22" />
-        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/activity_edit_form.xml" value="0.14764492753623187" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/activity_edit_form.xml" value="0.22" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/activity_news_article_web_view.xml" value="0.20923913043478262" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/activity_profile_photo_capture.xml" value="0.1" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/activity_profile_pic_scroll.xml" value="0.14764492753623187" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/activity_recycler_view.xml" value="0.14764492753623187" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/add_event_layout.xml" value="0.1956521739130435" />
@@ -43,7 +44,7 @@
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_search.xml" value="0.16" />
-        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_sign_up.xml" value="0.16" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_sign_up.xml" value="0.19448373408769448" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/highlight_reel_card.xml" value="0.14764492753623187" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/highlight_reels.xml" value="0.14764492753623187" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/home_screen_card.xml" value="0.14764492753623187" />
@@ -54,7 +55,7 @@
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/search_card.xml" value="0.22" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/search_layout.xml" value="0.2" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/signup_layout.xml" value="0.22" />
-        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/sports_news_card.xml" value="0.36607142857142855" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/sports_news_card.xml" value="0.2967032967032967" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/upcoming_events.xml" value="0.22" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/menu/menu_main.xml" value="0.26875" />
         <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/add_event_layout.xml" value="0.12239583333333333" />

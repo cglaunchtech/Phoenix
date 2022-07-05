@@ -34,8 +34,9 @@
             app:layout_constraintTop_toBottomOf="@id/editAddProfilePicture"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/firstName1"
+            android:id="@+id/editFirstName1"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,14 +48,14 @@
             app:layout_constraintTop_toBottomOf="@+id/pageLabel">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/firstName2"
+                android:id="@+id/editFirstName2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/lastName1"
+            android:id="@+id/editLastName1"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,17 +63,17 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@id/firstName1">
+            app:layout_constraintTop_toBottomOf="@+id/editFirstName1">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/lastName2"
+                android:id="@+id/editLastName2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/username1"
+            android:id="@+id/editUsername1"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,7 +81,7 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/lastName1">
+            app:layout_constraintTop_toBottomOf="@+id/editLastName1">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/username2"
@@ -99,10 +100,10 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/username1">
+            app:layout_constraintTop_toBottomOf="@+id/editUsername1">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/emailField2"
+                android:id="@+id/editEmailField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_background"/>
@@ -111,7 +112,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/passwordField1"
+            android:id="@+id/editPasswordField1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
@@ -121,7 +122,7 @@
             app:layout_constraintTop_toBottomOf="@+id/emailField1">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passwordField2"
+                android:id="@+id/editPasswordField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_background"/>
@@ -129,14 +130,14 @@
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/confirmPasswordField1"
+            android:id="@+id/editConfirmPasswordField1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/confirm_password"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/passwordField1">
+            app:layout_constraintTop_toBottomOf="@+id/editPasswordField1">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/confirmPasswordField2"
@@ -147,7 +148,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cityField1"
+            android:id="@+id/editCityField1"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -155,18 +156,19 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/confirmPasswordField1">
+            app:layout_constraintTop_toBottomOf="@+id/editConfirmPasswordField1">
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cityField2"
+                android:id="@+id/editCityField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_background"/>
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/stateField1"
+            android:id="@+id/editStateField1"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -174,10 +176,11 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/cityField1">
+            app:layout_constraintTop_toBottomOf="@+id/editCityField1">
+
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/stateField2"
+                android:id="@+id/editStateField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_background"/>
@@ -185,7 +188,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/birthdayField1"
+            android:id="@+id/editBirthdayField1"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -193,11 +196,11 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/stateField1">
+            app:layout_constraintTop_toBottomOf="@+id/editStateField1">
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/birthdayField2"
+                android:id="@+id/editBirthdayField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_background"/>
@@ -205,7 +208,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/aboutMeField1"
+            android:id="@+id/editAboutMeField1"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -213,11 +216,11 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/birthdayField1">
+            app:layout_constraintTop_toBottomOf="@+id/editBirthdayField1">
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/aboutMeField2"
+                android:id="@+id/editAboutMeField2"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -233,13 +236,13 @@
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:id="@+id/sportsSelection1"
+            android:id="@+id/editSportsSelection1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/aboutMeField1">
+            app:layout_constraintTop_toBottomOf="@+id/editAboutMeField1">
 
             <AutoCompleteTextView
                 android:id="@+id/editSportsAutocomplete"
@@ -252,13 +255,13 @@
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:id="@+id/sportsSelection2"
+            android:id="@+id/editSportsSelection2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@+id/sportsSelection1">
+            app:layout_constraintTop_toBottomOf="@+id/editSportsSelection1">
 
             <AutoCompleteTextView
                 android:id="@+id/editSportsAutocompleteSecond"
@@ -270,7 +273,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/submitButton"
+            android:id="@+id/editSubmitButton"
             android:padding="@dimen/signup_btn_padding"
             android:background="@drawable/button_selector"
             android:textSize="@dimen/signup_btn_text"
@@ -280,11 +283,11 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            app:layout_constraintTop_toBottomOf="@id/sportsSelection2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@id/editSportsSelection2"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/cancelButton"
+            android:id="@+id/editCancelButton"
             android:padding="@dimen/signup_btn_padding"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
@@ -294,9 +297,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_selector"
-            app:layout_constraintTop_toBottomOf="@id/submitButton"
+            app:layout_constraintTop_toBottomOf="@id/editSubmitButton"
             app:layout_constraintRight_toRightOf="parent"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
