@@ -48,7 +48,7 @@ class FirestoreRepo {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val querySnapshot = FIRESTORE
-                    .whereArrayContainsAny("username", following)
+                    .whereIn("username", following)
                     .get()
                     .await()
 
@@ -132,7 +132,7 @@ class FirestoreRepo {
         }
         return imageUrls
     }
-    
+
     fun uploadPhoto(uri : Uri?, athlete: Athlete) {
         val filename = UUID.randomUUID().toString()
         val ref = Constants.STORAGE.getReference("images/$filename")
