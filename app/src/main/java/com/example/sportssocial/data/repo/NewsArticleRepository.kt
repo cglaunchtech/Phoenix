@@ -26,11 +26,11 @@ class NewsArticleRepository (context: Context){
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onNext = {
-                    for (index in 0..(it.articles.lastIndex)) {
+                    for (index in 0..(it.articles!!.lastIndex)) {
 
                         var article = NewsArticle(
                             null,
-                            it.articles[index].source.name,
+                            it.articles[index].source?.name,
                             it.articles[index].author,
                             it.articles[index].title,
                             it.articles[index].description,
