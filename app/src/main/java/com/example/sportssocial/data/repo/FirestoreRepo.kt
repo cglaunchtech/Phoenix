@@ -132,6 +132,33 @@ class FirestoreRepo {
         }
         return imageUrls
     }
+    
+    fun uploadPhoto(uri : Uri?, athlete: Athlete) {
+        val filename = UUID.randomUUID().toString()
+        val ref = Constants.STORAGE.getReference("images/$filename")
+        try {
+
+            if (uri != null) {
+                ref.putFile(uri)
+                    .addOnSuccessListener {
+                        Timber.d("Firestore", "Successfully uploaded photo to firestore")
+                        ref.downloadUrl.addOnCompleteListener {
+                            athlete.uid?.let { uid ->
+                                addImageToCollection(it.result.toString() , uid)
+                            }
+                        }
+                    }
+                    .addOnFailureListener {
+                        Timber.e("Failed to upload image: $it")
+                    }
+            }
+        } catch (e: java.lang.Exception) {
+            Timber.e(e)
+        }
+    }
+
+
+
 
     fun addImageToCollection(url : String, uid: String){
         var images = mutableListOf<String>()
