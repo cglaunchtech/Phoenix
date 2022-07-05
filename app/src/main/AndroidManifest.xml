@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.sportssocial" >
+    package="com.example.sportssocial">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera.any"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".App"
@@ -15,7 +19,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SportsSocial"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.view.camera.ProfilePhotoCapture"
+            android:exported="false" />
         <activity
             android:name=".ui.view.NewsArticleWebView"
             android:exported="true" />
@@ -26,7 +33,7 @@
             android:name=".ui.view.ArticlePreview"
             android:exported="true" />
         <activity
-            android:name=".ui.view.EditForm"
+            android:name=".ui.view.UpdateProfile"
             android:exported="true" />
         <activity
             android:name=".ui.view.ProfilePicScroll"
@@ -42,7 +49,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.view.MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
