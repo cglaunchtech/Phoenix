@@ -2,17 +2,15 @@ package com.example.sportssocial.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.sportssocial.data.api.TopHeadlinesPojo
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.data.repo.NewsArticleRepository
+import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.launch
 
 class ArticleViewModel(app: Application) : AndroidViewModel(app) {
 
     private val repo: NewsArticleRepository
-    val allArticles: LiveData<List<NewsArticle>>?
-    var newsArticleMutableLiveData = MutableLiveData<TopHeadlinesPojo>()
-    var currArticle = MutableLiveData<NewsArticle>()
+    val allArticles: Observable<List<NewsArticle>>?
 
     init {
         repo = NewsArticleRepository(app)
@@ -36,24 +34,11 @@ class ArticleViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     // Get articles form API
-    fun getNews(pageSize: Int, pageNumber: Int) = viewModelScope.launch {
-        newsArticleMutableLiveData = repo.getNews(
-            "us", "sports", "", pageSize, pageNumber
-        )
+    fun getNews() = viewModelScope.launch {
+        repo.getNews()
     }
 
-    fun getArticlebyId(id: Int?) = viewModelScope.launch {
-        currArticle.value?.let { current ->
-
-            current.id = repo.getArticlesbyId(id!!)?.value?.id
-
-            val article: LiveData<NewsArticle> = Transformations.switchMap(currArticle) { article ->
-                repo.getArticlesbyId(article.id!!)
-            }
-        }
-    }
-
-
+    fun getArticlebyId(id: Int?) = id?.let { repo.getArticlesbyId(it) }
 
 }
 
