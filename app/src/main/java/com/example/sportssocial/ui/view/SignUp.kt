@@ -2,20 +2,29 @@ package com.example.sportssocial.ui.view
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Base64
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.Athlete
+import com.example.sportssocial.ui.view.camera.ProfilePhotoCapture
 import com.example.sportssocial.util.Constants.Companion.FIRESTORE
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
@@ -34,12 +43,13 @@ class SignUp : AppCompatActivity() {
     var databaseReference : DatabaseReference? =null
     var database : FirebaseDatabase? = null
 
+    lateinit var addProfilepic: ShapeableImageView
     lateinit var firstNameField : TextInputEditText
     lateinit var lastNameField : TextInputEditText
     lateinit var usernameField : TextInputEditText
     lateinit var emailField : TextInputEditText
     lateinit var passwordField : TextInputEditText
-    //lateinit var confirmPassword: TextInputEditText
+    lateinit var confirmPassword: TextInputEditText
     lateinit var cityField : TextInputEditText
     lateinit var stateField : TextInputEditText
     lateinit var birthdayField : TextInputEditText
@@ -49,18 +59,20 @@ class SignUp : AppCompatActivity() {
 
     lateinit var submitButton : Button
     lateinit var cancelButton : Button
+    var profilePhotostr: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_sign_up)
 
-        firstNameField = findViewById(R.id.firstName)
-        lastNameField  = findViewById(R.id.lastName)
+        addProfilepic = findViewById(R.id.addProfilePicture)
+        firstNameField = findViewById(R.id.firstName1)
+        lastNameField  = findViewById(R.id.lastName1)
         usernameField = findViewById(R.id.usernameField)
         emailField  = findViewById(R.id.emailField)
         passwordField = findViewById(R.id.passwordField)
-        //confirmPassword = findViewById(R.id.confirmPassword)
+        confirmPassword = findViewById(R.id.confirmPasswordField)
         cityField = findViewById(R.id.cityField)
         stateField = findViewById(R.id.stateField)
         birthdayField = findViewById(R.id.birthdayField)
@@ -79,11 +91,28 @@ class SignUp : AppCompatActivity() {
 
         register()
 
+        var profilePhoto: ImageView = findViewById(R.id.addProfilePicture)
+        profilePhotostr= intent.getStringExtra("profilePhoto")
+        //decode base64 string
+        if (profilePhotostr != null) {
+
+            var bytes: ByteArray = Base64.decode(profilePhotostr, Base64.DEFAULT);
+            // Initialize bitmap
+            var bitmap: Bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size);
+            // set bitmap on imageView
+            profilePhoto.setImageBitmap(bitmap);
+        }
         cancelButton.setOnClickListener {
             val myIntent = Intent(this, MainActivity::class.java)
             startActivity(myIntent)
         }
 
+        addProfilepic.bringToFront()
+        addProfilepic.setOnClickListener() {
+
+            val NextIntent = Intent(this, ProfilePhotoCapture::class.java)
+            startActivity(NextIntent)
+        }
     }
     private fun register(){
         submitButton.setOnClickListener {
@@ -107,9 +136,9 @@ class SignUp : AppCompatActivity() {
             }else if (TextUtils.isEmpty( passwordField.text.toString())){
                 passwordField.setError("Please Enter Password")
                 return@setOnClickListener
-//            }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
-//                confirmPassword.setError("Please Confirm Password")
-//                return@setOnClickListener
+            }else if (TextUtils.isEmpty( confirmPassword.text.toString())){
+                confirmPassword.setError("Please Confirm Password")
+                return@setOnClickListener
 
             }else if (TextUtils.isEmpty( cityField.text.toString())){
                 cityField.setError("Please Enter Your City")
@@ -131,26 +160,25 @@ class SignUp : AppCompatActivity() {
             println("Please complete all fields")
 
             auth.createUserWithEmailAndPassword(emailField.text.toString(),passwordField.text.toString())
-                .addOnCompleteListener(this, OnCompleteListener{ task ->
-                    if(task.isSuccessful){
-                        Log.d("AppDatabase","AAA to 1")
-                        Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
-                        firestoreAthleteInit()
-                        val intent = Intent(this, LoginActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }else {
-                        Log.d("AppDatabase","AAA else 1")
-                        val builder = AlertDialog.Builder(this)
-                        builder.setMessage("User Already Exists. Login with a different Email and Password or Register with another Email Address")
-                        builder.setCancelable(true)
-                        builder.setNegativeButton("OK", DialogInterface.OnClickListener
+                .addOnSuccessListener {
+                    Log.d("AppDatabase","AAA to 1")
+                    Toast.makeText(this, "Successfully Registered", Toast.LENGTH_LONG).show()
+                    firestoreAthleteInit()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                .addOnFailureListener {
+                    Log.d("AppDatabase","AAA else 1")
+                    val builder = AlertDialog.Builder(this)
+                    builder.setMessage(it.message)
+                    builder.setCancelable(true)
+                    builder.setNegativeButton("OK", DialogInterface.OnClickListener
                         { dialog, which -> dialog.cancel() })
                         val alertDialog: AlertDialog = builder.create()
                         alertDialog.show()
                         Toast.makeText(this, "Registration Failed; Please Try Again", Toast.LENGTH_LONG).show()
-                    }
-                })
+                }
         }
     }
     private fun firestoreAthleteInit() = CoroutineScope(Dispatchers.IO).launch{

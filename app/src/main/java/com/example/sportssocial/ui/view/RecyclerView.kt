@@ -3,14 +3,16 @@ package com.example.sportssocial.ui.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.adapters.ArticleThumbnailAdapter
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dagger.hilt.android.AndroidEntryPoint
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.kotlin.subscribeBy
+import io.reactivex.rxjava3.schedulers.Schedulers
+import timber.log.Timber
 
 class RecyclerView : AppCompatActivity() {
 
@@ -26,10 +28,18 @@ class RecyclerView : AppCompatActivity() {
         var recyclerView: RecyclerView = findViewById(R.id.recycler_view)
 
         viewModel.getAllArticles()
-        viewModel.allArticles?.observe(this) { articleList ->
-            getArticles(articleList)
-            articleThumbnailAdapter.setItems(articleList)
-        }
+        viewModel.allArticles
+            ?.subscribeOn(Schedulers.io())
+            ?.observeOn(AndroidSchedulers.mainThread())
+            ?.subscribeBy(
+                onNext = {
+                    getArticles(it)
+                },
+                onComplete = {
+                    articleThumbnailAdapter.setItems(articleList)
+                },
+                onError = {e -> Timber.e(e)}
+            )
 
         articleThumbnailAdapter =
             ArticleThumbnailAdapter(this, articleList, { position -> onCardClick(position) })

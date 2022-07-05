@@ -95,6 +95,7 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
     implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+    implementation "androidx.room:room-rxjava3:$room_version"
 
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:30.1.0')
@@ -135,4 +136,5 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
+    //RXJava
 }
