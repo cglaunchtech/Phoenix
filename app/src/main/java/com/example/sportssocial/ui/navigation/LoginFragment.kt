@@ -30,13 +30,13 @@ class LoginFragment : Fragment() {
             //TODO: ENSURE FORM IS FILLED
             //TODO: AUTHENTICATE LOGIN
             //TODO: CHECK CHECKBOX isCHECKED
-            signInButton.findNavController().navigate(R.id.action_loginFragment_to_homepageFragment)
+            viewerButton.findNavController().navigate(R.id.action_loginFragment_to_containerFragment)
         }
 
         viewerButton.setOnClickListener {
             //TODO: SET TOOLBAR TO HIDDEN IN HOMEPAGE FRAGMENT
             //TODO: SET VIEWER MODE TO TRUE
-            viewerButton.findNavController().navigate(R.id.action_loginFragment_to_homepageFragment)
+            viewerButton.findNavController().navigate(R.id.action_loginFragment_to_containerFragment)
         }
 
         signUpButton.setOnClickListener {

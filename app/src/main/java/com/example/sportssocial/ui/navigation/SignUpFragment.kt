@@ -37,7 +37,7 @@ class SignUpFragment : Fragment() {
             //TODO: CHECK FIELDS FOR APPROPRIATE INPUT
             //TODO: DISABLE BUTTON IF FORM EMPTY
             Toast.makeText(requireContext(), "Welcome to Sports Social!", Toast.LENGTH_LONG).show()
-            submitButton.findNavController().navigate(R.id.action_signUpFragment_to_homepageFragment)
+            submitButton.findNavController().navigate(R.id.action_loginFragment_to_containerFragment)
         }
 
 

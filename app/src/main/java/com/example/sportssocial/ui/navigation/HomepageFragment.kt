@@ -19,7 +19,6 @@ class HomepageFragment : Fragment() {
 
         //Page Elements
         //TODO: SET TOOLBAR TO HIDDEN IF VIEWER MODE == TRUE
-        val toolbar : View = view.findViewById(R.id.toolbar)
 
         return view
     }

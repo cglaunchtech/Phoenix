@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.bumptech.glide.Glide.init
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.repo.AthleteRepository
 import kotlinx.coroutines.launch

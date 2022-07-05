@@ -14,8 +14,8 @@
             android:id="@+id/action_loginFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_homepageFragment"
-            app:destination="@id/homepageFragment" />
+            android:id="@+id/action_loginFragment_to_containerFragment"
+            app:destination="@id/containerFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -25,17 +25,34 @@
         <action
             android:id="@+id/action_signUpFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_signUpFragment_to_homepageFragment"
-            app:destination="@id/homepageFragment" />
     </fragment>
     <fragment
-        android:id="@+id/homepageFragment"
-        android:name="com.example.sportssocial.ui.navigation.HomepageFragment"
-        android:label="fragment_homepage"
-        tools:layout="@layout/fragment_homepage" >
+        android:id="@+id/profileFragment"
+        android:name="com.example.sportssocial.ui.navigation.ProfileFragment"
+        android:label="fragment_profile2"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.sportssocial.ui.navigation.SearchFragment"
+        android:label="fragment_search2"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/highlightsFragment"
+        android:name="com.example.sportssocial.ui.navigation.HighlightsFragment"
+        android:label="fragment_highlights"
+        tools:layout="@layout/fragment_highlights" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.sportssocial.ui.navigation.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/containerFragment"
+        android:name="com.example.sportssocial.ui.navigation.ContainerFragment"
+        android:label="fragment_container"
+        tools:layout="@layout/fragment_container" >
         <action
-            android:id="@+id/action_homepageFragment_to_loginFragment"
+            android:id="@+id/action_containerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 </navigation>
