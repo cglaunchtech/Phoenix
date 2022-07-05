@@ -1,12 +1,13 @@
 package com.example.sportssocial.data.api
 
-import android.provider.Contacts.SettingsColumns.KEY
 import com.example.sportssocial.BuildConfig
+import com.example.sportssocial.data.api.pojo.TopHeadlinesPojo
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import io.reactivex.rxjava3.core.Observable
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
@@ -22,13 +23,17 @@ interface RetrofitClient {
     ): Observable<TopHeadlinesPojo>
 
     companion object {
+        private val moshi: Moshi = Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
+
         var BASE_URL = "https://newsapi.org/"
 
         fun create(): RetrofitClient {
             val retrofit = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .baseUrl(BASE_URL)
+                .addConverterFactory(MoshiConverterFactory.create(moshi))
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build()
 
             return retrofit.create(RetrofitClient::class.java)
