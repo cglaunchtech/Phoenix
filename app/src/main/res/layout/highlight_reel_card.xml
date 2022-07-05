@@ -18,7 +18,7 @@
             />
 
         <ImageView
-            android:id="@+id/img_url"
+            android:id="@+id/image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
@@ -30,7 +30,7 @@
             android:layout_marginTop="@dimen/highlight_reel_margin_top"
             android:text="@string/username"
             android:textColor="@color/white"
-            app:layout_constraintTop_toTopOf="@id/img_url"
+            app:layout_constraintTop_toTopOf="@id/image_view"
             app:layout_constraintLeft_toLeftOf="parent"
             />
 

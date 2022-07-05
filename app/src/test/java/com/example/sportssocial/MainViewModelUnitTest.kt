@@ -2,6 +2,7 @@ package com.example.sportssocial
 
 import android.app.Application
 import android.content.Context
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.sportssocial.data.api.RetrofitClient
 import com.example.sportssocial.data.model.dao.AthleteDao
 import com.example.sportssocial.data.model.db.entities.Athlete
@@ -17,12 +18,13 @@ import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import org.mockito.Mock
 import org.mockito.Mockito
-import org.mockito.Mockito.mock
+import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
 import retrofit2.Response
 
@@ -51,11 +53,17 @@ class MainViewModelUnitTest {
     @Mock
     lateinit var context: Context
 
+    @get:Rule
+    var coroutinesTestRule = TestCoroutineRule()
+
+    @get:Rule
+    val instantExecutorRule = InstantTaskExecutorRule()
+
 
     @Before
     fun setUp(){
         MockitoAnnotations.openMocks(this)
-       // Athleterepo = AthleteRepository(context)
+
         this.vm = MainViewModel(app)
 
 
@@ -89,19 +97,24 @@ class MainViewModelUnitTest {
                 )
             ))
 
-            Mockito.`when`(Athleterepo.getAllAthletes())
-                .thenReturn(Observable.fromArray(fakeList))
+           // Mockito.`when`(Athleterepo.getAllAthletes())
+            //    .thenReturn(Observable.fromArray(fakeList))
 
 
-            var result = vm.getAllAthletes()
+             vm.getAllAthletes()
+                      verify(Athleterepo, times(1)).getAllAthletes()
 
-            result!!.subscribeBy(
-                onNext = {
-                    Assert.assertEquals(fakeList, it)
-                },
 
-                onError = { println("error :$it") }
-            )
+
+
+
+//            result!!.subscribeBy(
+//                onNext = {
+//                    Assert.assertEquals(fakeList, it)
+//                },
+//
+//                onError = { println("error :$it") }
+//            )
 
         }
 //           .assertResult(

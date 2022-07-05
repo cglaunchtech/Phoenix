@@ -19,10 +19,10 @@ class MainViewModel(app: Application): AndroidViewModel(app) {
         allAthletes = repo.getAllAthletes()
     }
 
-//    fun getAllAthletes() = viewModelScope.launch {
+    fun getAllAthletes() = viewModelScope.launch {
 
-//        repo.getAllAthletes()
-//    }
+        repo.getAllAthletes()
+    }
 
     fun insertAthlete(athletes: Athlete) = viewModelScope.launch{
 

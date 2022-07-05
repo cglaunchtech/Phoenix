@@ -20,7 +20,7 @@
             android:background="@drawable/card_gradient" />
 
         <ImageView
-            android:id="@+id/img_url"
+            android:id="@+id/image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_launcher_foreground"

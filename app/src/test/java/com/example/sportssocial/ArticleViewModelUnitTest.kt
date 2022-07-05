@@ -37,16 +37,18 @@ class ArticleViewModelUnitTest {
 
 
         @Before
-        fun setUp(){
+        fun setUp() {
 //        MockitoAnnotations.initMocks(this)
-            MockitoAnnotations.openMocks(this)
+                MockitoAnnotations.openMocks(this)
 //        repo = BookRepository(inter, dao)
-            vm = ArticleViewModel(app = Application())
+                vm = ArticleViewModel(app = Application())
 //        setupObservers()
         }
-        private fun setupObservers(){
-            articleList = Mockito.mock(Observer::class.java) as Observer<List<NewsArticle>>
+
+        private fun setupObservers() {
+                articleList = Mockito.mock(Observer::class.java) as Observer<List<NewsArticle>>
         }
+}
 
        // @Test
 //        fun getAllnewsArticlesTest(){
