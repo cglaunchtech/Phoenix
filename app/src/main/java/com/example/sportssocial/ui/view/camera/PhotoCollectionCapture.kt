@@ -1,6 +1,7 @@
 package com.example.sportssocial.ui.view.camera
 
 import android.app.Activity
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.graphics.Bitmap
 import android.icu.text.SimpleDateFormat
@@ -16,7 +17,6 @@ import android.widget.*
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.camera.core.CameraXThreads.TAG
 import androidx.core.content.FileProvider
 import com.example.sportssocial.R
 import com.example.sportssocial.databinding.ActivityPhotoCollectionCaptureBinding
@@ -53,7 +53,7 @@ class PhotoCollectionCapture : AppCompatActivity() {
     private val VISIBLE_IMAGE_PATH_KEY = "visible image path key"
 
     private val storage = Firebase.storage
-    private lateinit var mainView: View
+
 
 
     private val cameraActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -65,6 +65,7 @@ class PhotoCollectionCapture : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPhotoCollectionCaptureBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         binding.imgCaptureBtn.setOnClickListener(View.OnClickListener {
        //     var intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
@@ -113,7 +114,7 @@ class PhotoCollectionCapture : AppCompatActivity() {
 
         if (photoFile != null) {
             newPhotoPath = photoFilePath
-            photoUri = FileProvider.getUriForFile(this, "com.example.collage.fileprovider", photoFile)
+            photoUri = FileProvider.getUriForFile(this, "com.example.sportssocial.fileprovider", photoFile)
             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri)
             cameraActivityLauncher.launch(takePictureIntent)
         }
@@ -121,21 +122,21 @@ class PhotoCollectionCapture : AppCompatActivity() {
 
     private fun uploadImage() {
         if (photoUri != null && imageFileName != null) {
-            uploadProgressBar.visibility = View.VISIBLE
+            binding.uploadProgressBar.visibility = View.VISIBLE
             val imageStorageRootReference = storage.reference
             val imageCollectionReference = imageStorageRootReference.child("images")
             val imageFileReference = imageCollectionReference.child(imageFileName!!)
             imageFileReference.putFile(photoUri!!).addOnCompleteListener {
-                Snackbar.make(mainView, "Image uploaded!", Snackbar.LENGTH_LONG).show()
-                uploadProgressBar.visibility = View.GONE
+                Snackbar.make(binding.content, "Image uploaded!", Snackbar.LENGTH_LONG).show()
+                binding.uploadProgressBar.visibility = View.GONE
             }
                 .addOnFailureListener { error ->
-                    Snackbar.make(mainView, "Error uploading image", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(binding.content, "Error uploading image", Snackbar.LENGTH_LONG).show()
                     Log.e(TAG, "Error uploading image $imageFileName", error)
-                    uploadProgressBar.visibility = View.GONE
+                    binding.uploadProgressBar.visibility = View.GONE
                 }
         } else {
-            Snackbar.make(mainView, "Take a picture first", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(binding.content, "Take a picture first", Snackbar.LENGTH_LONG).show()
         }
     }
 
@@ -144,6 +145,7 @@ class PhotoCollectionCapture : AppCompatActivity() {
             RESULT_OK -> {
                 Log.d(TAG, "result ok, user took picture, image at $newPhotoPath")
                 visibleImagePath = newPhotoPath
+                uploadImage()
             }
             RESULT_CANCELED -> {
                 Log.d(TAG, "Result canceled, no picture taken")

@@ -45,9 +45,7 @@
         <activity
             android:name=".ui.view.ProfilePicScroll"
             android:exported="false" />
-        <activity
-            android:name=".ui.navigation.BottomNavMain"
-            android:exported="true" />
+
         <activity
             android:name=".ui.view.LoginActivity"
             android:exported="true" />
@@ -63,6 +61,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="com.example.sportssocial.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+
 
         <meta-data
             android:name="keyValue"
