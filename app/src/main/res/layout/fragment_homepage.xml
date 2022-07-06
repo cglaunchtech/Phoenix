@@ -33,6 +33,7 @@
                     android:background="@drawable/light_grey_bubble"
                     android:text="@string/baseball"
                     android:textSize="@dimen/home_btn_text"
+                    android:fontFamily="@font/finlandica_bold"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/basketballButton"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -44,6 +45,7 @@
                     android:background="@drawable/light_grey_bubble"
                     android:text="@string/basketball"
                     android:textSize="@dimen/home_btn_text"
+                    android:fontFamily="@font/finlandica_bold"
                     app:layout_constraintLeft_toRightOf="@id/baseballButton"
                     app:layout_constraintRight_toLeftOf="@id/footballButton"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -55,6 +57,7 @@
                     android:background="@drawable/light_grey_bubble"
                     android:text="@string/football"
                     android:textSize="@dimen/home_btn_text"
+                    android:fontFamily="@font/finlandica_bold"
                     app:layout_constraintLeft_toRightOf="@id/basketballButton"
                     app:layout_constraintRight_toLeftOf="@id/soccerButton"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -66,6 +69,7 @@
                     android:background="@drawable/light_grey_bubble"
                     android:text="@string/soccer"
                     android:textSize="@dimen/home_btn_text"
+                    android:fontFamily="@font/finlandica_bold"
                     app:layout_constraintLeft_toRightOf="@id/footballButton"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -77,6 +81,7 @@
                         android:background="@drawable/light_grey_bubble"
                         android:text="@string/hockey"
                         android:textSize="@dimen/home_btn_text"
+                      android:fontFamily="@font/finlandica_bold"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toLeftOf="@id/lacrosseButton"
                         app:layout_constraintTop_toBottomOf="@id/baseballButton" />
@@ -88,6 +93,7 @@
                         android:background="@drawable/light_grey_bubble"
                         android:text="@string/lacrosse"
                         android:textSize="@dimen/home_btn_text"
+                        android:fontFamily="@font/finlandica_bold"
                         app:layout_constraintRight_toLeftOf="@id/tennisButton"
                         app:layout_constraintLeft_toRightOf="@id/hockeyButton"
                         app:layout_constraintTop_toBottomOf="@id/baseballButton" />
@@ -99,6 +105,7 @@
                         android:background="@drawable/light_grey_bubble"
                         android:text="@string/tennis"
                         android:textSize="@dimen/home_btn_text"
+                        android:fontFamily="@font/finlandica_bold"
                         app:layout_constraintLeft_toRightOf="@id/lacrosseButton"
                         app:layout_constraintRight_toLeftOf="@id/wrestlingButton"
                         app:layout_constraintTop_toBottomOf="@id/baseballButton" />
@@ -111,6 +118,7 @@
                         android:background="@drawable/light_grey_bubble"
                         android:text="@string/wrestling"
                         android:textSize="@dimen/home_btn_text"
+                        android:fontFamily="@font/finlandica_bold"
                         app:layout_constraintLeft_toRightOf="@id/tennisButton"
                         app:layout_constraintTop_toBottomOf="@id/baseballButton"
                         app:layout_constraintRight_toRightOf="parent"/>
@@ -122,6 +130,7 @@
                         android:layout_marginTop="@dimen/home_margin_top"
                         android:text="@string/sports_news"
                         android:textSize="@dimen/home_label_text"
+                        android:fontFamily="@font/finlandica_bold"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/hockeyButton" />
 
@@ -141,6 +150,7 @@
                         android:layout_marginTop="@dimen/home_margin_top"
                         android:text="@string/athletes"
                         android:textSize="@dimen/home_label_text"
+                        android:fontFamily="@font/finlandica_bold"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/newsRecyclerView" />
 

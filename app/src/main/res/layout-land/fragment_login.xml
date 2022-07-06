@@ -48,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/email"
                     android:paddingTop="@dimen/input_padding"
+                    android:fontFamily="@font/opensans_regular"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -56,6 +57,7 @@
                         android:id="@+id/loginEmailField1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensans_regular"
                         android:background="@drawable/input_background" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -67,6 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/login_margin_top"
                     android:hint="@string/password"
+                    android:fontFamily="@font/opensans_regular"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/loginEmailField">
@@ -75,6 +78,7 @@
                         android:id="@+id/loginPasswordField1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/opensans_regular"
                         android:background="@drawable/input_background" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -86,6 +90,7 @@
                     android:layout_height="wrap_content"
                     android:onClick="onCheckboxClicked"
                     android:text="@string/save_password"
+                    android:fontFamily="@font/opensans_regular"
                     app:layout_constraintStart_toStartOf="@+id/loginPasswordField"
                     app:layout_constraintTop_toBottomOf="@+id/loginPasswordField" />
 
@@ -97,6 +102,7 @@
                     android:text="@string/forgot_password"
                     android:textColor="@color/hyperlink"
                     android:textSize="@dimen/login_small_text"
+                    android:fontFamily="@font/opensans_regular"
                     app:layout_constraintBottom_toTopOf="@+id/signInButton"
                     app:layout_constraintEnd_toEndOf="@+id/loginPasswordField"
                     app:layout_constraintTop_toBottomOf="@+id/loginPasswordField" />
@@ -108,6 +114,7 @@
                     android:padding="@dimen/login_btn_padding"
                     android:text="@string/sign_in"
                     android:textSize="@dimen/login_btn_text"
+                    android:fontFamily="@font/finlandica_bold"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/passwordCheckbox" />
@@ -119,6 +126,7 @@
                     android:text="@string/register"
                     android:layout_marginTop="@dimen/login_text_margin_top"
                     android:textSize="@dimen/login_small_text"
+                    android:fontFamily="@font/opensans_regular"
                     app:layout_constraintEnd_toStartOf="@+id/signUpButton"
                     app:layout_constraintStart_toStartOf="@+id/signInButton"
                     app:layout_constraintTop_toBottomOf="@id/signInButton" />
@@ -130,6 +138,7 @@
                     android:layout_marginLeft="5dp"
                     android:text="@string/sign_up"
                     android:textSize="@dimen/login_small_text"
+                    android:fontFamily="@font/opensans_regular"
                     android:layout_marginTop="@dimen/login_text_margin_top"
                     android:textColor="@color/hyperlink"
                     app:layout_constraintTop_toBottomOf="@id/signInButton"
@@ -142,6 +151,7 @@
                     android:text="@string/view"
                     android:textSize="@dimen/login_small_text"
                     android:layout_marginTop="@dimen/login_view_padding"
+                    android:fontFamily="@font/opensans_regular"
                     android:textColor="@color/hyperlink"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

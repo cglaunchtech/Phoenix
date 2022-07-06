@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/placeholder"
                 android:paddingLeft="16dp"
+                android:fontFamily="@font/finlandica_bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@id/favoritePlayerFirstName"/>
@@ -50,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/placeholder"
                 android:paddingRight="16dp"
+                android:fontFamily="@font/finlandica_bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/favoritePlayerFirstName"/>

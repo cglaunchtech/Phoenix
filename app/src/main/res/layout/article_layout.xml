@@ -47,6 +47,7 @@
                 android:text="@string/app_name"
                 android:textAlignment="center"
                 android:textSize="@dimen/profile_title_text"
+                android:fontFamily="@font/finlandica_bold"
                 app:layout_constraintLeft_toLeftOf="@id/profilePicture"
                 app:layout_constraintRight_toRightOf="@id/searchNotifications"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -63,6 +64,7 @@
         android:layout_marginTop="@dimen/home_scrollview_margin"
         android:text="@string/news_title"
         android:textSize="24sp"
+        android:fontFamily="@font/finlandica_bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
@@ -74,6 +76,7 @@
         android:layout_marginLeft="@dimen/home_scrollview_margin"
         android:text="@string/author"
         android:textSize="20sp"
+        android:fontFamily="@font/opensans_regular"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_view_title" />
@@ -85,6 +88,7 @@
         android:layout_marginLeft="@dimen/home_scrollview_margin"
         android:text="@string/news_source"
         android:textSize="16sp"
+        android:fontFamily="@font/opensans_regular"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_view_author" />
@@ -96,6 +100,7 @@
         android:layout_marginLeft="@dimen/home_scrollview_margin"
         android:text="@string/published_at"
         android:textSize="16sp"
+        android:fontFamily="@font/opensans_light"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_view_source" />
@@ -119,6 +124,7 @@
         android:layout_margin="@dimen/home_scrollview_margin"
         android:text="@string/description"
         android:textSize="20sp"
+        android:fontFamily="@font/finlandica_bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/image_view" />
@@ -131,6 +137,7 @@
         android:layout_marginRight="@dimen/home_scrollview_margin"
         android:text="@string/lorem_ipsum"
         android:textSize="@dimen/login_btn_text"
+        android:fontFamily="@font/opensans_regular"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_view_description" />
@@ -142,6 +149,7 @@
         android:layout_marginLeft="@dimen/home_scrollview_margin"
         android:text="@string/link"
         android:textSize="16sp"
+        android:fontFamily="@font/finlandica_bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_view_content" />
 
@@ -152,6 +160,7 @@
         android:layout_marginLeft="@dimen/home_scrollview_margin"
         android:text="@string/article_url"
         android:textSize="16sp"
+        android:fontFamily="@font/opensans_light"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_view_read_more" />
