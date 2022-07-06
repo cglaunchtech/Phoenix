@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SportsSocial</string>
+    <string name="first_name">الاسم الاول</string>
+    <string name="last_name">الكنية</string>
+    <string name="category_header">رأس</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="sign_up">إصنع حساب</string>
+    <string name="register">مسجل؟</string>
+    <string name="submit">يُقدِّم</string>
+    <string name="cancel">يلغي</string>
+    <string name="baseball">البيسبول</string>
+    <string name="basketball">كرة سلة</string>
+    <string name="football">كرة القدم</string>
+    <string name="soccer">كرة القدم</string>
+    <string name="hockey">الهوكي</string>
+    <string name="lacrosse">لاكروس</string>
+    <string name="tennis">تنس</string>
+    <string name="wrestling">مصارعة</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="save_password">حفظ كلمة المرور</string>
+    <string name="forgot_password">هل نسيت كلمة السر؟</string>
+    <string name="view">نمط العرض</string>
+    <string name="username">اسم المستخدم</string>
+    <string name="city">مدينة</string>
+    <string name="state">حالة</string>
+    <string name="dob">عيد الميلاد</string>
+    <string name="about_me">عني</string>
+    <string name="sports">رياضات</string>
+    <string name="news_title">عنوان</string>
+    <string name="news_source">مصدر الأخبار</string>
+    <string name="athletes">الرياضيون المميزون</string>
+    <string name="teams">فرق مميزة</string>
+    <string name="trainers">المدربين المميزين</string>
+    <string name="sports_news">الأخبار الرياضية</string>
+    <string name="events">الأحداث</string>
+    <string name="watch_me">يسلط الضوء</string>
+    <string name="edit">يحرر</string>
+    <string name="save">يحفظ</string>
+    <string name="author">مؤلف</string>
+    <string name="link">اقرأ أكثر</string>
+    <string name="description">وصف</string>
+    <string name="published_at">تاريخ النشر</string>
+</resources>

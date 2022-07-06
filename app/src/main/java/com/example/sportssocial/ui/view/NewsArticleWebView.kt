@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
+import androidx.activity.viewModels
 import com.example.sportssocial.R
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -14,7 +15,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import timber.log.Timber
 
 class NewsArticleWebView : AppCompatActivity() {
-    lateinit var vm: ArticleViewModel
     lateinit var webView: WebView
     lateinit var backBtn: Button
 
@@ -23,7 +23,7 @@ class NewsArticleWebView : AppCompatActivity() {
         setContentView(R.layout.activity_news_article_web_view)
 
 
-        vm = ArticleViewModel(application)
+        val vm : ArticleViewModel by viewModels()
         webView = findViewById(R.id.webView)
         backBtn = findViewById(R.id.backBtn)
 
