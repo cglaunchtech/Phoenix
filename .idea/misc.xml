@@ -12,10 +12,13 @@
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/borderless_grey_bubble.xml" value="0.133" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/dark_grey_bubble.xml" value="0.163" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.109" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/ic_baseline_add_a_photo_24.xml" value="0.1535" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.133" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.1465" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1435" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/ic_baseline_photo_camera_24.xml" value="0.1465" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/ic_baseline_play_circle_filled_24.xml" value="0.1465" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/ic_baseline_video_call_24.xml" value="0.1435" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1465" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/light_grey_bubble.xml" value="0.163" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout-land/article_layout.xml" value="0.2" />
@@ -35,7 +38,7 @@
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/article_layout.xml" value="0.22" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/card_favorites.xml" value="0.25" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/dropdown_item.xml" value="0.25" />
-        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_container.xml" value="0.175" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_container.xml" value="0.22" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_edit_form.xml" value="0.20923913043478262" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_edit_profile.xml" value="0.33" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_edit_profile2.xml" value="0.12545289855072464" />
@@ -46,7 +49,7 @@
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_highlights.xml" value="0.1" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_homepage.xml" value="0.18" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_login.xml" value="0.25" />
-        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_search.xml" value="0.25" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_sign_up.xml" value="0.19448373408769448" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/highlight_reel_card.xml" value="0.14764492753623187" />
