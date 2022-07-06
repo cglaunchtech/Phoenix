@@ -15,6 +15,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.kotlin.subscribeBy
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -24,7 +27,7 @@ import kotlinx.coroutines.runBlocking
 class ProfileFragment : Fragment() {
 
     var databaseReference : DatabaseReference? = null
-    var database : DatabaseReference? = null
+    var database = FirestoreRepo()
     lateinit var auth: FirebaseAuth
     lateinit var firstNameField : View
     lateinit var editButton : View
@@ -45,29 +48,33 @@ class ProfileFragment : Fragment() {
             replaceFragment(EditProfileFragment())
         }
 
-        //getUser(auth)
+        getUser()
 
         return view
     }
 
-    private fun getUser(user : FirebaseAuth) {
-
-        database = FirebaseDatabase.getInstance()?.getReference("users")
-
+    private fun getUser() {
         CoroutineScope(Dispatchers.IO).launch {
             if (auth.currentUser != null) {
-                database?.child(auth.currentUser.toString())?.get()?.addOnSuccessListener {
-                    if (it.exists()) {
-                        val firstName = it.child("first")
-                        val lastName = it.child("last")
-                        val aboutMe = it.child("aboutMe")
+                var user = database.getProfileByUid(auth.uid!!)
 
+                user.subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeBy(
+                        onNext = {
+                            val firstName = it.first
+                            val lastName = it.last
+                            val aboutMe = it.aboutMe
+                            val profilePhoto = it.profilePhoto
+                            val city = it.city
+                            val state = it.state
+                            val username =it.username
+                            val dob = it.dob
+                            val photoCollection = it.photoCollection
                         Log.d("First Name", firstName.toString() )
                         Log.d("Last Name", lastName.toString() )
                         Log.d("About Me", aboutMe.toString() )
-
-                    }
-                }
+                                 })
 
             }
         }
