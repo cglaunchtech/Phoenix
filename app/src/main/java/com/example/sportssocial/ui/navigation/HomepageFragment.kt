@@ -29,20 +29,12 @@ class HomepageFragment : Fragment() {
     var articleList = ArrayList<NewsArticle>()
     lateinit var articleThumbnailAdapter: ArticleThumbnailAdapter
 
-    override fun onLowMemory() {
-        super.onLowMemory()
-        Toast.makeText(requireContext(),"DOWNLOAD_MORE_RAM", Toast.LENGTH_LONG)
-    }
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_homepage, container, false)
-
-
 
         this.articleList.clear()
         val viewModel : ArticleViewModel by viewModels()

@@ -25,7 +25,9 @@ class ContainerFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_container, container, false)
 
+        //Sets the Default Fragment on Launch
         replaceFragment(homeFragment)
+        view.bottomNav.selectedItemId = R.id.homepageFragment
         view.bottomNav.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.homepageFragment -> replaceFragment(homeFragment)
