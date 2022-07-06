@@ -11,11 +11,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
-class GlobalResponseOperator<T> constructor(
-    private val application: Application
-) : ApiResponseSuspendOperator<T>() {
+class GlobalResponseOperator<T> constructor(private val application: Application) :
+    ApiResponseSuspendOperator<T>() {
 
     // handle the case when the API request gets a success response.
+    //onSuccess is handled in NewsArticleRepository
     override suspend fun onSuccess(apiResponse: ApiResponse.Success<T>) = Unit
 
     // handles the case when the API request gets an error response.
