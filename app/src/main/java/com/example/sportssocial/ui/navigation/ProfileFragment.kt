@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import com.example.sportssocial.R
 import com.example.sportssocial.data.repo.FirestoreRepo
 import com.example.sportssocial.ui.viewmodel.MainViewModel
@@ -14,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -25,6 +27,7 @@ class ProfileFragment : Fragment() {
     var database : DatabaseReference? = null
     lateinit var auth: FirebaseAuth
     lateinit var firstNameField : View
+    lateinit var editButton : View
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,8 +40,12 @@ class ProfileFragment : Fragment() {
         val vm : MainViewModel by viewModels()
 
 
-        //getUser(auth)
+        editButton = view.findViewById(R.id.editButton)
+        editButton.setOnClickListener {
+            replaceFragment(EditProfileFragment())
+        }
 
+        //getUser(auth)
 
         return view
     }
@@ -64,6 +71,15 @@ class ProfileFragment : Fragment() {
 
             }
         }
+    }
+
+    private fun replaceFragment(fragment : Fragment) {
+
+        val transaction = parentFragmentManager
+        transaction.beginTransaction().replace(
+            R.id.fragmentContainer,
+            fragment
+        ).commit()
     }
 
 }

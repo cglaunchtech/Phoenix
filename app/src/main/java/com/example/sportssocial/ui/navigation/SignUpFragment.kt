@@ -123,8 +123,8 @@ class SignUpFragment : Fragment() {
             profilePhoto.setImageBitmap(bitmap);
         }
         cancelButton.setOnClickListener {
-            val myIntent = Intent(requireContext(), MainActivity::class.java)
-            startActivity(myIntent)
+            Toast.makeText(requireContext(), "Sign Up Cancelled", Toast.LENGTH_LONG).show()
+            cancelButton.findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
         }
 
         addProfilepic.bringToFront()
