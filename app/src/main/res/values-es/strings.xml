@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SportsSocial</string>
+    <string name="published_at">Fecha</string>
+    <string name="description">Descripción</string>
+    <string name="link">Lee mas</string>
+    <string name="author">Autor</string>
+    <string name="save">Guardar Guardar</string>
+    <string name="edit">Editar</string>
+    <string name="watch_me">Reflejos</string>
+    <string name="events">"Eventos "</string>
+    <string name="sports_news">Noticias Eportivas</string>
+    <string name="trainers">Entrenadores Destacados</string>
+    <string name="teams">Equipos Destacados</string>
+    <string name="athletes">Atletas Destacados</string>
+    <string name="news_source">Fuente de Noticias</string>
+    <string name="news_title">"Título "</string>
+    <string name="sports">Deportes</string>
+    <string name="about_me">Sobre Mí</string>
+    <string name="dob">Cumpleaños</string>
+    <string name="state">Estado</string>
+    <string name="username">Nombre de Usuario</string>
+    <string name="city">Ciudad</string>
+    <string name="view">Sólo Vista</string>
+    <string name="forgot_password">¿Has Olvidado tu Contraseña?</string>
+    <string name="save_password">Guardar Contraseña</string>
+    <string name="confirm_password">Confirmar Contraseña</string>
+    <string name="password">Clave</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="wrestling">Lucha</string>
+    <string name="tennis">Tenis</string>
+    <string name="lacrosse">Lacrosse</string>
+    <string name="hockey">Hockey</string>
+    <string name="soccer">Fútbol</string>
+    <string name="football">Football</string>
+    <string name="basketball">Baloncesto</string>
+    <string name="baseball">Béisbol</string>
+    <string name="cancel">Cancelar</string>
+    <string name="submit">Enviar Enviar</string>
+    <string name="register">¿Todavía No Estas Registrado?</string>
+    <string name="sign_up">Crear una Cuenta</string>
+    <string name="sign_in">Acceso</string>
+    <string name="category_header">Encabezamiento</string>
+    <string name="last_name">Apellido</string>
+    <string name="first_name">Nombre de Pila</string>
+</resources>
