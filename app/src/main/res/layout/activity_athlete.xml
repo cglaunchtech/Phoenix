@@ -42,6 +42,7 @@
             android:text="@string/app_name"
             android:textAlignment="center"
             android:textSize="@dimen/profile_title_text"
+            android:fontFamily="@font/finlandica_bold"
             app:layout_constraintLeft_toLeftOf="@id/profilePicture"
             app:layout_constraintRight_toRightOf="@id/searchNotifications"
             app:layout_constraintTop_toTopOf="parent" />
@@ -54,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/first_name"
                 android:textSize="@dimen/profile_large_text"
+                android:fontFamily="@font/opensans_regular"
                 android:layout_marginTop="@dimen/profile_margin"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profilePicture"
@@ -65,6 +67,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/last_name"
                 android:textSize="@dimen/profile_large_text"
+                android:fontFamily="@font/opensans_regular"
                 android:layout_marginTop="@dimen/profile_margin"
                 android:layout_marginLeft="@dimen/profile_margin_left"
                 app:layout_constraintLeft_toRightOf="@id/profileFirstName"
@@ -77,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:text="00"
                 android:textSize="@dimen/profile_large_text"
+                android:fontFamily="@font/opensans_regular"
                 android:layout_marginTop="@dimen/profile_margin"
                 android:layout_marginLeft="@dimen/profile_margin"
                 app:layout_constraintRight_toRightOf="parent"
@@ -89,6 +93,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/username"
                 android:textSize="@dimen/profile_small_text"
+                android:fontFamily="@font/opensans_light"
                 app:layout_constraintTop_toBottomOf="@id/profileFirstName"
                 app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -98,6 +103,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/city"
                 android:textSize="@dimen/profile_small_text"
+                android:fontFamily="@font/opensans_light"
                 android:layout_marginLeft="@dimen/profile_margin"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profileAge"/>
@@ -109,6 +115,7 @@
                 android:text="@string/about_me"
                 android:layout_marginTop="@dimen/profile_margin"
                 android:textSize="@dimen/profile_large_text"
+                android:fontFamily="@font/finlandica_bold"
                 app:layout_constraintTop_toBottomOf="@id/profileUsername"
                 app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -120,6 +127,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/lorem_ipsum"
                 android:textSize="@dimen/profile_medium_text"
+                android:fontFamily="@font/opensans_regular"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profileAboutLabel"/>
 
@@ -130,6 +138,7 @@
                 android:text="@string/watch_me"
                 android:layout_marginTop="@dimen/profile_margin"
                 android:textSize="@dimen/profile_large_text"
+                android:fontFamily="@font/finlandica_bold"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profileAboutText"/>
 

@@ -50,13 +50,13 @@
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/drawable/input_background.xml" value="0.188" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/drawable/light_grey_bubble.xml" value="0.34" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/drawable/profile_pic_circle.xml" value="0.259" />
-        <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/activity_athlete.xml" value="0.361863488624052" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/activity_athlete.xml" value="0.22" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/activity_homepage.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/article_layout.xml" value="0.5078125" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/article_layout.xml" value="0.22" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/fragment_edit_form.xml" value="0.3255481410867493" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/fragment_following.xml" value="0.5145833333333333" />
-        <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/fragment_forgot_password.xml" value="0.361863488624052" />
-        <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/fragment_profile.xml" value="0.361863488624052" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/fragment_forgot_password.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/fragment_profile.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/fragment_search.xml" value="0.21758957654723127" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/login_layout.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout-land/profile_layout.xml" value="0.16666666666666666" />
@@ -66,7 +66,7 @@
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/activity_athlete.xml" value="0.35572916666666665" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/activity_bottom_nav_main.xml" value="0.22" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/activity_edit_form.xml" value="0.35572916666666665" />
-        <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/activity_homepage.xml" value="0.22" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/activity_homepage.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/activity_login.xml" value="0.1796875" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/activity_main2.xml" value="0.165625" />
@@ -83,7 +83,7 @@
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/dropdown_item.xml" value="0.2111111111111111" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/fragment_blank.xml" value="0.1796875" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/fragment_blank2.xml" value="0.3416666666666667" />
-        <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/fragment_edit_form.xml" value="0.15379310344827588" />
+        <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/fragment_edit_form.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/fragment_edit_form2.xml" value="0.35572916666666665" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/fragment_events.xml" value="0.35572916666666665" />
         <entry key="..\:/Users/corey/AndroidStudioProjects/sports_social/app/src/main/res/layout/fragment_following.xml" value="0.22" />

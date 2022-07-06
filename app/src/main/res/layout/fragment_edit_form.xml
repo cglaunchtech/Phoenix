@@ -33,6 +33,7 @@
             android:layout_margin="@dimen/signup_label_margin"
             android:text="@string/edit"
             android:textSize="@dimen/signup_label_text"
+            android:fontFamily="@font/finlandica_bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/addProfilePicture" />
@@ -53,6 +54,7 @@
                 android:id="@+id/firstName1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -72,6 +74,7 @@
                 android:id="@+id/lastName1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -93,6 +96,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -114,6 +118,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -135,6 +140,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -156,6 +162,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -176,6 +183,7 @@
                 android:id="@+id/cityField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -197,6 +205,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -218,6 +227,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background"
                 android:gravity="top|start"
                 android:inputType="textMultiLine"
@@ -281,6 +291,7 @@
             android:padding="@dimen/signup_btn_padding"
             android:text="@string/save"
             android:textSize="@dimen/signup_btn_text"
+            android:fontFamily="@font/finlandica_bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sportsSelectionTwo" />
 
@@ -295,6 +306,7 @@
             android:padding="@dimen/signup_btn_padding"
             android:text="@string/cancel"
             android:textSize="@dimen/signup_btn_text"
+            android:fontFamily="@font/finlandica_bold"
             app:layout_constraintRight_toRightOf="parent"
 
             app:layout_constraintTop_toBottomOf="@id/saveButton" />
