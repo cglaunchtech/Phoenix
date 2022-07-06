@@ -188,7 +188,7 @@ class SignUpFragment : Fragment() {
                     firestoreAthleteInit()
                     val intent = Intent(requireContext(), LoginActivity::class.java)
 
-                    view?.findNavController()?.navigate(R.id.action_loginFragment_to_containerFragment)
+                    view?.findNavController()?.navigate(R.id.action_signUpFragment_to_containerFragment)
                 }
 
                 .addOnFailureListener {
