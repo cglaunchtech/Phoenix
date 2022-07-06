@@ -58,7 +58,7 @@ class MainViewModelTest {
 
         MockitoAnnotations.openMocks(this)
 
-        this.vm = MainViewModel(app)
+        this.vm = MainViewModel(athleteRepo)
     }
 
     private fun setupObservers() {
