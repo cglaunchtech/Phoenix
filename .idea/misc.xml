@@ -27,15 +27,22 @@
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/signup_layout.xml" value="0.22" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/upcoming_events.xml" value="0.22" />
         <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/activity_article_preview.xml" value="0.1" />
+<<<<<<< HEAD
         <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/activity_photo_collection_capture.xml" value="0.26875" />
         <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/activity_profile_photo_capture.xml" value="0.2546875" />
         <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/activity_video_capture.xml" value="0.26875" />
+=======
+        <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/activity_profile_photo_capture.xml" value="0.2546875" />
+>>>>>>> main
         <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/add_event_layout.xml" value="0.12239583333333333" />
         <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/article_layout.xml" value="0.225" />
         <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/homepage.xml" value="0.26875" />
         <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/login_layout.xml" value="0.26875" />
         <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/layout/signup_layout.xml" value="0.25" />
+<<<<<<< HEAD
         <entry key="..\:/Users/KB/AndroidStudioProjects/Phoenix/app/src/main/res/xml/file_paths.xml" value="0.1375" />
+=======
+>>>>>>> main
         <entry key="app/src/main/res/layout-land/article_layout.xml" value="0.34322916666666664" />
         <entry key="app/src/main/res/layout-land/login_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout-land/profile_layout.xml" value="0.34322916666666664" />
@@ -45,6 +52,7 @@
         <entry key="app/src/main/res/layout/activity_edit_form.xml" value="0.195382642154767" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_news_article_web_view.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_profile_photo_capture.xml" value="0.2543822146216332" />
         <entry key="app/src/main/res/layout/activity_profile_pic_scroll.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_recycler_view.xml" value="0.165" />
         <entry key="app/src/main/res/layout/add_event_layout.xml" value="0.23802083333333332" />

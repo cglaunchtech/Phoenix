@@ -2,6 +2,8 @@ package com.example.sportssocial.data.api
 
 import com.example.sportssocial.BuildConfig
 import com.example.sportssocial.data.api.pojo.TopHeadlinesPojo
+import com.skydoves.sandwich.ApiResponse
+import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import io.reactivex.rxjava3.core.Observable
@@ -17,10 +19,10 @@ interface RetrofitClient {
         BuildConfig.KEY
     )
     @GET("v2/top-headlines")
-    fun getNews(
+    suspend fun getNews(
         @Query("country") country: String, @Query("category") category: String,
         @Query("q") query: String, @Query("pageSize") pageSize: Int, @Query("page") page: Int
-    ): Observable<TopHeadlinesPojo>
+    ): ApiResponse<TopHeadlinesPojo>
 
     companion object {
         private val moshi: Moshi = Moshi.Builder()
@@ -33,7 +35,7 @@ interface RetrofitClient {
             val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(MoshiConverterFactory.create(moshi))
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+                .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory.create())
                 .build()
 
             return retrofit.create(RetrofitClient::class.java)

@@ -96,7 +96,7 @@ class VideoCapture : AppCompatActivity() {
         try {
             val dateTime = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
             videoFileName = "COLLAGE_${dateTime}"
-            val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+            val storageDir = getExternalFilesDir(Environment.DIRECTORY_RECORDINGS)
             val file = File.createTempFile(videoFileName, ".mp4", storageDir)
             val filePath = file.absolutePath
             return file to filePath
@@ -107,12 +107,12 @@ class VideoCapture : AppCompatActivity() {
 
     private fun captureVideo() {
         val captureVideointent = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
-        val (videooFile, videoFilePath) = createVideoFile()
+        val (videoFile, videoFilePath) = createVideoFile()
 
-        if (videooFile != null) {
+        if (videoFile != null) {
             newVideoPath = videoFilePath
             vidUri =
-                FileProvider.getUriForFile(this, "com.example.sportssocial.fileprovider", videooFile
+                FileProvider.getUriForFile(this, "com.example.sportssocial.fileprovider", videoFile
             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, vidUri)
             cameraActivityLauncher.launch(captureVideointent)
         }
