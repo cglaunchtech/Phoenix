@@ -17,14 +17,10 @@ import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.ui.view.camera.ProfilePhotoCapture
 import com.example.sportssocial.util.Constants.Companion.FIRESTORE
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
@@ -64,21 +60,21 @@ class SignUp : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.signup_layout)
+        setContentView(R.layout.fragment_sign_up)
 
-        addProfilepic = findViewById(R.id.addProfilePicture)
-        firstNameField = findViewById(R.id.firstName1)
+        addProfilepic = findViewById(R.id.editAddProfilePicture)
+        firstNameField = findViewById(R.id.editFirstName1)
         lastNameField  = findViewById(R.id.lastName1)
-        usernameField = findViewById(R.id.usernameField)
-        emailField  = findViewById(R.id.emailField)
-        passwordField = findViewById(R.id.passwordField)
-        confirmPassword = findViewById(R.id.confirmPasswordField)
-        cityField = findViewById(R.id.cityField)
-        stateField = findViewById(R.id.stateField)
-        birthdayField = findViewById(R.id.birthdayField)
-        aboutMeField = findViewById(R.id.aboutMeField)
-        sportsSelection = findViewById(R.id.sportsAutocomplete)
-        sportsSelectionTwo = findViewById(R.id.sportsAutocompleteSecond)
+        usernameField = findViewById(R.id.username2)
+        emailField  = findViewById(R.id.emailField2)
+        passwordField = findViewById(R.id.passwordField2)
+        confirmPassword = findViewById(R.id.confirmPasswordField2)
+        cityField = findViewById(R.id.cityField2)
+        stateField = findViewById(R.id.stateField2)
+        birthdayField = findViewById(R.id.birthdayField2)
+        aboutMeField = findViewById(R.id.aboutMeField2)
+        sportsSelection = findViewById(R.id.editSportsAutocomplete)
+        sportsSelectionTwo = findViewById(R.id.editSportsAutocompleteSecond)
 
         submitButton = findViewById(R.id.submitButton)
         cancelButton = findViewById(R.id.cancelButton)
@@ -91,7 +87,7 @@ class SignUp : AppCompatActivity() {
 
         register()
 
-        var profilePhoto: ImageView = findViewById(R.id.addProfilePicture)
+        var profilePhoto: ImageView = findViewById(R.id.editAddProfilePicture)
         profilePhotostr= intent.getStringExtra("profilePhoto")
         //decode base64 string
         if (profilePhotostr != null) {

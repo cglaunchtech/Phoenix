@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SportsSocial</string>
+    <string name="first_name">名</string>
+    <string name="last_name">姓</string>
+    <string name="category_header">标题</string>
+    <string name="sign_in">登录登录</string>
+    <string name="sign_up">创建账户</string>
+    <string name="register">你注册了吗？</string>
+    <string name="submit">提交 提交</string>
+    <string name="cancel">取消 取消</string>
+    <string name="baseball">棒球</string>
+    <string name="basketball">篮球</string>
+    <string name="football">足球</string>
+    <string name="soccer">足球</string>
+    <string name="hockey">曲棍球</string>
+    <string name="lacrosse">曲棍球</string>
+    <string name="tennis">网球</string>
+    <string name="wrestling">摔角</string>
+    <string name="email">电子邮件</string>
+    <string name="password">密码密码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="save_password">保存密码</string>
+    <string name="forgot_password">忘记密码 忘记密码</string>
+    <string name="view">只读？</string>
+    <string name="username">用户名</string>
+    <string name="city">城市</string>
+    <string name="state">状态状态</string>
+    <string name="dob">生日</string>
+    <string name="about_me">关于我</string>
+    <string name="sports">运动的</string>
+    <string name="news_title">标题</string>
+    <string name="news_source">新闻来源</string>
+    <string name="athletes">特色运动员</string>
+    <string name="teams">特色团队</string>
+    <string name="trainers">特色培训师</string>
+    <string name="sports_news">体育新闻</string>
+    <string name="events">事件事件</string>
+    <string name="watch_me">强调</string>
+    <string name="edit">编辑</string>
+    <string name="save">保存保存</string>
+    <string name="author">作者</string>
+    <string name="link">阅读更多</string>
+    <string name="description">描述</string>
+    <string name="published_at">日期</string>
+</resources>
