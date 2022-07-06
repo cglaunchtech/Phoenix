@@ -19,10 +19,6 @@ import kotlinx.coroutines.flow.flow
 import timber.log.Timber
 
 class NewsArticleRepository(context: Context) {
-
-    // request API call Asynchronously and holding successful response data.
-    private val dataSource = ResponseDataSource<List<TopHeadlinesPojo>>()
-
     // News Articles
     // Gets articles from API and returns MutableLiveData<TopHeadlinesPojo>
     var newsArticleDao: NewsArticleDao? = AppDatabase.getInstance(context)?.articleDao()
