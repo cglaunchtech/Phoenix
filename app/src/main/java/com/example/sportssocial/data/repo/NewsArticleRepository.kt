@@ -33,15 +33,11 @@ class NewsArticleRepository(context: Context) {
         clearArticleCache()
         val apiResponse = retrofitClient.getNews("us", "sports", "", 20, 1)
 
-//        @WorkerThread
-//        fun loadVideoList(id: Int) = flow {
-//            val movie = movieDao.getMovie(id)
-//            var videos = movie.videos
         apiResponse.suspendOnSuccess {
             if (!this.data.articles.isNullOrEmpty()) {
                 for (article in this.data.articles!!) {
 
-                    val newsArticle = NewsArticle (
+                    val newsArticle = NewsArticle(
                         null,
                         article.source?.name,
                         article.author,
@@ -51,45 +47,10 @@ class NewsArticleRepository(context: Context) {
                         article.urlToImage.toString(),
                         article.publishedAt.toString(),
                         article.content.toString()
-                            )
+                    )
                     upsertArticle(newsArticle)
                 }
             }
-
-//            if (videos.isNullOrEmpty()) {
-//                movieService.fetchVideos(id)
-//                    .suspendOnSuccess {
-//                        videos = data.results
-//                        movie.videos = videos
-//                        movieDao.updateMovie(movie)
-//                        emit(videos)
-//                    }
-//            } else {
-//                emit(videos)
-//            }
-//        }.flowOn(Dispatchers.IO)
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribeBy(
-//                onNext = {
-//                    for (index in 0..(it.articles!!.lastIndex)) {
-//
-//                        var article = NewsArticle(
-//                            null,
-//                            it.articles[index].source?.name,
-//                            it.articles[index].author,
-//                            it.articles[index].title,
-//                            it.articles[index].description,
-//                            it.articles[index].url,
-//                            it.articles[index].urlToImage.toString(),
-//                            it.articles[index].publishedAt.toString(),
-//                            it.articles[index].content.toString()
-//                        )
-//                        upsertArticle(article)
-//                    }
-//                },
-//                onError = { e -> Timber.e(e) }
-//            )
         }
     }
 
