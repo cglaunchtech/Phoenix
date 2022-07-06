@@ -4,18 +4,25 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.bumptech.glide.Glide.init
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.repo.AthleteRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel(app: Application): AndroidViewModel(app) {
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val repo : AthleteRepository,
+    private val app : Application
+    ) : AndroidViewModel(app) {
 
-    private val repo: AthleteRepository
+    //private val repo: AthleteRepository
     val allAthletes : Observable<List<Athlete>>?
 
     init {
-        repo = AthleteRepository(app)
+        //repo = AthleteRepository(app)
         allAthletes = repo.getAllAthletes()
     }
 
