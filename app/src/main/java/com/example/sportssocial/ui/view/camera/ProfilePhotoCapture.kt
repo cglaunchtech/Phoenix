@@ -3,6 +3,7 @@ package com.example.sportssocial.ui.view.camera
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -39,6 +40,7 @@ class ProfilePhotoCapture : AppCompatActivity() {
                 {
                     var bitmap: Bitmap? = result.data!!.extras!!.get("data") as Bitmap
 
+
                     val stream = ByteArrayOutputStream()
                     // compress Bitmap
                     bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, stream)
@@ -47,9 +49,12 @@ class ProfilePhotoCapture : AppCompatActivity() {
                     // get base64 encoded string
                     var profilePhoto: String = Base64.encodeToString(bytes, Base64.DEFAULT)
 
-
+                    val path = MediaStore.Images.Media.insertImage(this.contentResolver, bitmap ,
+                        "Profile Picture", null)
+                    val uri = Uri.parse(path.toString())
                     val nextIntent = Intent(this, SignUp::class.java)
                     nextIntent.putExtra("profilePhoto", profilePhoto)
+                    nextIntent.putExtra("profilePhotoUri", uri)
                     startActivity(nextIntent)
                 }
                 else
