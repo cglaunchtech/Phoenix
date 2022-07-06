@@ -2,13 +2,11 @@ package com.example.sportssocial.data.api
 
 import com.example.sportssocial.BuildConfig
 import com.example.sportssocial.data.api.pojo.TopHeadlinesPojo
-import com.example.sportssocial.data.model.db.Converters
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Headers
