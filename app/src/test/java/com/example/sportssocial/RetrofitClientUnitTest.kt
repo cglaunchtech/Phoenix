@@ -47,20 +47,18 @@ class RetrofitClientUnitTest {
         var mockRes = MockResponse()
         mockServer.enqueue(mockRes.setBody("[]"))
 
-        val res = inter.getNews("", "", "", 0, 0)
+        val req = inter.getNews("", "", "", 0, 0)
 
-        res.subscribeBy(
+        req.subscribeBy(
             onNext = {
                 it
             },
             onError = {println("error :$it")}
         )
-        val req = mockServer.takeRequest()
+        val res = mockServer.takeRequest()
 
-        Assert.assertEquals("v2/top-headlines", req.path)
-       // Assert.assertEquals(true, res.body()?.isEmpty() == true)
+        Assert.assertEquals("v2/top-headlines", res.path)
     }
-
         @After
         fun destroy() {
             mockServer.shutdown()

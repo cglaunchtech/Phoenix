@@ -13,6 +13,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.sportssocial.R
 import com.example.sportssocial.databinding.ActivityVideoCaptureBinding
+import timber.log.Timber
 
 class VideoCapture : AppCompatActivity() {
     lateinit var videobinding: ActivityVideoCaptureBinding
@@ -28,7 +29,6 @@ class VideoCapture : AppCompatActivity() {
         })
         activityResultLauncher =
 
-                // try {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult? ->
                 if (result!!.resultCode == Activity.RESULT_OK) {
                     val videouri = result!!.data!!.data
@@ -39,9 +39,6 @@ class VideoCapture : AppCompatActivity() {
                 } else {
                     Toast.makeText(applicationContext, "Video not captured", Toast.LENGTH_LONG)
                         .show()
-
-                    //     } catch (e: Exception) {
-//        Timber.e(e)
             }
         }
     }

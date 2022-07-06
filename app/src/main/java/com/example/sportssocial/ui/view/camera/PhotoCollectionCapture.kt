@@ -77,7 +77,7 @@ class PhotoCollectionCapture : AppCompatActivity() {
         })
 
         activityResultLauncher =
-                // try {
+
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult? ->
                 if (result!!.resultCode == Activity.RESULT_OK) {
                     var bitmap = result!!.data!!.extras!!.get("data") as Bitmap
@@ -90,10 +90,8 @@ class PhotoCollectionCapture : AppCompatActivity() {
                 } else {
                     Toast.makeText(applicationContext, "Image not clicked", Toast.LENGTH_LONG)
                         .show()
-                }
             }
-//            } catch (e: Exception) {
-//                Timber.e(e)
+       }
     }
 
     private fun createImageFile(): Pair<File?, String?> {
@@ -112,6 +110,7 @@ class PhotoCollectionCapture : AppCompatActivity() {
     private fun takePicture() {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         val (photoFile, photoFilePath) = createImageFile()
+
         if (photoFile != null) {
             newPhotoPath = photoFilePath
             photoUri = FileProvider.getUriForFile(this, "com.example.collage.fileprovider", photoFile)
@@ -208,5 +207,7 @@ class PhotoCollectionCapture : AppCompatActivity() {
     }
 
 }
+//Add capture to Firebase:
+//fun uploadPhoto(uri : Uri?, athlete: Athlete)
 
 

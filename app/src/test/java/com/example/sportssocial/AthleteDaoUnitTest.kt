@@ -4,8 +4,8 @@ import com.example.sportssocial.data.model.dao.AthleteDao
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.repo.AthleteRepository
 import com.example.sportssocial.data.repo.FirestoreRepo
-import com.example.sportssocial.ui.viewmodel.ArticleViewModel
 import com.example.sportssocial.ui.viewmodel.MainViewModel
+import com.google.firebase.database.Transaction.success
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import kotlinx.coroutines.runBlocking
@@ -18,13 +18,14 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 import retrofit2.Response
-
+import java.util.*
+import kotlin.Result.Companion.success
 
 @RunWith(JUnit4::class)
 
 class AthleteDaoUnitTest {
 
-   lateinit var dao: AthleteDao
+    lateinit var dao: AthleteDao
 
     @Mock
     lateinit var athleteRepo: AthleteRepository
@@ -35,159 +36,157 @@ class AthleteDaoUnitTest {
     @Mock
     lateinit var vm: MainViewModel
 
-
     @Before()
-        fun setup() {
-            var dao = AthleteDao()
-        MockitoAnnotations.openMocks(this)
-//        repo = BookRepository(inter, dao)
-        vm = MainViewModel()
-//        setupObservers()
+    fun setup() {
 
-
-    @Test
-        fun getAllAthletesfromCloud() {
-
-        var fakeList :List<Athlete> = (listOf<Athlete>(
-            Athlete(123,
-                    "",
-                    "",
-                    "",
-                    "", "",
-                    "", "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "", "")
-                ))
-
-                // mock the function call to the api
-                Mockito.`when`(())
-                    .thenReturn(Single.just(fakeList))
-
-                var result = repo.getAllProfiles()
-
-                result.subscribeBy(
-                    onNext = {
-                        Assert.assertEquals(fakeList, it)
-                    },
-                    onError = { println("error :$it")}
-                )
-            }
-
-            //Response object - normal list
-            @Test
-            fun insertAthleteTest(){
-                var fakeList :List<Athlete> = (listOf<Athlete>(
-                    Athlete("",
-                        "",
-                        "","",
-                        "", "",
-                        "", "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "",
-                        "", "")
-                )
-                        ))
-                // mock the function call to the api
-                Mockito.`when`(athleteRepo.insertAthlete()
-                    .thenReturn(Response.success(fakeList))
-
-                    var response = athleteRepo.insertAthlete()
-
-                Assert.assertEquals(fakeList, response.body())
-
-            }
-
-            //coroutines with response object
-            @Test
-            fun getAllUsersTest(){
-                runBlocking {
-                    var fakeList :List<Athlete> = (listOf<Athlete>(
-                        Athlete("",
-                            "",
-                            "","",
-                            "", "",
-                            "", "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "", "")
-                    )
-                            )
-                    // mock the function call to the api
-                    Mockito.`when`(repo.getAllProfiles())
-                        .thenReturn(Response.success(fakeList))
-
-                    var response = repo.getAllProfiles()
-
-                    Assert.assertEquals(fakeList, response.body())
-                }
-        @Test
-
-                fun searchAthleteTest(){
-                    var fakeList :List<Athlete> = (listOf<Athlete>(
-                        Athlete("",
-                            "",
-                            "","",
-                            "", "",
-                            "", "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "", "")
-                    )
-                            ))
-                    // mock the function call to the api
-                    Mockito.`when`(athleteRepo.searchAthletes()
-                        .thenReturn(Response.success(fakeList))
-
-                        var response = athleteRepo.searchAthletes()
-
-                    Assert.assertEquals(fakeList, response.body())
-
-                }
-            }
-
-        @Test
-
-        fun updateAthleteTest(){
-            var fakeList :List<Athlete> = (listOf<Athlete>(
-                Athlete("",
-                    "",
-                    "","",
-                    "", "",
-                    "", "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "", "")
-            )
-                    ))
-            // mock the function call to the api
-            Mockito.`when`(athleteRepo.updateAthlete()
-                .thenReturn(Response.success(fakeList))
-
-                var response = athleteRepo.updateAthlete()
-
-            Assert.assertEquals(fakeList, response.body())
-
-        }
     }
 }
+//
+//    MockitoAnnotations.openMocks(this)
+//     dao = AthleteDao
+//
+//    @Test
+//    fun getAllAthletesfromCloud() {
+//    var fakeList :List<Athlete> = (listOf<Athlete>(
+//         Athlete(234,
+//             "123",
+//             "myusername",
+//             "profilephotourl",
+//             "John",
+//             "Smith",
+//             "Los Angeles",
+//             "CA",
+//             "01/01",
+//             "Things about me",
+//             "basketball",
+//             "football",
+//             listOf(""),
+//             listOf(""),
+//             listOf(""))
+//            ))
+//
+//            Mockito.`when`((dao.selectAthlete()))
+//                .thenReturn(listOf(Observable))
+//
+//            var result = repo.getAllProfiles()
+//
+//            result.subscribeBy(
+//                onNext = {
+//                    Assert.assertEquals(fakeList, it)
+//                },
+//                onError = { println("error :$it")}
+//            )
+//        }
+//
+//        @Test
+//        fun insertAthleteTest(){
+//            var fakeList :List<Athlete> = (listOf<Athlete>(
+//            Athlete(234,
+//                "123",
+//                "myusername",
+//                "profilephotourl",
+//                "John",
+//                "Smith",
+//                "Los Angeles",
+//                "CA",
+//                "01/01",
+//                "Things about me",
+//                "basketball",
+//                "football",
+//                listOf(""),
+//                listOf(""),
+//                listOf(""))
+//            ))
+//
+//            Mockito.`when`(athleteRepo.insertAthlete(athletes = Athlete())
+//                .thenReturn(Observable.success(fakeList)))
+//
+//                var response = athleteRepo.insertAthlete(athletes = Athlete())
+//                Assert.assertEquals(fakeList, Observable.body())
+//        }
+//
+//        @Test
+//        fun getAllUsersTest(){
+//            runBlocking {
+//                var fakeList :List<Athlete> = (listOf<Athlete>(
+//                    Athlete(234,
+//                        "123",
+//                        "myusername",
+//                        "profilephotourl",
+//                        "John",
+//                        "Smith",
+//                        "Los Angeles",
+//                        "CA",
+//                        "01/01",
+//                        "Things about me",
+//                        "basketball",
+//                        "football",
+//                        listOf(""),
+//                        listOf(""),
+//                        listOf(""))
+//                ))
+//
+//                Mockito.`when`(repo.getAllProfiles())
+//                    .thenReturn(Observable<List<Athlete>>(fakeList))
+//
+//                var response = repo.getAllProfiles()
+//
+//                Assert.assertEquals(fakeList, Observable())
+//            }
+//            @Test
+//            fun searchAthleteTest(){
+//                var fakeList :List<Athlete> = (listOf<Athlete>(
+//                    Athlete(234,
+//                        "123",
+//                        "myusername",
+//                        "profilephotourl",
+//                        "John",
+//                        "Smith",
+//                        "Los Angeles",
+//                        "CA",
+//                        "01/01",
+//                        "Things about me",
+//                        "basketball",
+//                        "football",
+//                        listOf(""),
+//                        listOf(""),
+//                        listOf(""))
+//
+//                ))
+//
+//                Mockito.`when`(athleteRepo.searchAthletes("")
+//                .thenReturn(Response.success(fakeList)))
+//
+//                var response = athleteRepo.searchAthletes("")
+//                Assert.assertEquals(fakeList, response.body())
+//            }
+//        }
+//
+//        @Test
+//        fun updateAthleteTest(){
+//            var fakeList :List<Athlete> = (listOf<Athlete>(
+//                Athlete(123,
+//                    "123",
+//                    "fakename",
+//                    "photurl",
+//                    "Test",
+//                    "Case",
+//                    "New York",
+//                    "NY",
+//                    "01/01",
+//                    "Something about me",
+//                    "soccer",
+//                    "basketball",
+//                    listOf(""),
+//                    listOf(""),
+//                    listOf(""))
+//                    ))
+//
+//            Mockito.`when`(athleteRepo.updateAthlete(athletes = Athlete())
+//                .thenReturn(Response.success(fakeList)))
+//                var response = athleteRepo.updateAthlete(athletes = Athlete())
+//                Assert.assertEquals(fakeList, response.body())
+//
+//        }
+//    }
+//}

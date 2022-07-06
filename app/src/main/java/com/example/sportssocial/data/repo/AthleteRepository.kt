@@ -10,12 +10,10 @@ class AthleteRepository (context: Context) {
     var db: AthleteDao? = AppDatabase.getInstance(context)?.athleteDao()
 
     fun getAllAthletes(): Observable<List<Athlete>>? {
-
         return db?.selectAthlete()
     }
 
     fun insertAthlete(athletes: Athlete) {
-
         db?.insertAthlete(athletes)
     }
 
@@ -28,7 +26,6 @@ class AthleteRepository (context: Context) {
     }
 
     fun findAthletebyUsername(search: String): List<Athlete> {
-
         return db?.findAthletesbyUsername(search)!!
     }
 
