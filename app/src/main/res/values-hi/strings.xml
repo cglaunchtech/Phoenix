@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SportsSocial</string>
+    <string name="first_name">संतोष</string>
+    <string name="last_name">उपनाम</string>
+    <string name="category_header">हैडर</string>
+    <string name="sign_in">हैडर</string>
+    <string name="sign_up">खाता बनाएं</string>
+    <string name="register">क्या आप पंजीकृत हैं?</string>
+    <string name="submit">सबमिट सबमिट करें</string>
+    <string name="cancel">रद्द करना रद्द करना</string>
+    <string name="baseball">बेसबॉल</string>
+    <string name="basketball">बास्केटबाल</string>
+    <string name="football">फ़ुटबॉल</string>
+    <string name="soccer">फ़ुटबॉल</string>
+    <string name="hockey">हॉकी</string>
+    <string name="lacrosse">लाक्रोस</string>
+    <string name="tennis">टेनिस</string>
+    <string name="wrestling">कुश्ती</string>
+    <string name="email">ईमेल ईमेल</string>
+    <string name="password">पासवर्ड पासवर्ड</string>
+    <string name="confirm_password">पासवर्ड की पुष्टि कीजिये</string>
+    <string name="save_password">पासवर्ड को बचाओ</string>
+    <string name="forgot_password">पासवर्ड भूल गए?</string>
+    <string name="view">दृश्य मोड</string>
+    <string name="username">उपयोगकर्ता नाम</string>
+    <string name="city">शहर</string>
+    <string name="state">राज्य राज्य</string>
+    <string name="dob">जन्मदिन</string>
+    <string name="about_me">मेरे बारे मेँ</string>
+    <string name="sports">खेल</string>
+    <string name="news_title">शीर्षक</string>
+    <string name="news_source">खबर के सूत्र</string>
+    <string name="athletes">विशेष रुप से प्रदर्शित एथलीट</string>
+    <string name="teams">विशेष रुप से प्रदर्शित टीमें</string>
+    <string name="trainers">विशेष रुप से प्रदर्शित प्रशिक्षक</string>
+    <string name="sports_news">खेल समाचार</string>
+    <string name="events">घटनाएँ घटनाएँ</string>
+    <string name="watch_me">हाइलाइट</string>
+    <string name="edit">संपादित करें संपादित करें</string>
+    <string name="save">बचाओ बचाओ</string>
+    <string name="author">लेखक</string>
+    <string name="link">अधिक पढ़ें</string>
+    <string name="description">विवरण</string>
+</resources>

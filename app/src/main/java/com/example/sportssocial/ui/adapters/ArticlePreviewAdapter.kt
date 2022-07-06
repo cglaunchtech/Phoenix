@@ -8,9 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-
 import com.example.sportssocial.R
-
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import timber.log.Timber
 import java.lang.Exception

@@ -51,8 +51,8 @@ class AthleteThumbnailAdapter (
             itemView.setOnClickListener(this)
         }
 
-        var firstName: TextView = view.findViewById(R.id.text_view_fname)
-        var lastName: TextView = view.findViewById(R.id.text_view_lname)
+        var firstName: TextView = view.findViewById(R.id.editFirstName1)
+        var lastName: TextView = view.findViewById(R.id.lastName1)
         var imageView: ImageView = view.findViewById(R.id.image_view)
 
         override fun onClick(v: View?) {

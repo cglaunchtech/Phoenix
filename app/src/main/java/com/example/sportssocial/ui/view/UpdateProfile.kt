@@ -5,13 +5,11 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Base64
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.Athlete
-import com.example.sportssocial.data.repo.AthleteRepository
 import com.example.sportssocial.data.repo.FirestoreRepo
 import com.example.sportssocial.ui.view.camera.ProfilePhotoCapture
 import com.example.sportssocial.ui.viewmodel.MainViewModel
@@ -20,25 +18,14 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import io.grpc.InternalChannelz.id
-import kotlinx.android.synthetic.main.activity_edit_form.*
-import kotlinx.android.synthetic.main.activity_edit_form.cityField
-import kotlinx.android.synthetic.main.activity_edit_form.firstName1
-import kotlinx.android.synthetic.main.activity_edit_form.lastName1
-import kotlinx.android.synthetic.main.activity_edit_form.sportsAutocomplete
-import kotlinx.android.synthetic.main.activity_edit_form.submitButton
-import kotlinx.android.synthetic.main.signup_layout.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import timber.log.Timber
-import java.lang.Exception
+import kotlinx.android.synthetic.main.fragment_edit_profile.*
+import kotlinx.android.synthetic.main.fragment_sign_up.*
 
 
 class UpdateProfile : AppCompatActivity() {
     //val repo: AthleteRepository by lazy { AthleteRepository(this) }
-    var databaseReference: DatabaseReference? = null
-    var database: FirebaseDatabase? = null
+    var databaseReference : DatabaseReference? = null
+    var database : FirebaseDatabase? = null
     lateinit var auth: FirebaseAuth
     lateinit var vm: MainViewModel
     lateinit var repo: FirestoreRepo
@@ -46,19 +33,20 @@ class UpdateProfile : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_form)
+        setContentView(R.layout.fragment_edit_profile)
 
 
-        var firstName1: TextInputEditText = findViewById(R.id.firstName1)
-        var lastName1: TextInputEditText = findViewById(R.id.lastName1)
-        var cityField1: TextInputEditText = findViewById(R.id.cityField1)
-        var stateField1: TextInputEditText = findViewById(R.id.stateField1)
-        var aboutMeField1: TextInputEditText = findViewById(R.id.aboutMeField1)
-        var sportsAutocomplete: AutoCompleteTextView = findViewById(R.id.sportsAutocomplete)
-        var sportsAutocompleteSecond: AutoCompleteTextView = findViewById(R.id.sportsAutocompleteSecond)
+        var firstName1 : TextInputEditText = findViewById(R.id.editFirstName1)
+        var lastName : TextInputEditText = findViewById(R.id.lastName1)
+        var cityField : TextInputEditText = findViewById(R.id.cityField1)
+        var stateField : TextInputEditText = findViewById(R.id.stateField2)
+        var aboutMeField : TextInputEditText = findViewById(R.id.aboutMeField2)
+        //var sportsAutocomplete: AutoCompleteTextView = findViewById(R.id.sportsAutocomplete1)
+        //var sportsAutocompleteSecond: AutoCompleteTextView = findViewById(R.id.sportsAutocompleteSecond)
         var repo = FirestoreRepo()
         var submitButton: Button = findViewById(R.id.submitButton)
         var cancelButton: Button = findViewById(R.id.cancelButton)
+
 
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
@@ -66,8 +54,8 @@ class UpdateProfile : AppCompatActivity() {
 
         updateRequiredfields()
 
-        var addProfilePicture: ShapeableImageView = findViewById(R.id.addProfilePicture)
-        var profilePhotostr = intent.getStringExtra("profilePhoto")
+        var addProfilePicture: ShapeableImageView = findViewById(R.id.editAddProfilePicture)
+        var profilePhotostr= intent.getStringExtra("profilePhoto")
         if (profilePhotostr != null) {
 
             var bytes: ByteArray = Base64.decode(profilePhotostr, Base64.DEFAULT);
@@ -77,41 +65,35 @@ class UpdateProfile : AppCompatActivity() {
             addProfilePicture.setImageBitmap(bitmap);
         }
 
-        firstName1.setText(intent.getStringExtra("first"))
-        lastName1.setText(intent.getStringExtra("last"))
-        cityField1.setText(intent.getStringExtra("city"))
-        stateField1.setText(intent.getStringExtra("state"))
-        aboutMeField1.setText(intent.getStringExtra("aboutMe"))
-        sportsAutocomplete.setText(intent.getStringExtra("sport1"))
-        sportsAutocompleteSecond.setText(intent.getStringExtra("sport2"))
+        //editFirstName2.setText(intent.getStringExtra("first"))
+        lastName.setText(intent.getStringExtra("last"))
+        //cityField1.setText(intent.getStringExtra("city"))
+        stateField2.setText(intent.getStringExtra("state"))
+        aboutMeField.setText(intent.getStringExtra("aboutMe"))
+        //sportsAutocomplete.setText(intent.getStringExtra("sport1"))
+        //sportsAutocompleteSecond.setText(intent.getStringExtra("sport2"))
 
-        try {
+
         submitButton.setOnClickListener {
-
             vm.updateAthlete(
                 Athlete(
                     id = null,
                     uid = auth.uid,
                     username = null,
                     profilePhoto = null,
-                    first = firstName1.text.toString(),
-                    last = lastName1.text.toString(),
-                    city = cityField1.text.toString(),
-                    state = stateField1.text.toString(),
+                    //first = editFirstName2.text.toString(),
+                    last = lastName.text.toString(),
+                    //city = cityField1.text.toString(),
+                    state = stateField2.text.toString(),
                     dob = null,
-                    aboutMe = aboutMeField1.text.toString(),
-                    sport1 = sportsAutocomplete.text.toString(),
-                    sport2 = sportsAutocompleteSecond.text.toString(),
+                    aboutMe = editAboutMeField2.text.toString(),
+                    //sport1 = sportsAutocomplete.text.toString(),
+                    //sport2 = sportsAutocompleteSecond.text.toString(),
                     photoCollection = mutableListOf(),
                     highlightVideos = mutableListOf(),
                     following = mutableListOf()
                 )
             )
-        }
-
-    } catch (e: Exception) {
-              Timber.e(e)
-
             val myIntent = Intent(this, MainActivity::class.java)
             startActivity(myIntent)
         }
@@ -133,62 +115,32 @@ class UpdateProfile : AppCompatActivity() {
     }
 
     private fun updateRequiredfields() {
-        try {
-            submitButton.setOnClickListener {
 
-                if (TextUtils.isEmpty(firstName1.text.toString())) {
-                    cityField.setError("First Name Required")
-                    return@setOnClickListener
+        submitButton.setOnClickListener {
 
-                } else if (TextUtils.isEmpty(lastName1.text.toString())) {
-                    cityField.setError("Last Name Required")
-                    return@setOnClickListener
+            /*        if (TextUtils.isEmpty(editFirstName2.text.toString())) {
+                editCityField1.setError("First Name Required")
+                return@setOnClickListener
 
-                } else if (TextUtils.isEmpty(cityField1.text.toString())) {
-                    cityField.setError("City Required")
-                    return@setOnClickListener
+            } else if (TextUtils.isEmpty(editLastName2.text.toString())) {
+                editCityField1.setError("Last Name Required")
+                return@setOnClickListener
 
-                } else if (TextUtils.isEmpty(stateField1.text.toString())) {
-                    stateField1.setError("State Required")
-                    return@setOnClickListener
+            } else if (TextUtils.isEmpty(editCityField2.text.toString())) {
+                editCityField1.setError("City Required")
+                return@setOnClickListener
 
-                } else if (TextUtils.isEmpty(sportsAutocomplete.text.toString())) {
-                    sportsAutocomplete.setError("At Least One Sport is Required")
-                    return@setOnClickListener
-                }
-                println("Please complete all required fields before updating profile.")
+            } else if (TextUtils.isEmpty(editStateField2.text.toString())) {
+                editStateField2.setError("State Required")
+                return@setOnClickListener
+
+            } else if (TextUtils.isEmpty(sportsAutocomplete.text.toString())) {
+                sportsAutocomplete.setError("At Least One Sport is Required")
+                return@setOnClickListener
             }
+            println("Please complete all required fields before updating profile.")
+        }*/
 
-        } catch (e: Exception) {
-            Timber.e(e)
-
-            fun firestoreAthleteInit() = CoroutineScope(Dispatchers.IO).launch {
-                try {
-                    //Firebase.firestore.collection("users").add(Athlete(....)).await()
-                    repo.updateProfile(
-                        Athlete(
-                            id = null,
-                            uid = auth.uid,
-                            username = usernameField.text.toString(),
-                            profilePhoto = null,
-                            first = firstName1.text.toString(),
-                            last = lastName1.text.toString(),
-                            city = cityField1.text.toString(),
-                            state = stateField1.text.toString(),
-                            dob = birthdayField.text.toString(),
-                            aboutMe = aboutMeField1.text.toString(),
-                            sport1 = sportsAutocomplete.text.toString(),
-                            sport2 = null,
-                            photoCollection = mutableListOf(),
-                            highlightVideos = mutableListOf(),
-                            following = mutableListOf()
-                        )
-                    )
-
-                } catch (e: Exception) {
-                    Timber.e(e)
-                }
-            }
         }
     }
 }
