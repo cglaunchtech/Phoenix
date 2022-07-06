@@ -13,9 +13,11 @@ import androidx.navigation.findNavController
 import com.example.sportssocial.R
 import com.example.sportssocial.util.Constants.Companion.AUTH
 import com.google.android.gms.auth.api.Auth
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_container.*
 import kotlinx.android.synthetic.main.fragment_container.view.*
 
+@AndroidEntryPoint
 class ContainerFragment : Fragment() {
 
 
@@ -34,7 +36,7 @@ class ContainerFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_container, container, false)
 
-        //Allows the user to log out
+        //Allows the user to log out with an AlertDialogue
         logoutButton = view.findViewById(R.id.containerLogout)
         logoutButton.setOnClickListener {
             logoutAlert(it)
@@ -68,6 +70,7 @@ class ContainerFragment : Fragment() {
     }
 
 
+    //Logout Alert Logic
     private fun logoutAlert(it : View) {
 
         AlertDialog.Builder(requireContext())
@@ -79,7 +82,6 @@ class ContainerFragment : Fragment() {
                     AUTH.signOut()
                     it.findNavController().navigate(R.id.action_containerFragment_to_loginFragment)
                     Toast.makeText(requireContext(), "You Are Now Logged Out.", Toast.LENGTH_LONG).show()
-                    //TODO: LOGOUT METHOD AND NAVIGATION
                 })
             .setNegativeButton("Cancel",
                 DialogInterface.OnClickListener {

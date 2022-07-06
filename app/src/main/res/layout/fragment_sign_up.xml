@@ -164,7 +164,6 @@
                 android:id="@+id/cityField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
                 android:background="@drawable/input_background"/>
         </com.google.android.material.textfield.TextInputLayout>
 
