@@ -6,8 +6,11 @@ import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.data.repo.NewsArticleRepository
 import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ArticleViewModel(app: Application) : AndroidViewModel(app) {
+class ArticleViewModel @Inject constructor(
+    app : Application
+) : AndroidViewModel(app) {
 
     private val repo: NewsArticleRepository
     val allArticles: Observable<List<NewsArticle>>?

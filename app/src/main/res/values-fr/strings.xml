@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SportsSocial</string>
+    <string name="first_name">Prénom</string>
+    <string name="last_name">Nom de Famille</string>
+    <string name="category_header">Entête</string>
+    <string name="sign_in">Connexion</string>
+    <string name="sign_up">Créer un compte</string>
+    <string name="register">Inscrite?</string>
+    <string name="submit">"Soumettre "</string>
+    <string name="cancel">Annuler</string>
+    <string name="baseball">Base-ball</string>
+    <string name="basketball">Basket</string>
+    <string name="football">Football</string>
+    <string name="soccer">Soccer</string>
+    <string name="hockey">Le hockey</string>
+    <string name="lacrosse">Lacrosse</string>
+    <string name="tennis">Tennis</string>
+    <string name="wrestling">Lutte</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirmer Password</string>
+    <string name="save_password">Sauvegarder Password</string>
+    <string name="forgot_password">Mot de Passe Oublié?</string>
+    <string name="view">Mode D\'affichage</string>
+    <string name="username">Username</string>
+    <string name="city">Ville</string>
+    <string name="state">État</string>
+    <string name="dob">Date D\'anniversaire</string>
+    <string name="about_me">À Propos de Moi</string>
+    <string name="sports">Sports</string>
+    <string name="news_title">Titre</string>
+    <string name="news_source">Source de Nouvelles</string>
+    <string name="athletes">Athlètes en Vedette</string>
+    <string name="teams">Équipes en Vedette</string>
+    <string name="trainers">Formateurs en Vedette</string>
+    <string name="sports_news">Nouvelles Sportives</string>
+    <string name="events">Événements</string>
+    <string name="watch_me">Points Forts</string>
+    <string name="edit">Éditer</string>
+    <string name="save">Sauvegarder</string>
+    <string name="author">Auteur</string>
+    <string name="link">Lire la Suite</string>
+    <string name="description">La Description</string>
+    <string name="published_at">Date de Publication</string>
+</resources>
