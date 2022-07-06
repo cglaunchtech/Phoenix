@@ -1,7 +1,12 @@
 package com.example.sportssocial.data.repo
 
+import android.content.Context
 import android.net.Uri
 import android.util.Log
+import androidx.core.content.ContentProviderCompat.requireContext
+import com.example.sportssocial.data.model.dao.AthleteDao
+import com.example.sportssocial.data.model.dao.NewsArticleDao
+import com.example.sportssocial.data.model.db.AppDatabase
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.util.Constants
 import com.example.sportssocial.util.Constants.Companion.FIRESTORE
@@ -13,7 +18,7 @@ import timber.log.Timber
 import java.util.*
 import kotlin.Exception
 
-class FirestoreRepo {
+class FirestoreRepo() {
 
     lateinit var followingList : MutableList<Athlete>
 
@@ -24,6 +29,25 @@ class FirestoreRepo {
         }catch(e: Exception){
             Timber.e(e)
         }
+    }
+
+    fun getProfileByUid(uid: String): Observable<Athlete>{
+        var user : Athlete? = null
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val querySnapshot = FIRESTORE
+                    .whereEqualTo("uid",uid)
+                    .get()
+                    .await()
+
+                for (document in querySnapshot.documents) {
+                   user = document.toObject<Athlete>()
+                }
+            } catch (e: Exception) {
+                Timber.e(e)
+            }
+        }
+        return Observable.just(user!!)
     }
 
     fun getAllProfiles(): Observable<List<Athlete>> {
