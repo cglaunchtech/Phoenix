@@ -4,19 +4,20 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.data.repo.NewsArticleRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class ArticleViewModel @Inject constructor(
-    app : Application
+    private val repo : NewsArticleRepository,
+    private val app : Application
 ) : AndroidViewModel(app) {
 
-    private val repo: NewsArticleRepository
     val allArticles: Observable<List<NewsArticle>>?
 
     init {
-        repo = NewsArticleRepository(app)
         allArticles = repo.getAllArticles()
     }
 

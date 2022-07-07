@@ -21,8 +21,10 @@ import com.example.sportssocial.ui.view.MainActivity
 import com.example.sportssocial.ui.view.SignUp
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.sign
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     lateinit var auth: FirebaseAuth

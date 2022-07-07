@@ -1,7 +1,9 @@
 package com.example.sportssocial
 
 import android.app.Application
+import com.example.sportssocial.data.api.GlobalResponseOperator
 import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.skydoves.sandwich.SandwichInitializer
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
@@ -9,6 +11,8 @@ import timber.log.Timber
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
+        //Sandwich initializer
+        SandwichInitializer.sandwichOperator = GlobalResponseOperator<Any>(this)
 
         val TAG = "tag"
         val PRIORITY = "priority"
