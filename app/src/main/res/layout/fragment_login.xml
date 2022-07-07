@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/home_scrollview_margin"
-    tools:context=".ui.navigation.LoginFragment">
+    tools:context=".ui.navigation.LoginFragment"
+    android:background="@drawable/splash_screen_gradient">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,9 +16,9 @@
 
         <ImageView
             android:id="@+id/landing_image"
-            android:layout_width="@dimen/login_img_size"
+            android:layout_width="0dp"
             android:layout_height="@dimen/login_img_size"
-            android:background="@drawable/image_1"
+            android:background="@drawable/splash_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,14 +28,18 @@
             android:id="@+id/signUpCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/landing_image">
+
+            app:layout_constraintTop_toBottomOf="@+id/landing_image"
+            >
 
             <!--TODO: USER PSYCHOLOGY - RED MEANS NO || ERROR.-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                app:layout_constraintTop_toBottomOf="@id/landing_image">
+                app:layout_constraintTop_toBottomOf="@id/landing_image"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/splash_screen_gradient">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/loginEmailField"
