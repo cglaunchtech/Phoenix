@@ -17,13 +17,14 @@ import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.adapters.ArticleThumbnailAdapter
 import com.example.sportssocial.ui.view.ArticlePreview
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_profile.*
 import timber.log.Timber
 
-
+@AndroidEntryPoint
 class HomepageFragment : Fragment() {
 
     var articleList = ArrayList<NewsArticle>()

@@ -1,6 +1,8 @@
 package com.example.sportssocial.di
 
 import android.content.Context
+import com.example.sportssocial.data.api.RetrofitClient
+import com.example.sportssocial.data.api.RetrofitService
 import com.example.sportssocial.data.repo.AthleteRepository
 import com.example.sportssocial.data.repo.FirestoreRepo
 import com.example.sportssocial.data.repo.NewsArticleRepository
@@ -32,10 +34,14 @@ object RepositoryModule {
         @Provides
         @ViewModelScoped
         fun provideNewsArticleRepository(
-                @ApplicationContext appContext : Context
+                @ApplicationContext appContext : Context,
+                retrofitClient : RetrofitClient
         )
         : NewsArticleRepository {
-                return NewsArticleRepository(appContext)
+                return NewsArticleRepository(
+                        appContext,
+                        retrofitClient
+                )
         }
 
 }
