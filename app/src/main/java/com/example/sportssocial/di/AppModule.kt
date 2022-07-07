@@ -26,6 +26,9 @@ object AppModule {
         return app as App
     }
 
-
-
+    @Singleton
+    @Provides
+    fun provideContext(@ApplicationContext context : Context) : Context {
+        return context
+    }
 }

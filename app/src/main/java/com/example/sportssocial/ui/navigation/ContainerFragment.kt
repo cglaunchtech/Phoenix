@@ -13,6 +13,7 @@ import androidx.navigation.findNavController
 import com.example.sportssocial.R
 import com.example.sportssocial.util.Constants.Companion.AUTH
 import com.google.android.gms.auth.api.Auth
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_container.*
 import kotlinx.android.synthetic.main.fragment_container.view.*
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_container.view.*
 @AndroidEntryPoint
 class ContainerFragment : Fragment() {
 
-
+    private val auth = FirebaseAuth.getInstance()
     private val homeFragment = HomepageFragment()
     private val faveFragment = FavoritesFragment()
     private val highFragment = HighlightsFragment()
@@ -28,6 +29,7 @@ class ContainerFragment : Fragment() {
     private val searFragment = SearchFragment()
     private val logFragment = LoginFragment()
     private lateinit var logoutButton : View
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,22 +74,32 @@ class ContainerFragment : Fragment() {
 
     //Logout Alert Logic
     private fun logoutAlert(it : View) {
-
-        AlertDialog.Builder(requireContext())
-            .setMessage("Do you want to logout?")
-            .setCancelable(false)
-            .setPositiveButton("Yes",
-                DialogInterface.OnClickListener {
-                        dialog, logout ->
-                    AUTH.signOut()
-                    it.findNavController().navigate(R.id.action_containerFragment_to_loginFragment)
-                    Toast.makeText(requireContext(), "You Are Now Logged Out.", Toast.LENGTH_LONG).show()
-                })
-            .setNegativeButton("Cancel",
-                DialogInterface.OnClickListener {
-                        dialog, it -> dialog.cancel()
-                })
-            .create()
-            .show()
+        if (auth.currentUser != null) {
+            AlertDialog.Builder(requireContext())
+                .setMessage("Do you want to logout?")
+                .setCancelable(false)
+                .setPositiveButton("Yes",
+                    DialogInterface.OnClickListener { dialog, logout ->
+                        AUTH.signOut()
+                        it.findNavController()
+                            .navigate(R.id.action_containerFragment_to_loginFragment)
+                        Toast.makeText(
+                            requireContext(),
+                            "You Are Now Logged Out.",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    })
+                .setNegativeButton("Cancel",
+                    DialogInterface.OnClickListener { dialog, it ->
+                        dialog.cancel()
+                    })
+                .create()
+                .show()
+        } else {
+            Toast.makeText(requireContext(),
+                "You Must Be Logged In To Do That.",
+                Toast.LENGTH_LONG)
+                .show()
+        }
     }
 }

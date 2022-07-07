@@ -75,9 +75,9 @@ class SignUp : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_sign_up)
 
-        addProfilepic = findViewById(R.id.editAddProfilePicture)
-        firstNameField = findViewById(R.id.editFirstName1)
-        lastNameField  = findViewById(R.id.lastName1)
+        addProfilepic = findViewById(R.id.addProfilePicture)
+        firstNameField = findViewById(R.id.firstName2)
+        lastNameField  = findViewById(R.id.lastName2)
         usernameField = findViewById(R.id.username2)
         emailField  = findViewById(R.id.emailField2)
         passwordField = findViewById(R.id.passwordField2)
@@ -86,8 +86,8 @@ class SignUp : AppCompatActivity() {
         stateField = findViewById(R.id.stateField2)
         birthdayField = findViewById(R.id.birthdayField2)
         aboutMeField = findViewById(R.id.aboutMeField2)
-        sportsSelection = findViewById(R.id.editSportsAutocomplete)
-        sportsSelectionTwo = findViewById(R.id.editSportsAutocompleteSecond)
+        sportsSelection = findViewById(R.id.sportsAutocomplete)
+        sportsSelectionTwo = findViewById(R.id.sportsAutocompleteSecond)
 
         submitButton = findViewById(R.id.submitButton)
         cancelButton = findViewById(R.id.cancelButton)
@@ -101,7 +101,7 @@ class SignUp : AppCompatActivity() {
 
         register()
 
-        var profilePhoto: ImageView = findViewById(R.id.editAddProfilePicture)
+        var profilePhoto: ImageView = findViewById(R.id.addProfilePicture)
         profilePhotostr= intent.getStringExtra("profilePhoto")
         //decode base64 string
         if (profilePhotostr != null) {
