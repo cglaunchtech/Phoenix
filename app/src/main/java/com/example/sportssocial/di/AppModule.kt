@@ -3,6 +3,7 @@ package com.example.sportssocial.di
 import android.content.Context
 import com.example.sportssocial.App
 import com.example.sportssocial.data.api.RetrofitClient
+import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -24,5 +25,7 @@ object AppModule {
     fun provideApplication(@ApplicationContext app : Context) : App {
         return app as App
     }
+
+
 
 }
