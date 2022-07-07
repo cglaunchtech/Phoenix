@@ -21,6 +21,7 @@
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/ic_baseline_video_call_24.xml" value="0.1435" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1465" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/drawable/light_grey_bubble.xml" value="0.163" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/font/fonts.xml" value="0.1" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout-land/article_layout.xml" value="0.2" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout-land/fragment_login.xml" value="0.2275132275132275" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout-land/login_layout.xml" value="0.2" />
@@ -36,20 +37,21 @@
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/activity_recycler_view.xml" value="0.14764492753623187" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/add_event_layout.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/article_layout.xml" value="0.22" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/athlete_card.xml" value="0.25" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/card_favorites.xml" value="0.25" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/dropdown_item.xml" value="0.25" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_container.xml" value="0.22" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_edit_form.xml" value="0.20923913043478262" />
-        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_edit_profile.xml" value="0.33" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_edit_profile.xml" value="0.2687074829931973" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_edit_profile2.xml" value="0.12545289855072464" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_favorites.xml" value="0.175" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_following.xml" value="0.14764492753623187" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_forgot_password.xml" value="0.20923913043478262" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_highlight_reels.xml" value="0.14764492753623187" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_highlights.xml" value="0.1" />
-        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_homepage.xml" value="0.18" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_homepage.xml" value="0.22" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_login.xml" value="0.25" />
-        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_search.xml" value="0.25" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/fragment_sign_up.xml" value="0.19448373408769448" />
         <entry key="..\:/Users/16263/Documents/GitHub/Phoenix/app/src/main/res/layout/highlight_reel_card.xml" value="0.14764492753623187" />

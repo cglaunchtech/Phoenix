@@ -124,7 +124,7 @@
                     app:layout_constraintTop_toBottomOf="@id/passwordCheckbox" />
 
                 <TextView
-                    android:id="@+id/create_string"
+                    android:id="@+id/createString"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/register"
@@ -146,7 +146,7 @@
                     android:layout_marginTop="@dimen/login_text_margin_top"
                     android:textColor="@color/hyperlink"
                     app:layout_constraintTop_toBottomOf="@id/signInButton"
-                    app:layout_constraintStart_toEndOf="@id/create_string"/>
+                    app:layout_constraintStart_toEndOf="@id/createString"/>
 
                 <TextView
                     android:id="@+id/viewerButton"

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_screen_gradient">
+    tools:context=".ui.">
 
     <ScrollView
         android:layout_width="0dp"
@@ -28,8 +28,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/first_name"
                 android:textSize="@dimen/profile_large_text"
-                android:fontFamily="@font/finlandica_bold"
                 android:layout_marginTop="@dimen/profile_margin"
+                android:fontFamily="@font/poppins_regular"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/toolbar"
                 tools:ignore="NotSibling" />
@@ -40,9 +40,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/last_name"
                 android:textSize="@dimen/profile_large_text"
-                android:fontFamily="@font/finlandica_bold"
                 android:layout_marginTop="@dimen/profile_margin"
                 android:layout_marginLeft="@dimen/profile_margin_left"
+                android:fontFamily="@font/poppins_regular"
                 app:layout_constraintLeft_toRightOf="@id/profileFirstName"
                 app:layout_constraintTop_toBottomOf="@id/toolbar"
                 tools:ignore="NotSibling" />
@@ -53,9 +53,9 @@
                 android:layout_height="wrap_content"
                 android:text="00"
                 android:textSize="@dimen/profile_large_text"
-                android:fontFamily="@font/opensans_regular"
                 android:layout_marginTop="@dimen/profile_margin"
                 android:layout_marginLeft="@dimen/profile_margin"
+                android:fontFamily="@font/poppins_regular"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/toolbar"
                 tools:ignore="NotSibling" />
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/username"
                 android:textSize="@dimen/profile_small_text"
-                android:fontFamily="@font/opensans_light"
+                android:fontFamily="@font/poppins_regular"
                 app:layout_constraintTop_toBottomOf="@id/profileFirstName"
                 app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -76,8 +76,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/city"
                 android:textSize="@dimen/profile_small_text"
-                android:fontFamily="@font/opensans_light"
                 android:layout_marginLeft="@dimen/profile_margin"
+                android:fontFamily="@font/poppins_regular"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profileAge"/>
 
@@ -88,7 +88,7 @@
                 android:text="@string/about_me"
                 android:layout_marginTop="@dimen/profile_margin"
                 android:textSize="@dimen/profile_large_text"
-                android:fontFamily="@font/finlandica_bold"
+                android:fontFamily="@font/poppins_regular"
                 app:layout_constraintTop_toBottomOf="@id/profileUsername"
                 app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -108,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/lorem_ipsum"
                 android:textSize="@dimen/profile_medium_text"
-                android:fontFamily="@font/opensans_regular"
+                android:fontFamily="@font/poppins_regular"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profileAboutLabel"/>
 
@@ -119,7 +119,7 @@
                 android:text="@string/watch_me"
                 android:layout_marginTop="@dimen/profile_margin"
                 android:textSize="@dimen/profile_large_text"
-                android:fontFamily="@font/finlandica_bold"
+                android:fontFamily="@font/poppins_regular"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/profileAboutText"/>
 

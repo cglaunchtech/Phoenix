@@ -9,11 +9,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/splash_screen_gradient">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/editAddProfilePicture"
+            android:id="@+id/addProfilePicture"
             android:layout_width="@dimen/signup_img_size"
             android:layout_height="@dimen/signup_img_size"
             android:layout_marginTop="@dimen/signup_img_margin"
@@ -32,9 +31,7 @@
             android:text="@string/sign_up"
             android:layout_margin="@dimen/signup_label_margin"
             android:textSize="@dimen/signup_label_text"
-            android:textColor="@color/red"
-            android:fontFamily="@font/finlandica_bold"
-            app:layout_constraintTop_toBottomOf="@id/editAddProfilePicture"
+            app:layout_constraintTop_toBottomOf="@id/addProfilePicture"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
         <com.google.android.material.textfield.TextInputLayout
@@ -43,7 +40,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/first_name"
-            android:fontFamily="@font/opensans_regular"
             android:layout_marginTop="@dimen/signup_margin"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
@@ -54,7 +50,6 @@
                 android:id="@+id/firstName2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -64,7 +59,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/last_name"
-            android:fontFamily="@font/opensans_regular"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
@@ -74,7 +68,6 @@
                 android:id="@+id/lastName2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -87,14 +80,12 @@
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
-            android:fontFamily="@font/opensans_regular"
             app:layout_constraintTop_toBottomOf="@+id/lastName1">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/username2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -105,7 +96,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
-            android:fontFamily="@font/opensans_regular"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
@@ -115,7 +105,6 @@
                 android:id="@+id/emailField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -126,7 +115,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
-            android:fontFamily="@font/opensans_regular"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
@@ -136,7 +124,7 @@
                 android:id="@+id/passwordField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opensans_regular"
+                android:inputType="textPassword"
                 android:background="@drawable/input_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -146,7 +134,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/confirm_password"
-            android:fontFamily="@font/opensans_regular"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
@@ -156,7 +143,7 @@
                 android:id="@+id/confirmPasswordField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opensans_regular"
+                android:inputType="textPassword"
                 android:background="@drawable/input_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -167,7 +154,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/city"
-            android:fontFamily="@font/opensans_regular"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
@@ -178,7 +164,6 @@
                 android:id="@+id/cityField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -188,7 +173,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/state"
-            android:fontFamily="@font/opensans_regular"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
@@ -198,7 +182,6 @@
                 android:id="@+id/stateField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -209,7 +192,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/dob"
-            android:fontFamily="@font/opensans_regular"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
@@ -220,7 +202,6 @@
                 android:id="@+id/birthdayField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -231,7 +212,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/about_me"
-            android:fontFamily="@font/opensans_regular"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
@@ -249,7 +229,6 @@
                 android:textAlignment="viewStart"
                 android:inputType="textMultiLine"
                 android:scrollHorizontally="false"
-                android:fontFamily="@font/opensans_regular"
                 android:background="@drawable/input_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -259,17 +238,15 @@
             android:id="@+id/sportsSelection1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/opensans_regular"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
             app:layout_constraintTop_toBottomOf="@+id/aboutMeField1">
 
             <AutoCompleteTextView
-                android:id="@+id/editSportsAutocomplete"
+                android:id="@+id/sportsAutocomplete"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/opensans_regular"
                 android:inputType="none"
                 android:text="@string/sports"/>
 
@@ -280,17 +257,15 @@
             android:id="@+id/sportsSelection2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/opensans_regular"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
             app:layout_constraintTop_toBottomOf="@+id/sportsSelection1">
 
             <AutoCompleteTextView
-                android:id="@+id/editSportsAutocompleteSecond"
+                android:id="@+id/sportsAutocompleteSecond"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/opensans_regular"
                 android:inputType="none"
                 android:text="@string/sports"/>
 
@@ -304,13 +279,12 @@
             android:text="@string/submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/finlandica_bold"
             android:layout_marginTop="@dimen/signup_margin_top"
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
             app:layout_constraintTop_toBottomOf="@id/sportsSelection2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            />
+            app:layout_constraintLeft_toLeftOf="parent" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cancelButton"
             android:padding="@dimen/signup_btn_padding"
@@ -319,13 +293,11 @@
             android:layout_marginLeft="@dimen/signup_margin"
             android:textSize="@dimen/signup_btn_text"
             android:text="@string/cancel"
-            android:fontFamily="@font/finlandica_bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_selector"
             app:layout_constraintTop_toBottomOf="@id/submitButton"
             app:layout_constraintRight_toRightOf="parent"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

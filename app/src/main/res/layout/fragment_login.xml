@@ -7,8 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/home_scrollview_margin"
-    tools:context=".ui.navigation.LoginFragment"
-    android:background="@drawable/splash_screen_gradient">
+    tools:context=".ui.navigation.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,9 +15,9 @@
 
         <ImageView
             android:id="@+id/landing_image"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/login_img_size"
             android:layout_height="@dimen/login_img_size"
-            android:background="@drawable/splash_background"
+            android:background="@drawable/image_1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -28,18 +27,14 @@
             android:id="@+id/signUpCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            app:layout_constraintTop_toBottomOf="@+id/landing_image"
-            >
+            app:layout_constraintTop_toBottomOf="@+id/landing_image">
 
             <!--TODO: USER PSYCHOLOGY - RED MEANS NO || ERROR.-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/landing_image"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp"
-                android:background="@drawable/splash_screen_gradient">
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/landing_image">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/loginEmailField"
@@ -48,7 +43,6 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/email"
                     android:paddingTop="@dimen/input_padding"
-                    android:fontFamily="@font/opensans_regular"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -57,7 +51,6 @@
                         android:id="@+id/loginEmailField1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/opensans_regular"
                         android:background="@drawable/input_background" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -69,7 +62,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/login_margin_top"
                     android:hint="@string/password"
-                    android:fontFamily="@font/opensans_regular"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/loginEmailField">
@@ -90,7 +82,6 @@
                     android:layout_height="wrap_content"
                     android:onClick="onCheckboxClicked"
                     android:text="@string/save_password"
-                    android:fontFamily="@font/opensans_regular"
                     app:layout_constraintStart_toStartOf="@+id/loginPasswordField"
                     app:layout_constraintTop_toBottomOf="@+id/loginPasswordField" />
 
@@ -102,7 +93,6 @@
                     android:text="@string/forgot_password"
                     android:textColor="@color/hyperlink"
                     android:textSize="@dimen/login_small_text"
-                    android:fontFamily="@font/opensans_regular"
                     app:layout_constraintBottom_toTopOf="@+id/signInButton"
                     app:layout_constraintEnd_toEndOf="@+id/loginPasswordField"
                     app:layout_constraintTop_toBottomOf="@+id/loginPasswordField" />
@@ -114,22 +104,20 @@
                     android:padding="@dimen/login_btn_padding"
                     android:text="@string/sign_in"
                     android:textSize="@dimen/login_btn_text"
-                    android:fontFamily="@font/finlandica_bold"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/passwordCheckbox" />
 
                 <TextView
-                    android:id="@+id/create_string"
+                    android:id="@+id/createString"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/register"
                     android:layout_marginTop="@dimen/login_text_margin_top"
                     android:textSize="@dimen/login_small_text"
-                    android:fontFamily="@font/opensans_regular"
-                    app:layout_constraintEnd_toStartOf="@+id/signUpButton"
-                    app:layout_constraintStart_toStartOf="@+id/signInButton"
-                    app:layout_constraintTop_toBottomOf="@id/signInButton" />
+                    app:layout_constraintTop_toBottomOf="@id/signInButton"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/signUpButton" />
 
                 <TextView
                     android:id="@+id/signUpButton"
@@ -138,11 +126,11 @@
                     android:layout_marginLeft="5dp"
                     android:text="@string/sign_up"
                     android:textSize="@dimen/login_small_text"
-                    android:fontFamily="@font/opensans_regular"
                     android:layout_marginTop="@dimen/login_text_margin_top"
                     android:textColor="@color/hyperlink"
                     app:layout_constraintTop_toBottomOf="@id/signInButton"
-                    app:layout_constraintStart_toEndOf="@id/create_string"/>
+                    app:layout_constraintLeft_toRightOf="@id/createString"
+                    app:layout_constraintRight_toRightOf="parent"/>
 
                 <TextView
                     android:id="@+id/viewerButton"
@@ -150,7 +138,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/view"
                     android:textSize="@dimen/login_small_text"
-                    android:fontFamily="@font/opensans_regular"
                     android:layout_marginTop="@dimen/login_view_padding"
                     android:textColor="@color/hyperlink"
                     app:layout_constraintEnd_toEndOf="parent"
