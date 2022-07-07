@@ -72,6 +72,9 @@ dependencies {
     //Sandwich
     implementation "com.github.skydoves:sandwich:1.2.5"
 
+    //Sandwich
+    implementation "com.github.skydoves:sandwich:1.2.5"
+
     //Espresso
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation 'androidx.test:runner:1.4.0'
