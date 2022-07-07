@@ -18,7 +18,7 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/card_gradient"
+            android:background="@color/black"
             />
 
         <ImageView
@@ -41,8 +41,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/card_name_margin"
                 android:text="@string/first_name"
+                android:fontFamily="@font/finlandica_bold"
                 android:textColor="@color/white"
                 android:layout_margin="8dp"
+
                 app:layout_constraintRight_toLeftOf="@+id/lastName2"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,8 +54,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/card_name_margin"
                 android:text="@string/last_name"
+                android:fontFamily="@font/finlandica_bold"
                 android:textColor="@color/white"
                 android:layout_margin="8dp"
+
                 app:layout_constraintLeft_toRightOf="@+id/firstName2"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -74,7 +74,7 @@ class SignUpFragment : Fragment() {
         //Page Elements
         cancelButton = view.findViewById(R.id.cancelButton)
         submitButton = view.findViewById(R.id.submitButton)
-        addProfilepic = view.findViewById(R.id.editAddProfilePicture)
+        addProfilepic = view.findViewById(R.id.addProfilePicture)
         firstNameField =  view.findViewById(R.id.firstName2)
         lastNameField  =  view.findViewById(R.id.lastName2)
         usernameField =  view.findViewById(R.id.username2)
@@ -85,8 +85,8 @@ class SignUpFragment : Fragment() {
         stateField =  view.findViewById(R.id.stateField2)
         birthdayField =  view.findViewById(R.id.birthdayField2)
         aboutMeField =  view.findViewById(R.id.aboutMeField2)
-        sportsSelection =  view.findViewById(R.id.editSportsAutocomplete)
-        sportsSelectionTwo =  view.findViewById(R.id.editSportsAutocompleteSecond)
+        sportsSelection =  view.findViewById(R.id.sportsAutocomplete)
+        sportsSelectionTwo =  view.findViewById(R.id.sportsAutocompleteSecond)
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
         databaseReference = database?.reference!!.child("profile")
@@ -112,7 +112,7 @@ class SignUpFragment : Fragment() {
 
         register()
 
-        var profilePhoto: ImageView = view.findViewById(R.id.editAddProfilePicture)
+        var profilePhoto: ImageView = view.findViewById(R.id.addProfilePicture)
         profilePhotostr= getActivity()?.getIntent()?.getStringExtra("profilePhoto")
 
         //decode base64 string
@@ -188,9 +188,10 @@ class SignUpFragment : Fragment() {
                     Log.d("AppDatabase","AAA to 1")
                     Toast.makeText(requireContext(), "Successfully Registered", Toast.LENGTH_LONG).show()
                     firestoreAthleteInit()
-                    val intent = Intent(requireContext(), LoginActivity::class.java)
+                    val intent = Intent(requireContext(), MainActivity::class.java)
+                    startActivity(intent)
 
-                    view?.findNavController()?.navigate(R.id.action_signUpFragment_to_containerFragment)
+                    //view?.findNavController()?.navigate(R.id.action_signUpFragment_to_containerFragment)
                 }
 
                 .addOnFailureListener {

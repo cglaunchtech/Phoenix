@@ -51,7 +51,7 @@ class ArticleViewModelTest {
     fun setUp() {
 
         MockitoAnnotations.openMocks(this)
-        this.vm = ArticleViewModel(app)
+        this.vm = ArticleViewModel(repo, app)
     }
 
 

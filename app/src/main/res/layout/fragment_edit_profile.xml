@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ui.navigation.SignUpFragment">
+    tools:context="ui.navigation.SignUpFragment"
+    android:background="@drawable/splash_screen_gradient">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,9 +29,11 @@
             android:id="@+id/pageLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sign_up"
+            android:text="@string/edit"
             android:layout_margin="@dimen/signup_label_margin"
             android:textSize="@dimen/signup_label_text"
+            android:fontFamily="@font/finlandica_bold"
+            android:textColor="@color/red"
             app:layout_constraintTop_toBottomOf="@id/editAddProfilePicture"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>

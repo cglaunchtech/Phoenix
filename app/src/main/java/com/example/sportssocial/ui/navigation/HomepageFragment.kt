@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.adapters.ArticleThumbnailAdapter
+import com.example.sportssocial.ui.adapters.TempAthleteAdapter
 import com.example.sportssocial.ui.view.ArticlePreview
 import com.example.sportssocial.ui.viewmodel.ArticleViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,6 +30,7 @@ class HomepageFragment : Fragment() {
 
     var articleList = ArrayList<NewsArticle>()
     lateinit var articleThumbnailAdapter: ArticleThumbnailAdapter
+    lateinit var tempAthleteAdapter : TempAthleteAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +41,8 @@ class HomepageFragment : Fragment() {
 
         this.articleList.clear()
         val viewModel : ArticleViewModel by viewModels()
-        var recyclerView: RecyclerView = view.findViewById(R.id.newsRecyclerView)
+        var newsRecyclerView : RecyclerView = view.findViewById(R.id.newsRecyclerView)
+        var athleteRecyclerView : RecyclerView = view.findViewById(R.id.athletesRecyclerView)
 
         viewModel.getAllArticles()
         viewModel.allArticles
@@ -57,13 +60,23 @@ class HomepageFragment : Fragment() {
 
         articleThumbnailAdapter =
             ArticleThumbnailAdapter(requireContext(), articleList) { position -> onCardClick(position) }
-        recyclerView.layoutManager = LinearLayoutManager(
+        newsRecyclerView.layoutManager = LinearLayoutManager(
             requireContext(), LinearLayoutManager.HORIZONTAL,
             false
         )
-        recyclerView.adapter = articleThumbnailAdapter
+        newsRecyclerView.adapter = articleThumbnailAdapter
         //Page Elements
         //TODO: SET TOOLBAR TO HIDDEN IF VIEWER MODE == TRUE
+
+
+        //Temp Athlete Adapter
+        tempAthleteAdapter =
+            TempAthleteAdapter(requireContext()) { position -> onCardClick(position) }
+        athleteRecyclerView.layoutManager = LinearLayoutManager(
+            requireContext(), LinearLayoutManager.HORIZONTAL,
+            false
+        )
+        athleteRecyclerView.adapter = tempAthleteAdapter
 
         return view
 
@@ -77,6 +90,8 @@ class HomepageFragment : Fragment() {
         this.articleList.addAll(articleList)
         articleThumbnailAdapter.notifyDataSetChanged()
     }
+
+
 }
 
 
