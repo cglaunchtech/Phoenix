@@ -164,7 +164,6 @@
                 android:id="@+id/cityField2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
                 android:background="@drawable/input_background"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -284,8 +283,8 @@
             android:layout_marginRight="@dimen/signup_margin"
             android:layout_marginLeft="@dimen/signup_margin"
             app:layout_constraintTop_toBottomOf="@id/sportsSelection2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            />
+            app:layout_constraintLeft_toLeftOf="parent" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cancelButton"
             android:padding="@dimen/signup_btn_padding"
@@ -299,7 +298,6 @@
             android:background="@drawable/button_selector"
             app:layout_constraintTop_toBottomOf="@id/submitButton"
             app:layout_constraintRight_toRightOf="parent"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

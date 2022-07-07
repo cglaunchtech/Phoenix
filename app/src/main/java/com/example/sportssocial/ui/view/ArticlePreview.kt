@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ListView
+import androidx.activity.viewModels
 
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.NewsArticle
@@ -25,7 +26,7 @@ class ArticlePreview : AppCompatActivity() {
         setContentView(R.layout.activity_article_preview)
 
         this.articleList.clear()
-        var viewModel = ArticleViewModel(application)
+        val viewModel : ArticleViewModel by viewModels()
         var listView: ListView = findViewById(R.id.list_view_article)
 
         viewModel.getAllArticles()

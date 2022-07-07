@@ -18,11 +18,9 @@ class MainViewModel @Inject constructor(
     private val app : Application
     ) : AndroidViewModel(app) {
 
-    //private val repo: AthleteRepository
     val allAthletes : Observable<List<Athlete>>?
 
     init {
-        //repo = AthleteRepository(app)
         allAthletes = repo.getAllAthletes()
     }
 

@@ -13,32 +13,24 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
+import javax.inject.Inject
 
-interface RetrofitClient {
-    @Headers(
-        BuildConfig.KEY
-    )
-    @GET("v2/top-headlines")
+class RetrofitClient @Inject constructor(
+    private val retrofitService : RetrofitService
+) {
+
     suspend fun getNews(
-        @Query("country") country: String, @Query("category") category: String,
-        @Query("q") query: String, @Query("pageSize") pageSize: Int, @Query("page") page: Int
-    ): ApiResponse<TopHeadlinesPojo>
-
-    companion object {
-        private val moshi: Moshi = Moshi.Builder()
-            .add(KotlinJsonAdapterFactory())
-            .build()
-
-        var BASE_URL = "https://newsapi.org/"
-
-        fun create(): RetrofitClient {
-            val retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(MoshiConverterFactory.create(moshi))
-                .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory.create())
-                .build()
-
-            return retrofit.create(RetrofitClient::class.java)
-        }
-    }
+        country : String,
+        category : String,
+        query : String,
+        pageSize : Int,
+        page : Int
+    ) : ApiResponse<TopHeadlinesPojo> =
+        retrofitService.getNews(
+            country = country,
+            category = category,
+            query = query,
+            pageSize = pageSize,
+            page = page
+        )
 }

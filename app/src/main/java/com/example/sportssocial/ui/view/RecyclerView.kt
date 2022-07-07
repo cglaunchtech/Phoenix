@@ -3,6 +3,7 @@ package com.example.sportssocial.ui.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.example.sportssocial.R
 import com.example.sportssocial.data.model.db.entities.NewsArticle
 import com.example.sportssocial.ui.adapters.ArticleThumbnailAdapter
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_profile.*
 import timber.log.Timber
 
 class RecyclerView : AppCompatActivity() {
@@ -24,7 +26,7 @@ class RecyclerView : AppCompatActivity() {
         setContentView(R.layout.activity_recycler_view)
 
         this.articleList.clear()
-        var viewModel = ArticleViewModel(application)
+        val viewModel : ArticleViewModel by viewModels()
         var recyclerView: RecyclerView = findViewById(R.id.recycler_view)
 
         viewModel.getAllArticles()
