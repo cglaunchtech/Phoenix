@@ -109,15 +109,15 @@
                     app:layout_constraintTop_toBottomOf="@id/passwordCheckbox" />
 
                 <TextView
-                    android:id="@+id/create_string"
+                    android:id="@+id/createString"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/register"
                     android:layout_marginTop="@dimen/login_text_margin_top"
                     android:textSize="@dimen/login_small_text"
-                    app:layout_constraintEnd_toStartOf="@+id/signUpButton"
-                    app:layout_constraintStart_toStartOf="@+id/signInButton"
-                    app:layout_constraintTop_toBottomOf="@id/signInButton" />
+                    app:layout_constraintTop_toBottomOf="@id/signInButton"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/signUpButton" />
 
                 <TextView
                     android:id="@+id/signUpButton"
@@ -129,7 +129,8 @@
                     android:layout_marginTop="@dimen/login_text_margin_top"
                     android:textColor="@color/hyperlink"
                     app:layout_constraintTop_toBottomOf="@id/signInButton"
-                    app:layout_constraintStart_toEndOf="@id/create_string"/>
+                    app:layout_constraintLeft_toRightOf="@id/createString"
+                    app:layout_constraintRight_toRightOf="parent"/>
 
                 <TextView
                     android:id="@+id/viewerButton"
