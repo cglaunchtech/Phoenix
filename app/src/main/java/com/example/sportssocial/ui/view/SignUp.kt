@@ -76,8 +76,8 @@ class SignUp : AppCompatActivity() {
         setContentView(R.layout.fragment_sign_up)
 
         addProfilepic = findViewById(R.id.editAddProfilePicture)
-        firstNameField = findViewById(R.id.editFirstName1)
-        lastNameField  = findViewById(R.id.lastName1)
+        //firstNameField = findViewById(R.id.editFirstName1)
+       // lastNameField  = findViewById(R.id.lastName1)
         usernameField = findViewById(R.id.username2)
         emailField  = findViewById(R.id.emailField2)
         passwordField = findViewById(R.id.passwordField2)
