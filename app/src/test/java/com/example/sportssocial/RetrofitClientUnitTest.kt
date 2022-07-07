@@ -24,44 +24,44 @@ import retrofit2.create
 @RunWith(JUnit4::class)
 class RetrofitClientUnitTest {
 
-    lateinit var inter: RetrofitClient
-    lateinit var mockServer: MockWebServer
-
-    @Mock
-    lateinit var repo: NewsArticleRepository
-
-    @Before
-    fun setup() {
-        MockitoAnnotations.openMocks(this)
-        mockServer = MockWebServer()
-
-        inter = Retrofit.Builder()
-            .baseUrl(mockServer.url("/"))
-            .addConverterFactory(GsonConverterFactory.create())
-            .build().create(RetrofitClient::class.java)
-    }
-
-    @Test
-    fun getAllnewsTest() {
-
-        var mockRes = MockResponse()
-        mockServer.enqueue(mockRes.setBody("[]"))
-
-        val req = inter.getNews("", "", "", 0, 0)
-
-        req.subscribeBy(
-            onNext = {
-                it
-            },
-            onError = {println("error :$it")}
-        )
-        val res = mockServer.takeRequest()
-
-        Assert.assertEquals("v2/top-headlines", res.path)
-    }
-        @After
-        fun destroy() {
-            mockServer.shutdown()
+//    lateinit var inter: RetrofitClient
+//    lateinit var mockServer: MockWebServer
+//
+//    @Mock
+//    lateinit var repo: NewsArticleRepository
+//
+//    @Before
+//    fun setup() {
+//        MockitoAnnotations.openMocks(this)
+//        mockServer = MockWebServer()
+//
+//        inter = Retrofit.Builder()
+//            .baseUrl(mockServer.url("/"))
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build().create(RetrofitClient::class.java)
+//    }
+//
+//    @Test
+//    suspend fun getAllnewsTest() {
+//
+//        var mockRes = MockResponse()
+//        mockServer.enqueue(mockRes.setBody("[]"))
+//
+//        val req = inter.getNews("", "", "", 0, 0)
+//
+//        req.subscribeBy(
+//            onNext = {
+//                it
+//            },
+//            onError = {println("error :$it")}
+//        )
+//        val res = mockServer.takeRequest()
+//
+//        Assert.assertEquals("v2/top-headlines", res.path)
+//    }
+//        @After
+//        fun destroy() {
+//            mockServer.shutdown()
         }
 
 
@@ -132,7 +132,7 @@ class RetrofitClientUnitTest {
 //        @After
 //        fun destroy() {
 //            mockServer.shutdown()
-        }
+
 
 
 

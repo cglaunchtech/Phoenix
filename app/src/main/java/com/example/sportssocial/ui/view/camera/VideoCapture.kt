@@ -17,8 +17,8 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
-import com.example.sportssocial.R
-import com.example.sportssocial.databinding.ActivityPhotoCollectionCaptureBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.TransformationUtils.centerCrop
 import com.example.sportssocial.databinding.ActivityVideoCaptureBinding
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
@@ -34,6 +34,7 @@ import timber.log.Timber
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.IOException
+import java.lang.System.load
 import java.util.*
 
 class VideoCapture : AppCompatActivity() {
@@ -66,6 +67,9 @@ class VideoCapture : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        binding = ActivityVideoCaptureBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         binding.btnVideo.setOnClickListener(View.OnClickListener {
             captureVideo()
 
@@ -92,7 +96,7 @@ class VideoCapture : AppCompatActivity() {
             }
     }
 
-    private fun createImageFile(): Pair<File?, String?> {
+    private fun createVideoFile(): Pair<File?, String?> {
         try {
             val dateTime = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
             videoFileName = "COLLAGE_${dateTime}"
@@ -111,27 +115,27 @@ class VideoCapture : AppCompatActivity() {
 
         if (videoFile != null) {
             newVideoPath = videoFilePath
-            vidUri =
-                FileProvider.getUriForFile(this, "com.example.sportssocial.fileprovider", videoFile
-            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, vidUri)
+            vidUri = FileProvider.getUriForFile(this, "com.example.sportssocial.fileprovider", videoFile)
+                captureVideointent.putExtra(MediaStore.EXTRA_OUTPUT, vidUri.toString()
+                )
             cameraActivityLauncher.launch(captureVideointent)
         }
     }
 
-    private fun uploadImage() {
+    private fun uploadVideo() {
         if (vidUri != null && videoFileName != null) {
             binding.uploadProgressBar.visibility = View.VISIBLE
             val videoStorageRootReference = storage.reference
             val videoCollectionReference = videoStorageRootReference.child("videos")
-            val imageFileReference = videoCollectionReference.child(videoFileName!!)
-            imageFileReference.putFile(vidUri!!).addOnCompleteListener {
-                Snackbar.make(binding.content, "Image uploaded!", Snackbar.LENGTH_LONG).show()
+            val videoFileReference = videoCollectionReference.child(videoFileName!!)
+            videoFileReference.putFile(vidUri!!).addOnCompleteListener {
+                Snackbar.make(binding.content, "Video uploaded!", Snackbar.LENGTH_LONG).show()
                 binding.uploadProgressBar.visibility = View.GONE
             }
                 .addOnFailureListener { error ->
-                    Snackbar.make(binding.content, "Error uploading image", Snackbar.LENGTH_LONG)
+                    Snackbar.make(binding.content, "Error uploading video", Snackbar.LENGTH_LONG)
                         .show()
-                    Log.e(ContentValues.TAG, "Error uploading image $videoFileName", error)
+                    Log.e(ContentValues.TAG, "Error uploading video $videoFileName", error)
                     binding.uploadProgressBar.visibility = View.GONE
                 }
         } else {
@@ -144,7 +148,7 @@ class VideoCapture : AppCompatActivity() {
             RESULT_OK -> {
                 Log.d(ContentValues.TAG, "result ok, user took picture, video at $newVideoPath")
                 visibleVideoPath = newVideoPath
-                uploadImage()
+                uploadVideo()
             }
             RESULT_CANCELED -> {
                 Log.d(ContentValues.TAG, "Result canceled, no picture taken")
@@ -160,25 +164,25 @@ class VideoCapture : AppCompatActivity() {
             "on window focus changed $hasFocus visible video at $visibleVideoPath"
         )
         if (hasFocus) {
-            visibleVideoPath?.let { imagePath ->
-                //  loadImage(binding.videoView, imagePath)
+            visibleVideoPath?.let { videoPath ->
+                  loadVideo(binding.videoView, videoPath)
             }
         }
     }
 
-    private fun loadVideo(videoView: VideoView, imagePath: String) {
-        Picasso.get().load(File(imagePath)).error(android.R.drawable.stat_notify_error).fit()
-            .centerCrop().into(videoView, object :
-            Callback {
-            override fun onSuccess() {
+    private fun loadVideo(videoView: VideoView, videoPath: String) {
+      // Glide.load(File(videoPath)).error(android.R.drawable.stat_notify_error).fit()
+          //  .centerCrop().into(videoView, object :
+          //  Callback {
+            //override fun onSuccess() {
                 Log.d(ContentValues.TAG, "Loaded video $videoPath")
             }
 
-            override fun onError(e: Exception?) {
-                Log.e(ContentValues.TAG, "Error loading video $videoPath", e)
-            }
-        })
-    }
+//            override fun onError(e: Exception?) {
+//                Log.e(ContentValues.TAG, "Error loading video $videoPath", e)
+//            }
+//        })
+//    }
 
     private fun uploadVideotoFirebase(videoView: VideoView) {
         if (videoView != null) {
@@ -191,18 +195,20 @@ class VideoCapture : AppCompatActivity() {
             val database = FirebaseDatabase.getInstance()
             val refStorage = FirebaseStorage.getInstance().reference.child("videos/$fileName")
 
-            storageReference.bucket
-                .addOnSuccessListener(
-                    OnSuccessListener<UploadTask.TaskSnapshot> { taskSnapshot ->
-                        taskSnapshot.storage.downloadUrl.addOnSuccessListener {
-                            val videoUrl = it.toString()
-                            println("**`************$videoUrl")
-                        }
-                    })
+            vidUri?.let {
+                storageReference.putFile(it)
+                    .addOnSuccessListener(
+                        OnSuccessListener<UploadTask.TaskSnapshot> { taskSnapshot ->
+                            taskSnapshot.storage.downloadUrl.addOnSuccessListener {
+                                val videoUrl = it.toString()
+                                println("**`************$videoUrl")
+                            }
+                        })
 
-                ?.addOnFailureListener(OnFailureListener { e ->
-                    print(e.message)
-                })
+                    ?.addOnFailureListener(OnFailureListener { e ->
+                        print(e.message)
+                    })
+            }
         }
     }
 }

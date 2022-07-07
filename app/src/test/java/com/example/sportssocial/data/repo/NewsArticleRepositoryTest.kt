@@ -22,67 +22,67 @@ import java.util.*
 
 class NewsArticleRepositoryTest {
 
-    lateinit var repo: NewsArticleRepository
-
-    @Mock
-    lateinit var dao: NewsArticleDao
-
-    @Mock
-    lateinit var context: Context
-
-    @Mock
-    lateinit var inter: RetrofitClient
-
-    @Mock
-    lateinit var pojo: TopHeadlinesPojo
-
-
-
-    @Before()
-    fun setup() {
-        repo = NewsArticleRepository(context)
-    }
-        @After
-        fun tearDown() {
-        }
-
-    @Test
-        fun getAllarticlesTest() {
-            var fakeList: List<NewsArticle> = (listOf<NewsArticle>(
-                NewsArticle(
-                    123,
-                    "New York Times",
-                    "John Smith",
-                    "Warriors Win",
-                    "Game recap",
-                    "articleurl",
-                    "imageurl",
-                    "NYT",
-                    "fullarticle")
-            ))
-
-            Mockito.`when`(inter.getNews("USA", "baseball", "", 15, 10))
-                .thenReturn(Observable.fromArray())
-
-            var result = inter.getNews("", "", "", 10, 4)
-
-            result.subscribeBy(
-                onNext = {
-                    Assert.assertEquals(fakeList, it)
-                },
-                onError = { println("error :$it") }
-            )
-        }
-
-        @Test
-        fun getRetrofitClient() {
-        }
-
-        @Test
-        fun getArticlesbyId() {
-        }
-
-        @Test
-        fun clearArticleCache() {
-        }
+//    lateinit var repo: NewsArticleRepository
+//
+//    @Mock
+//    lateinit var dao: NewsArticleDao
+//
+//    @Mock
+//    lateinit var context: Context
+//
+//    @Mock
+//    lateinit var inter: RetrofitClient
+//
+//    @Mock
+//    lateinit var pojo: TopHeadlinesPojo
+//
+//
+//
+//    @Before()
+//    fun setup() {
+//        repo = NewsArticleRepository(context)
+//    }
+//        @After
+//        fun tearDown() {
+//        }
+//
+//    @Test
+//    suspend fun getAllarticlesTest() {
+//            var fakeList: List<NewsArticle> = (listOf<NewsArticle>(
+//                NewsArticle(
+//                    123,
+//                    "New York Times",
+//                    "John Smith",
+//                    "Warriors Win",
+//                    "Game recap",
+//                    "articleurl",
+//                    "imageurl",
+//                    "NYT",
+//                    "fullarticle")
+//            ))
+//
+//            Mockito.`when`(inter.getNews("USA", "baseball", "", 15, 10))
+//                .thenReturn(Observable.fromArray())
+//
+//            var result = inter.getNews("", "", "", 10, 4)
+//
+//            result.subscribeBy(
+//                onNext = {
+//                    Assert.assertEquals(fakeList)
+//                },
+//                onError = { println("error :$it") }
+//            )
+//        }
+//
+//        @Test
+//        fun getRetrofitClient() {
+//        }
+//
+//        @Test
+//        fun getArticlesbyId() {
+//        }
+//
+//        @Test
+//        fun clearArticleCache() {
+//        }
     }

@@ -48,23 +48,9 @@ class FirestoreRepoTest {
     fun getAllProfiles() {
         runBlocking {
             var fakeList :List<Athlete> = (listOf<Athlete>(
-                Athlete(
-                    234,
-                    "123",
-                    "myusername",
-                    "profilephotourl",
-                    "John",
-                    "Smith",
-                    "Los Angeles",
-                    "CA",
-                    "01/01",
-                    "Things about me",
-                    "basketball",
-                    "football",
-                    listOf(""),
-                    listOf(""),
-                    listOf(""))
-
+                Athlete(234,"123", "myusername", "profilephotourl", "John", "Smith",
+                    "Los Angeles","CA", "01/01", "Things about me", "basketball",
+                    "football", listOf(""), listOf(""),listOf(""))
             ))
 
             Mockito.`when`(repo.getAllProfiles())

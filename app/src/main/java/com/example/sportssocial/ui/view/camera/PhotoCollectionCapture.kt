@@ -68,13 +68,12 @@ class PhotoCollectionCapture : AppCompatActivity() {
 
 
         binding.imgCaptureBtn.setOnClickListener(View.OnClickListener {
-       //     var intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+
             takePicture()
 
 //            imageUri = Uri.fromFile(get)
 //            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-
-        //    activityResultLauncher.launch(intent)
+//            activityResultLauncher.launch(intent)
         })
 
         activityResultLauncher =
