@@ -4,7 +4,9 @@
     package="com.example.sportssocial">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-feature android:name="android.hardware.camera.any"/>
+
+    <uses-feature android:name="android.hardware.camera.any" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
@@ -20,6 +22,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SportsSocial"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.view.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Splash">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.view.camera.ProfilePhotoCapture"
             android:exported="false" />
@@ -39,9 +52,6 @@
             android:name=".ui.view.ProfilePicScroll"
             android:exported="false" />
         <activity
-            android:name=".ui.navigation.BottomNavMain"
-            android:exported="true" />
-        <activity
             android:name=".ui.view.LoginActivity"
             android:exported="true" />
         <activity
@@ -49,13 +59,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.view.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"/>
 
         <meta-data
             android:name="keyValue"
