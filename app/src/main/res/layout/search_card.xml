@@ -44,7 +44,7 @@
                 android:fontFamily="@font/finlandica_bold"
                 android:textColor="@color/white"
                 android:layout_margin="8dp"
-                android:fontFamily="@font/poppins_bold"
+
                 app:layout_constraintRight_toLeftOf="@+id/lastName2"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,7 +57,7 @@
                 android:fontFamily="@font/finlandica_bold"
                 android:textColor="@color/white"
                 android:layout_margin="8dp"
-                android:fontFamily="@font/poppins_bold"
+
                 app:layout_constraintLeft_toRightOf="@+id/firstName2"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
