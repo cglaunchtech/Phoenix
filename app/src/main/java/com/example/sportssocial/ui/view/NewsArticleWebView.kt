@@ -41,7 +41,7 @@ class NewsArticleWebView : AppCompatActivity() {
                 onNext = {
                     setWebviewUrl((it.url))
                 },
-                onError = {e -> Timber.e(e) }
+                onError = { e -> Timber.e(e) }
             )
 
         webView.webViewClient = WebViewClient()
@@ -50,10 +50,16 @@ class NewsArticleWebView : AppCompatActivity() {
         webView.settings.setSupportZoom(true)
 
     }
-        fun setWebviewUrl (url:String?) {
-        webView.loadUrl(url!!)
-    }
 
+    fun setWebviewUrl(url: String?) {
+
+        try {
+            webView.loadUrl(url!!)
+
+        } catch (e: Exception) {
+            Timber.e(e)
+        }
+    }
 }
 
 
