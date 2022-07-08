@@ -1,25 +1,7 @@
 package com.example.sportssocial
 
-import com.example.sportssocial.data.api.RetrofitClient
-import com.example.sportssocial.data.repo.NewsArticleRepository
-import com.google.common.truth.ExpectFailure.assertThat
-import io.reactivex.rxjava3.kotlin.subscribeBy
-import kotlinx.coroutines.runBlocking
-import okhttp3.mockwebserver.MockResponse
-import okhttp3.mockwebserver.MockWebServer
-import okio.buffer
-import okio.source
-import org.junit.After
-import org.junit.Assert
-import org.junit.Before
-import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 @RunWith(JUnit4::class)
 class RetrofitClientUnitTest {

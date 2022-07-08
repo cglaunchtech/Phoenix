@@ -8,7 +8,6 @@ import com.example.sportssocial.data.model.dao.AthleteDao
 import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.repo.AthleteRepository
 import com.example.sportssocial.data.repo.FirestoreRepo
-import io.reactivex.rxjava3.core.Observable.fromArray
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Observer
 import kotlinx.coroutines.runBlocking

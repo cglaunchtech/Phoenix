@@ -1,6 +1,5 @@
 package com.example.sportssocial.di
 
-import com.example.sportssocial.data.api.RetrofitClient
 import com.example.sportssocial.data.api.RetrofitService
 import com.skydoves.sandwich.adapters.ApiResponseCallAdapterFactory
 import com.squareup.moshi.Moshi

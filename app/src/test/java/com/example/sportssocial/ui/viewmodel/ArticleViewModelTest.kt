@@ -6,10 +6,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.sportssocial.TestCoroutineRule
 import com.example.sportssocial.data.api.pojo.Article
 import com.example.sportssocial.data.model.dao.AthleteDao
-import com.example.sportssocial.data.model.db.entities.Athlete
 import com.example.sportssocial.data.model.db.entities.NewsArticle
-import com.example.sportssocial.data.repo.AthleteRepository
-import com.example.sportssocial.data.repo.FirestoreRepo
 import com.example.sportssocial.data.repo.NewsArticleRepository
 import io.reactivex.rxjava3.core.Observer
 import kotlinx.coroutines.runBlocking
