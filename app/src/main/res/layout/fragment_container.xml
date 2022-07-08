@@ -38,6 +38,7 @@
                 android:layout_height="@dimen/notification_size"
                 android:tint="@color/dark_grey"
                 android:src="@drawable/ic_baseline_person_24"
+                android:tint="@color/dark_grey"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

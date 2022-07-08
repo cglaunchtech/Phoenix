@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--
 
     <item
         android:id="@+id/searchFragment"
@@ -9,17 +10,18 @@
         android:id="@+id/highlightsFragment"
         android:icon="@drawable/ic_baseline_play_circle_24"
         android:title="Highlights" />
+-->
     <item
         android:id="@+id/homepageFragment"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Home" />
-    <item
+<!--    <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="profile" />
     <item
         android:id="@+id/favoritesFragment"
         android:icon="@drawable/ic_baseline_person_search_24"
-        android:title="follow" />
+        android:title="follow" />-->
 
 </menu>

@@ -1,6 +1,8 @@
 package com.example.sportssocial.data.api
 
 import android.app.Application
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import com.skydoves.sandwich.ApiResponse
 import com.skydoves.sandwich.StatusCode
@@ -50,6 +52,10 @@ class GlobalResponseOperator<T> constructor(private val application: Application
         }
 
     private fun toast(message: String) {
-        Toast.makeText(application, message, Toast.LENGTH_SHORT).show()
+        Handler(Looper.getMainLooper()).post {
+            // write your code here
+            Toast.makeText(application, message, Toast.LENGTH_SHORT).show()
+        }
+
     }
 }

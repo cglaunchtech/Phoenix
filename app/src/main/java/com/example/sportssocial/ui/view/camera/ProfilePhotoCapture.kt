@@ -59,8 +59,8 @@ class ProfilePhotoCapture : AppCompatActivity() {
                 }
                 else
                 {
-                    Toast.makeText(applicationContext, "Image not clicked", Toast.LENGTH_LONG)
-                        .show()
+                Toast.makeText(applicationContext, "Image not clicked", Toast.LENGTH_LONG)
+                     .show()
             }
         }
     }
