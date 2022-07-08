@@ -65,10 +65,6 @@ class MainViewModelTest {
         athleteList = Mockito.mock(Observer::class.java) as Observer<List<Athlete>>
     }
 
-    @After
-    fun tearDown() {
-    }
-
 
     @Test
     fun getAllAthleteTest() {
@@ -99,7 +95,13 @@ class MainViewModelTest {
 
         }
     }
-}
+
+        @After
+        fun tearDown() {
+        }
+
+    }
+
 //
 //    @Test
 //        fun insertAthlete() {

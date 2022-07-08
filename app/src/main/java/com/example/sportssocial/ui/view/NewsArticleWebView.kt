@@ -33,7 +33,7 @@ class NewsArticleWebView : AppCompatActivity() {
             startActivity(newIntent)
 
         }
-        //   try {
+
         vm.getArticlebyId(intent.getIntExtra("articleId", 0))
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
@@ -50,8 +50,6 @@ class NewsArticleWebView : AppCompatActivity() {
         webView.settings.setSupportZoom(true)
 
     }
-//} catch (e: Exception) {
-//    Timber.e(e)
 
     fun setWebviewUrl(url: String?) {
 

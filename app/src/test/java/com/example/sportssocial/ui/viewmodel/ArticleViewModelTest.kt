@@ -102,13 +102,22 @@ class ArticleViewModelTest {
                 )
             ))
 
-            Mockito.`when`(repo.upsertArticle(NewsArticle(111, "", "", "", "", "", "", "", "")))
+            Mockito.`when`(repo.upsertArticle(NewsArticle(111,
+                "New York Times",
+                "John Smith",
+                "Warriors Win",
+                "Game recap",
+                "articleurl",
+                "imageurl",
+                "NYT",
+                "fullarticle")))
+
             //    .thenReturn(Observable.fromArray(fakeList))
-            vm.upsertArticle(NewsArticle(123, "", "", "", "", "", "", "", ""))
+            vm.upsertArticle(NewsArticle(111, "", "", "", "", "", "", "", ""))
 
             Mockito.verify(repo, Mockito.times(1)).upsertArticle(
                 article
-                = NewsArticle(100, "", "", "", "", "", "", "", "")
+                = NewsArticle(111, "", "", "", "", "", "", "", "")
             )
         }
     }
