@@ -16,6 +16,7 @@ import androidx.appcompat.widget.AppCompatButton
 import com.example.sportssocial.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import timber.log.Timber
 
 class LoginActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
@@ -46,39 +47,43 @@ class LoginActivity : AppCompatActivity() {
         }
         forgotLogin.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                if (loginEmailField.text.toString().isNotEmpty()) {
 
-                    auth.sendPasswordResetEmail(loginEmailField.text.toString())
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                val builder = AlertDialog.Builder(this@LoginActivity)
-                                builder.setMessage("Email Sent to ${loginEmailField.text.toString()}")
-                                builder.setCancelable(true)
-                                builder.setNegativeButton("OK", DialogInterface.OnClickListener
-                                { dialog, which -> dialog.cancel() })
-                                val alertDialog: AlertDialog = builder.create()
-                                alertDialog.show()
+            try {
+                    if (loginEmailField.text.toString().isNotEmpty()) {
 
-                                Log.d(ContentValues.TAG, "Email sent.")
+                        auth.sendPasswordResetEmail(loginEmailField.text.toString())
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    val builder = AlertDialog.Builder(this@LoginActivity)
+                                    builder.setMessage("Email Sent to ${loginEmailField.text.toString()}")
+                                    builder.setCancelable(true)
+                                    builder.setNegativeButton("OK", DialogInterface.OnClickListener
+                                    { dialog, which -> dialog.cancel() })
+                                    val alertDialog: AlertDialog = builder.create()
+                                    alertDialog.show()
+
+                                    Log.d(ContentValues.TAG, "Email sent.")
+                                }
+                                //startActivity(Intent(this@LoginActivity, LandingPage::class.java))
+
                             }
-                            //startActivity(Intent(this@LoginActivity, LandingPage::class.java))
+                    } else {
+                        val builder = AlertDialog.Builder(this@LoginActivity)
+                        builder.setMessage("Please Enter a Valid Email Address")
+                        builder.setCancelable(true)
+                        builder.setNegativeButton("OK", DialogInterface.OnClickListener
+                        { dialog, which -> dialog.cancel() })
+                        val alertDialog: AlertDialog = builder.create()
+                        alertDialog.show()
 
-                        }
-                } else {
-                    val builder = AlertDialog.Builder(this@LoginActivity)
-                    builder.setMessage("Please Enter a Valid Email Address")
-                    builder.setCancelable(true)
-                    builder.setNegativeButton("OK", DialogInterface.OnClickListener
-                    { dialog, which -> dialog.cancel() })
-                    val alertDialog: AlertDialog = builder.create()
-                    alertDialog.show()
-
+                    }
+                } catch (e: Exception) {
+                    Timber.e(e)
                 }
             }
         })
 
         login()
-
 
         signUpButton.setOnClickListener {
             val myIntent = Intent(this, SignUp::class.java)
@@ -86,70 +91,87 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun login() {
+    fun login() {
 
-        signInButton.setOnClickListener {
-            if ((loginEmailField.text.toString()).isEmpty()) {
-                loginEmailField.setHint("Please Enter a Valid Email Address")
-                loginEmailField.setHintTextColor(Color.RED)
-            } else if ((loginPasswordField.text.toString()).isEmpty()) {
-                loginPasswordField.setHint("Please Enter your password")
-                loginPasswordField.setHintTextColor(Color.RED)
-            }
+        try {
+            signInButton.setOnClickListener {
 
-            val vFieldValidationError: String = fieldValidationError()
-            if (vFieldValidationError != "No Error") {
-                val builder = AlertDialog.Builder(this@LoginActivity)
-                builder.setMessage("Please Complete All Required Fields")
-                builder.setCancelable(true)
-                builder.setNegativeButton("OK", DialogInterface.OnClickListener
-                { dialog, which -> dialog.cancel() })
-                val alertDialog: AlertDialog = builder.create()
-                alertDialog.show()
-                return@setOnClickListener
-            }
-            auth.signInWithEmailAndPassword(
-                loginEmailField.text.toString(),
-                loginPasswordField.text.toString()
-            )
-                .addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        Log.d("AppDatabase", "AAA LogicAct 1")
-                        startActivity(Intent(this, MainActivity::class.java))
-//
-                        finish()
-
-                        Log.d("AppDatabase", "AAA LogicAct 2")
-                    } else {
-                        val builder = AlertDialog.Builder(this@LoginActivity)
-                        builder.setMessage("Please enter valid email address and password")
-                        builder.setCancelable(true)
-                        builder.setNegativeButton("OK", DialogInterface.OnClickListener
-                        { dialog, which -> dialog.cancel() })
-                        val alertDialog: AlertDialog = builder.create()
-                        alertDialog.show()
-                        Toast.makeText(this, "Login failed, please try again!", Toast.LENGTH_SHORT)
-                    }
+                if ((loginEmailField.text.toString()).isEmpty()) {
+                    loginEmailField.setHint("Please Enter a Valid Email Address")
+                    loginEmailField.setHintTextColor(Color.RED)
+                } else if ((loginPasswordField.text.toString()).isEmpty()) {
+                    loginPasswordField.setHint("Please Enter your password")
+                    loginPasswordField.setHintTextColor(Color.RED)
                 }
 
+                val vFieldValidationError: String = fieldValidationError()
+                if (vFieldValidationError != "No Error") {
+                    val builder = AlertDialog.Builder(this@LoginActivity)
+                    builder.setMessage("Please Complete All Required Fields")
+                    builder.setCancelable(true)
+                    builder.setNegativeButton("OK", DialogInterface.OnClickListener
+                    { dialog, which -> dialog.cancel() })
+                    val alertDialog: AlertDialog = builder.create()
+                    alertDialog.show()
+                    return@setOnClickListener
+                }
+                auth.signInWithEmailAndPassword(
+                    loginEmailField.text.toString(),
+                    loginPasswordField.text.toString()
+                )
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            Log.d("AppDatabase", "AAA LogicAct 1")
+                            startActivity(Intent(this, MainActivity::class.java))
+//
+                            finish()
+
+                            Log.d("AppDatabase", "AAA LogicAct 2")
+                        } else {
+                            val builder = AlertDialog.Builder(this@LoginActivity)
+                            builder.setMessage("Please enter valid email address and password")
+                            builder.setCancelable(true)
+                            builder.setNegativeButton("OK", DialogInterface.OnClickListener
+                            { dialog, which -> dialog.cancel() })
+                            val alertDialog: AlertDialog = builder.create()
+                            alertDialog.show()
+                            Toast.makeText(
+                                this,
+                                "Login failed, please try again!",
+                                Toast.LENGTH_SHORT
+                            )
+                        }
+                    }
+            }
+        } catch (e: Exception) {
+            Timber.e(e)
         }
-        // cancel_btn.setOnClickListener {
-        // startActivity(Intent(this, LandingPage::class.java))
     }
 
     private fun fieldValidationError(): String {
-        when (true) {
-            (loginEmailField.text.toString()).isEmpty() -> {
-                return "Please Enter your Email Address"
+        try {
+            when (true) {
+                (loginEmailField.text.toString()).isEmpty() -> {
+                    return "Please Enter your Email Address"
+
+                }
+                (loginPasswordField.text.toString()).isEmpty() -> {
+                    return "Please Enter Password"
+
+                }
+                else -> {
+                    return "Welcome!"
+                }
+            }
+        }  catch (e: Exception) {
+                Timber.e(e)
 
             }
-            (loginPasswordField.text.toString()).isEmpty() -> {
-                return "Please Enter Password"
-
-            }
-            else -> {
-                return "Welcome!"
-            }
+        return ""
         }
     }
-}
+
+
+
+
+
